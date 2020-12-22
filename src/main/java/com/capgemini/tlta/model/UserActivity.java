@@ -10,8 +10,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "user_activity")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class UserActivity {
 	
 	@Id
@@ -21,10 +33,14 @@ public class UserActivity {
 	
 	@ManyToOne()
 	@JoinColumn(name = "user_id")
+	@JsonIgnore
+	@ToString.Exclude
 	private RegisterUser login;
 	
 	@ManyToOne()
 	@JoinColumn(name = "activity_id")
+	@JsonIgnore
+	@ToString.Exclude
 	private LearningActivity learningActivity;
 
 	@Column(name = "status")
@@ -33,45 +49,4 @@ public class UserActivity {
 	@Column(name = "certificate")
 	private String certificate;
 
-	public Integer getUserActivityId() {
-		return userActivityId;
-	}
-
-	public void setUserActivityId(Integer userActivityId) {
-		this.userActivityId = userActivityId;
-	}
-
-	public RegisterUser getLogin() {
-		return login;
-	}
-
-	public void setLogin(RegisterUser login) {
-		this.login = login;
-	}
-
-	public LearningActivity getLearningActivity() {
-		return learningActivity;
-	}
-
-	public void setLearningActivity(LearningActivity learningActivity) {
-		this.learningActivity = learningActivity;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getCertificate() {
-		return certificate;
-	}
-
-	public void setCertificate(String certificate) {
-		this.certificate = certificate;
-	}
-	
-	
 }

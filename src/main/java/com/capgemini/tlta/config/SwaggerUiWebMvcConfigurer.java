@@ -35,18 +35,12 @@ public class SwaggerUiWebMvcConfigurer implements WebMvcConfigurer {
         .addResourceLocations("classpath:/META-INF/resources/webjars/springfox-swagger-ui/")
         .resourceChain(false);
   }
-
- 
-
   //http://localhost:8081/springfox/swagger-ui/index.html
   @Override
   public void addViewControllers(ViewControllerRegistry registry) {
     registry.addViewController(baseUrl + "/swagger-ui/")
         .setViewName("forward:" + baseUrl + "/swagger-ui/index.html");
   }
-
- 
-
   @Override
   public void addCorsMappings(CorsRegistry registry) {
     registry
