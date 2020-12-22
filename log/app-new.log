@@ -1,0 +1,21 @@
+2020-12-22 14:26:55,013 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Starting TechnologyLearningAndTrackingAppSprint2Application using Java 1.8.0_171 on DESKTOP-98UELJ9 with PID 11940 (D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2\target\classes started by DELL in D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2)
+2020-12-22 14:26:55,018 DEBUG com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-22 14:26:55,020 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] No active profile set, falling back to default profiles: default
+2020-12-22 14:26:55,247 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-22 14:26:55,254 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-22 14:26:58,154 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-22 14:26:58,289 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 116 ms. Found 4 JPA repository interfaces.
+2020-12-22 14:27:38,448 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2020-12-22 14:27:39,358 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2020-12-22 14:27:39,379 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2020-12-22 14:27:39,380 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-22 14:27:39,440 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2020-12-22 14:27:39,440 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-12-22 14:27:39,440 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-12-22 14:27:41,758 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-12-22 14:27:43,058 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-12-22 14:27:43,058 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 47803 ms
+2020-12-22 14:27:48,945 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-22 14:27:49,897 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.25.Final
+2020-12-22 14:27:54,909 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-12-22 14:28:01,378 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
