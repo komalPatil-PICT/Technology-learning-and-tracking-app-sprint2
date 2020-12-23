@@ -80,10 +80,10 @@ public class LearningActivityController {
 				consumes = "receives learningActivity object as request body",
 				httpMethod = "POST") 
 		
-		@PostMapping("/{id}")
-		public String addLearningActivity(@RequestBody LearningActivity learningActivity, @PathVariable Integer id) {
+		@PostMapping("/")
+		public String addLearningActivity(@RequestBody LearningActivity learningActivity) {
 			try {
-				LearningActivity status= learningService.addLearningActivity(learningActivity, id);
+				LearningActivity status= learningService.addLearningActivity(learningActivity);
 				if(status != null) {
 //					log.info("product:"+product.getProductName()+" added to database");
 					return "Learning Activity "+learningActivity.getId()+" added to database";
@@ -131,10 +131,10 @@ public class LearningActivityController {
 				tags = "update-learning-activity",
 				consumes = "learningActivity object sents as response body",
 				httpMethod = "PUT") 
-		@PutMapping("/")
-		public ResponseEntity<LearningActivity> updateAssessment(@RequestBody LearningActivity learningActivity) {
+		@PutMapping("/{id}")
+		public ResponseEntity<LearningActivity> updateAssessment(@RequestBody LearningActivity learningActivity,  @PathVariable Integer id) {
 			try {
-				LearningActivity updatedActivity= learningService.updateLearningActivity(learningActivity);
+				LearningActivity updatedActivity= learningService.updateLearningActivity(learningActivity, id);
 //				log.info("Product: "+ product.getProductId()+ " updated");
 				return new ResponseEntity<>(updatedActivity,HttpStatus.OK);
 

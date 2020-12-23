@@ -19,16 +19,17 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 
 	@Autowired
 	LearningActivityRepository learningActivityRepository;
-	@Autowired
-	AssessmentActivityRepository assessmentActivityRepository;
+//	@Autowired
+//	AssessmentActivityRepository assessmentActivityRepository;
 	@Override
-	public LearningActivity addLearningActivity(LearningActivity learningActivity, Integer id)
+	public LearningActivity addLearningActivity(LearningActivity learningActivity)
 			throws PersistenceException,ActivityException {
-		Assessment assessment = null;
-		LearningActivity learning = null;
+	//	Assessment assessment = null;
+		//LearningActivity learning = null;
 		try {
-			assessment = assessmentActivityRepository.getOne(id);
-			learningActivity.setAssesment(assessment);
+	//		assessment = assessmentActivityRepository.getOne(id);
+		//	learningActivity.setAssesment(assessment);
+			LearningActivity learning = new LearningActivity();
 			learning = learningActivityRepository.save(learningActivity);
 			return learning;
 		}catch(DataAccessException e) {
@@ -80,10 +81,15 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 			throw new ActivityException(e.getMessage(),e);
 		}
 	}
-
+	@Autowired
+	AssessmentActivityRepository assessmentActivityRepository;
 	@Override
-	public LearningActivity updateLearningActivity(LearningActivity learningActivity) throws ActivityException {
+	public LearningActivity updateLearningActivity(LearningActivity learningActivity, Integer id) throws ActivityException {
+		Assessment assessment = null;
 		try {
+			assessment = assessmentActivityRepository.getOne(id);
+			learningActivity.setAssesment(assessment);
+
 			LearningActivity learningAct= 
 					learningActivityRepository.save(learningActivity);
 			return learningAct;
