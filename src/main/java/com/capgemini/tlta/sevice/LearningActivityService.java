@@ -1,5 +1,4 @@
 package com.capgemini.tlta.sevice;
-
 import java.util.List;
 import com.capgemini.tlta.exception.ActivityException;
 import com.capgemini.tlta.model.LearningActivity;
