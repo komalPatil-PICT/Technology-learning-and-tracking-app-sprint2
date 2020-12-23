@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -50,6 +51,7 @@ public class RegisterUser {
 	private Role role;
 	
 	@ToString.Exclude
+	@JsonIgnore
 	@OneToMany(mappedBy = "login",cascade = CascadeType.ALL)
 	private Set<UserActivity> userActivity = new HashSet<UserActivity>();
 	

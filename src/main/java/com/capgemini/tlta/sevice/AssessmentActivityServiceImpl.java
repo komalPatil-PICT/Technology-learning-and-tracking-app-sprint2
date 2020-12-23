@@ -26,7 +26,7 @@ public class AssessmentActivityServiceImpl implements AssessmentActivityService{
 	
 	@Override
 	public Assessment addAssessmentActivity(Assessment assessmentActivity) throws AssesmentException {
-		// TODO Auto-generated method stub
+		
 		try {
 			Assessment assessment = new Assessment();
 			assessment = assessmentActivityRepository.save(assessmentActivity);

@@ -21,6 +21,11 @@ public class LoggerAspect {
 
 	}
 	
+	@Pointcut("execution(* com.capgemini.tlta.controller.RegisterUserController.*(..))")
+	public void applicationPackagePointcut1() {
+
+	}
+	
 	@Around("applicationPackagePointcut()")
 	public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
 
@@ -34,15 +39,15 @@ public class LoggerAspect {
 				Object result = joinPoint.proceed();
 				if (log.isDebugEnabled()) {
 					if(joinPoint.getSignature().getName().equals("getAssessmentById")) {
-						log.info("Returning details of 1 Product");
+						log.info("Returning details of 1 Assessment");
 					}else if(joinPoint.getSignature().getName().equals("getAllAssessments")) {
-						log.info("Returning details of all Products");
+						log.info("Returning details of all Assessments");
 					}else if(joinPoint.getSignature().getName().equals("addAssessment")) {
-						log.info("Adding one product");
+						log.info("Adding one assessment");
 					}else if(joinPoint.getSignature().getName().equals("deleteAssessment")) {
-						log.info("Deleting one product");
+						log.info("Deleting one assessment");
 					}else if(joinPoint.getSignature().getName().equals("updateAssessment")) {
-						log.info("Updating one product");
+						log.info("Updating one assessment");
 					}
 					log.debug("Exiting method: {}.{}() with result = {}", joinPoint.getSignature().getDeclaringTypeName(),
 							joinPoint.getSignature().getName(), result);
@@ -58,4 +63,43 @@ public class LoggerAspect {
 			throw e;
 		}
 	}
+
+	@Around("applicationPackagePointcut1()")
+	public Object logAround1(ProceedingJoinPoint joinPoint) throws Throwable {
+
+		try {
+			if (log.isDebugEnabled()) {
+				log.debug("Entering method : {}.{}() with argument[s] = {}", joinPoint.getSignature().getDeclaringTypeName(),
+						joinPoint.getSignature().getName(), Arrays.toString(joinPoint.getArgs()));
+			}
+			try {
+				//explictly invoke joinpoint method
+				Object result = joinPoint.proceed();
+				if (log.isDebugEnabled()) {
+					if(joinPoint.getSignature().getName().equals("getRegisterUserById")) {
+						log.info("Returning details of 1 Register User");
+					}else if(joinPoint.getSignature().getName().equals("getAllRegisterUsers")) {
+						log.info("Returning details of all Users");
+					}else if(joinPoint.getSignature().getName().equals("addRegisterUser")) {
+						log.info("Adding one User");
+					}else if(joinPoint.getSignature().getName().equals("deleteRegisterUser")) {
+						log.info("Deleting one user");
+					}else if(joinPoint.getSignature().getName().equals("updatePassword")) {
+						log.info("Updating password");
+					}
+					log.debug("Exiting method: {}.{}() with result = {}", joinPoint.getSignature().getDeclaringTypeName(),
+							joinPoint.getSignature().getName(), result);
+				}
+				return result;
+			} catch (Exception e) {
+				log.error("Error in {}.{}()", joinPoint.getSignature().getDeclaringTypeName(), joinPoint.getSignature().getName());
+				log.error(e.getMessage());
+				throw e;
+			}
+		}catch(Exception e) {
+			log.error(e.getMessage());
+			throw e;
+		}
+	}
+
 }
