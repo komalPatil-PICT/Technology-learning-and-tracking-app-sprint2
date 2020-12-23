@@ -1,16 +1,21 @@
 package com.capgemini.tlta.sevice;
 
 import java.util.List;
-
-
+import java.util.Optional;
 import javax.persistence.PersistenceException;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import com.capgemini.tlta.exception.ActivityException;
 import com.capgemini.tlta.exception.AssesmentException;
+import com.capgemini.tlta.model.Assessment;
 import com.capgemini.tlta.model.LearningActivity;
+import com.capgemini.tlta.repository.AssessmentActivityRepository;
 import com.capgemini.tlta.repository.LearningActivityRepository;
-import com.capgemini.tlta.repository.LearningActivityDaoImpl;
 
+@Service( value = "learningActivityService")
+@Transactional
 public class LearningActivityServiceImpl implements LearningActivityService{
 
 	@Override
