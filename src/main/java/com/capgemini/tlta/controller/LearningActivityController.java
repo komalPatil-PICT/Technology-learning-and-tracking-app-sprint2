@@ -45,10 +45,8 @@ public class LearningActivityController {
 	public ResponseEntity<LearningActivity> getLearningActivityById(@PathVariable Integer id){
 		try {
 			LearningActivity learningActivity= learningService.searchLearningActivityById(id);
-//			log.info("Product added"+ product);
 			return new ResponseEntity<>(learningActivity,HttpStatus.OK);
 		}catch(ActivityException e) {
-//			log.error(e.getMessage());
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
 		}
 	}
@@ -64,16 +62,14 @@ public class LearningActivityController {
 		public ResponseEntity<List<LearningActivity>> getAllLearningActivity(){
 			try {
 				List<LearningActivity> learningActivityList = learningService.getAllLearningActivity();
-//				log.info("Returning all product details");
 				return new ResponseEntity<>(learningActivityList,HttpStatus.OK);
 			}catch(ActivityException e) {
-//				log.error(e.getMessage());
 				throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
 			} 
 		}
 		
 		//http://localhost:8081/springfox/api/learningActivity/
-		//add product	
+		//add learning activity	
 		@ApiOperation(value = "Add a learning activity",
 				response = String.class,
 				tags = "get-learningActivity",
@@ -85,10 +81,8 @@ public class LearningActivityController {
 			try {
 				LearningActivity status= learningService.addLearningActivity(learningActivity);
 				if(status != null) {
-//					log.info("product:"+product.getProductName()+" added to database");
 					return "Learning Activity "+learningActivity.getId()+" added to database";
 				}else {
-//					log.debug("Unable to add product");
 					return "Unable to add product to database";
 				}
 
@@ -99,7 +93,7 @@ public class LearningActivityController {
 
 		
 		//http://localhost:8081/springfox/api/learningActivity/1
-		//delete product
+		//delete learning Activity
 		@ApiOperation(value = "Delete learning activity By Id",
 				response = String.class,
 				tags = "delete-learning-activity",
@@ -111,10 +105,8 @@ public class LearningActivityController {
 			try {
 				Integer status= learningService.deleteLearningActivity(id);
 				if(status ==1) {
-//					log.info("product: "+id+" deleted from database");
 					return "Activity : "+id+" deleted from database";
 				}else {
-//					log.debug("Unable to delete product from database");
 					return "Unable to delete activity from database";
 				}
 
@@ -124,7 +116,7 @@ public class LearningActivityController {
 		}
 
 		//http://localhost:8081/springfox/api/learningActivity/
-		//update product
+		//update learning activity
 		@ApiOperation(value = "Update learning activity",
 				response = LearningActivity.class,
 				tags = "update-learning-activity",
@@ -134,7 +126,6 @@ public class LearningActivityController {
 		public ResponseEntity<LearningActivity> updateAssessment(@RequestBody LearningActivity learningActivity,  @PathVariable Integer id) {
 			try {
 				LearningActivity updatedActivity= learningService.updateLearningActivity(learningActivity, id);
-//				log.info("Product: "+ product.getProductId()+ " updated");
 				return new ResponseEntity<>(updatedActivity,HttpStatus.OK);
 
 			}catch(ActivityException e) {
