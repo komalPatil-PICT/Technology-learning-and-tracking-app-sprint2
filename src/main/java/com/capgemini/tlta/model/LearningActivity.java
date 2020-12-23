@@ -63,6 +63,7 @@ public class LearningActivity implements Serializable{
 	private Assessment assesment;
 	
 	@ToString.Exclude
+	@JsonIgnore
 	@OneToMany(mappedBy = "learningActivity",cascade = CascadeType.ALL)
 	private Set<UserActivity> userActivity = new HashSet<UserActivity>();
 	

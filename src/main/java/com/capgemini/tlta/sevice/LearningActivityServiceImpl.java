@@ -8,6 +8,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.capgemini.tlta.exception.ActivityException;
+import com.capgemini.tlta.exception.AssesmentException;
 import com.capgemini.tlta.model.Assessment;
 import com.capgemini.tlta.model.LearningActivity;
 import com.capgemini.tlta.repository.AssessmentActivityRepository;
@@ -86,7 +87,6 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 		try {
 			assessment = assessmentActivityRepository.getOne(id);
 			learningActivity.setAssesment(assessment);
-
 			LearningActivity learningAct= 
 					learningActivityRepository.save(learningActivity);
 			return learningAct;
@@ -96,4 +96,5 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 		throw new ActivityException(e.getMessage(),e);
 	}
 	}
+}
 }

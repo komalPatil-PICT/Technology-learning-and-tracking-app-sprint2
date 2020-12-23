@@ -26,6 +26,11 @@ public class LoggerAspect {
 
 	}
 	
+	@Pointcut("execution(* com.capgemini.tlta.controller.LearningActivityController.*(..))")
+	public void applicationPackagePointcut2() {
+
+	}
+	
 	@Around("applicationPackagePointcut()")
 	public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
 
@@ -86,6 +91,44 @@ public class LoggerAspect {
 						log.info("Deleting one user");
 					}else if(joinPoint.getSignature().getName().equals("updatePassword")) {
 						log.info("Updating password");
+					}
+					log.debug("Exiting method: {}.{}() with result = {}", joinPoint.getSignature().getDeclaringTypeName(),
+							joinPoint.getSignature().getName(), result);
+				}
+				return result;
+			} catch (Exception e) {
+				log.error("Error in {}.{}()", joinPoint.getSignature().getDeclaringTypeName(), joinPoint.getSignature().getName());
+				log.error(e.getMessage());
+				throw e;
+			}
+		}catch(Exception e) {
+			log.error(e.getMessage());
+			throw e;
+		}
+	}
+
+	@Around("applicationPackagePointcut2()")
+	public Object logAround2(ProceedingJoinPoint joinPoint) throws Throwable {
+
+		try {
+			if (log.isDebugEnabled()) {
+				log.debug("Entering method : {}.{}() with argument[s] = {}", joinPoint.getSignature().getDeclaringTypeName(),
+						joinPoint.getSignature().getName(), Arrays.toString(joinPoint.getArgs()));
+			}
+			try {
+				//explictly invoke joinpoint method
+				Object result = joinPoint.proceed();
+				if (log.isDebugEnabled()) {
+					if(joinPoint.getSignature().getName().equals("getLearningActivityById")) {
+						log.info("Returning details of 1 Learning Activity");
+					}else if(joinPoint.getSignature().getName().equals("getAllLearningActivity")) {
+						log.info("Returning details of all Learning Activity");
+					}else if(joinPoint.getSignature().getName().equals("addLearningActivity")) {
+						log.info("Adding one Learning Activity");
+					}else if(joinPoint.getSignature().getName().equals("deleteAssessment")) {
+						log.info("Deleting one Learning Activity");
+					}else if(joinPoint.getSignature().getName().equals("updateAssessment")) {
+						log.info("Updating Learning Activity");
 					}
 					log.debug("Exiting method: {}.{}() with result = {}", joinPoint.getSignature().getDeclaringTypeName(),
 							joinPoint.getSignature().getName(), result);
