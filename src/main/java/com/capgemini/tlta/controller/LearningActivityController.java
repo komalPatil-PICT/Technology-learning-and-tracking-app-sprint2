@@ -93,7 +93,6 @@ public class LearningActivityController {
 				}
 
 			}catch(ActivityException e) {
-//				log.error(e.getMessage());
 				throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
 			} 
 		}
@@ -139,7 +138,6 @@ public class LearningActivityController {
 				return new ResponseEntity<>(updatedActivity,HttpStatus.OK);
 
 			}catch(ActivityException e) {
-//				log.error(e.getMessage());
 				throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
 			} 
 		}

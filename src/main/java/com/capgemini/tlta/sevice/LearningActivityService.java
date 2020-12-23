@@ -4,8 +4,7 @@ import java.util.List;
 import com.capgemini.tlta.exception.ActivityException;
 import com.capgemini.tlta.model.LearningActivity;
 
-public interface LearningActivityService {
-//	public Integer addLearningActivity(LearningActivity learningActivity) throws ActivityException; 
+public interface LearningActivityService { 
 	public LearningActivity addLearningActivity(LearningActivity learningActivity) throws ActivityException;
 	public LearningActivity searchLearningActivityById(Integer id) throws ActivityException;
 	public Integer deleteLearningActivity( Integer id) throws ActivityException; 

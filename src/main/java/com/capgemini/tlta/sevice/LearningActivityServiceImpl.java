@@ -24,11 +24,8 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 	@Override
 	public LearningActivity addLearningActivity(LearningActivity learningActivity)
 			throws PersistenceException,ActivityException {
-	//	Assessment assessment = null;
-		//LearningActivity learning = null;
+
 		try {
-	//		assessment = assessmentActivityRepository.getOne(id);
-		//	learningActivity.setAssesment(assessment);
 			LearningActivity learning = new LearningActivity();
 			learning = learningActivityRepository.save(learningActivity);
 			return learning;
