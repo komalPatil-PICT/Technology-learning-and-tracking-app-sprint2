@@ -9,6 +9,6 @@ public interface LearningActivityService {
 	public LearningActivity searchLearningActivityById(Integer id) throws ActivityException;
 	public Integer deleteLearningActivity( Integer id) throws ActivityException; 
 	public List<LearningActivity> getAllLearningActivity() throws ActivityException; 
-	public LearningActivity updateLearningActivity(LearningActivity learningActivity, Integer id) throws ActivityException;
-
+	public LearningActivity updateLearningActivity(LearningActivity learningActivity) throws ActivityException;
+	public LearningActivity addLearningActivityWithAssessment(LearningActivity learningActivity,Integer id) throws ActivityException;
 }

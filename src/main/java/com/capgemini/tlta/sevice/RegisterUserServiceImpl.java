@@ -8,9 +8,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.capgemini.tlta.exception.AssesmentException;
 import com.capgemini.tlta.exception.RegisterUserException;
-import com.capgemini.tlta.model.Assessment;
 import com.capgemini.tlta.model.RegisterUser;
 import com.capgemini.tlta.repository.RegisterUserRepository;
 @Service( value = "registerUserService")

@@ -1,11 +1,7 @@
 package com.capgemini.tlta.sevice;
 
-import javax.persistence.PersistenceException;
-
 import com.capgemini.tlta.exception.ActivityException;
 import com.capgemini.tlta.model.UserActivity;
-import com.capgemini.tlta.repository.UserActivityRepository;
-import com.capgemini.tlta.repository.UserActivityDaoImpl;
 
 
 public class UserActivityServiceImpl implements UserActivityService{

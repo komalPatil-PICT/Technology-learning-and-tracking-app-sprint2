@@ -1,16 +1,5 @@
 package com.capgemini.tlta.repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceException;
-import javax.persistence.Query;
-
-import com.capgemini.tlta.model.LearningActivity;
-import com.capgemini.tlta.model.RegisterUser;
-import com.capgemini.tlta.model.UserActivity;
-
-
 public class UserActivityDaoImpl{
 
 //	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("technology-learning-and-tracking-app");

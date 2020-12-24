@@ -13,19 +13,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 @Entity
 @Table(name="assesment_activity")
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Assessment implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
@@ -47,9 +37,64 @@ public class Assessment implements Serializable{
 	@Column(name="assesment_time_duration")
 	private Double assesment_time_duration;
 	
-	@ToString.Exclude
 	@OneToOne(mappedBy = "assesment")
 	@JsonIgnore
     private LearningActivity learningActivity;
+	
+	public Assessment() {
+		
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getAssesment_name() {
+		return assesment_name;
+	}
+
+	public void setAssesment_name(String assesment_name) {
+		this.assesment_name = assesment_name;
+	}
+
+	public String getAssesment_type() {
+		return assesment_type;
+	}
+
+	public void setAssesment_type(String assesment_type) {
+		this.assesment_type = assesment_type;
+	}
+
+	public Date getAssesment_release_date() {
+		return assesment_release_date;
+	}
+
+	public void setAssesment_release_date(Date assesment_release_date) {
+		this.assesment_release_date = assesment_release_date;
+	}
+
+	public Double getAssesment_time_duration() {
+		return assesment_time_duration;
+	}
+
+	public void setAssesment_time_duration(Double assesment_time_duration) {
+		this.assesment_time_duration = assesment_time_duration;
+	}
+
+	public LearningActivity getLearningActivity() {
+		return learningActivity;
+	}
+
+	public void setLearningActivity(LearningActivity learningActivity) {
+		this.learningActivity = learningActivity;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
    	
 }
