@@ -28,7 +28,7 @@ import lombok.Setter;
  * The Class RegisterUser.
  */
 @Entity
-@Table(name="register_user_new")
+@Table(name="register_user")
 @NoArgsConstructor
 @Getter 
 @Setter
