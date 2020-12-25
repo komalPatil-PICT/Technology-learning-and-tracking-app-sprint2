@@ -18,6 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.capgemini.tlta.sevice.LearningActivityDO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
@@ -34,7 +35,7 @@ import lombok.Setter;
 @Setter
 public class LearningActivity implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")	
@@ -63,7 +64,15 @@ public class LearningActivity implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "learningActivity", cascade = CascadeType.ALL)
 	private Set<UserActivity> userActivity = new HashSet<UserActivity>();
-
+	
+	public LearningActivity(LearningActivityDO learningDo) {
+		this.activityName = learningDo.getActivityName();
+		this.activityLink = learningDo.getActivityLink();
+		this.activityLevel = learningDo.getActivityLevel();
+		this.activityReleaseDate = learningDo.getActivityReleaseDate();
+		this.activityTime = learningDo.getActivityTime();
+	}
+	
 	public LearningActivity(String activity_name) {
 		this.activityName = activity_name;
 	}

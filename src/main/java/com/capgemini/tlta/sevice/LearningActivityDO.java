@@ -13,7 +13,7 @@ public class LearningActivityDO {
 
 	private String activityLink;
 
-	private String activityLevel;
+	private String activityLevel = "Basic";
 
 	private Double activityTime;
 

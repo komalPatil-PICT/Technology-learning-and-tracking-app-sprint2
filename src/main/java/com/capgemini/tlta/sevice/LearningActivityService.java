@@ -54,5 +54,5 @@ public interface LearningActivityService {
 	 * @return the learning activity
 	 * @throws ActivityException the activity exception
 	 */
-	public LearningActivity addLearningActivityWithAssessment(LearningActivity learningActivity,Integer id) throws ActivityException;
+	public LearningActivity addLearningActivityWithAssessment(LearningActivityDO learningActivityDo) throws ActivityException;
 }
