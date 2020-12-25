@@ -2,6 +2,8 @@ package com.capgemini.tlta.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -92,7 +94,7 @@ public class RegisterUserController {
 			httpMethod = "POST")
 
 	@PostMapping("/")
-	public RegisterUser addRegisterUser(@RequestBody RegisterUser user) {
+	public RegisterUser addRegisterUser(@Valid @RequestBody RegisterUser user) {
 		RegisterUser status = null;
 		try {
 			status = userService.addUser(user);
@@ -138,7 +140,7 @@ public class RegisterUserController {
 			httpMethod = "PUT") 
 	//http://localhost:8081/springfox/api/users/1/Komal/
 	@PutMapping("/{id}/{firstName}/")	
-	public ResponseEntity<RegisterUser> updateUserFirstName(@PathVariable Integer id, @PathVariable String firstName) {
+	public ResponseEntity<RegisterUser> updateUserFirstName(@Valid @PathVariable Integer id, @PathVariable String firstName) {
 		try {
 			RegisterUser updatedUser= userService.updateFirstName(id, firstName);
 			return new ResponseEntity<>(updatedUser,HttpStatus.OK);
@@ -157,7 +159,7 @@ public class RegisterUserController {
 			consumes = "RegisterUser id, firstname, lastname, new password sents String as response body",
 			httpMethod = "PUT")
 	@PutMapping("/{id}/{firstName}/{lastName}/{pass}/")
-	public String updatePassword(@PathVariable Integer id, @PathVariable String firstName,
+	public String updatePassword(@Valid @PathVariable Integer id, @PathVariable String firstName,
 			@PathVariable String lastName,@PathVariable String pass) {
 		try {
 			RegisterUser updatedUser = userService.updatePassword(id, firstName, lastName,pass);

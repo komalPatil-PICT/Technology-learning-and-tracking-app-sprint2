@@ -2,6 +2,7 @@ package com.capgemini.tlta.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -86,6 +87,24 @@ public class LearningActivityController {
 	 * @return the string
 	 */
 	// http://localhost:8081/springfox/api/learningActivity/
+
+	@ApiOperation(value = "Add a learning activity", 
+			response = LearningActivity.class, 
+			tags = "get-learningActivity", 
+			consumes = "receives learningActivity object as request body", 
+			httpMethod = "POST")
+
+	@PostMapping("/")
+	public LearningActivity addLearningActivityWithAssessment(@RequestBody LearningActivityDO learningActivityDo) {
+		LearningActivity status = null;
+		try {
+			status = learningService.addLearningActivityWithAssessment(learningActivityDo);
+			return status;
+		
+		} catch (ActivityException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
+	}
 //	@ApiOperation(value = "Add a learning activity", 
 //			response = LearningActivity.class, 
 //			tags = "get-learningActivity", 
@@ -117,19 +136,6 @@ public class LearningActivityController {
 			tags = "get-learningActivity", 
 			consumes = "receives learningActivity object as request body", 
 			httpMethod = "POST")
-
-	@PostMapping("/")
-	public LearningActivity addLearningActivityWithAssessment(@RequestBody LearningActivityDO learningActivityDo) {
-		LearningActivity status = null;
-		try {
-			status = learningService.addLearningActivityWithAssessment(learningActivityDo);
-			return status;
-		
-		} catch (ActivityException e) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-		}
-	}
-
 
 	/**
 	 * Delete assessment.
@@ -172,7 +178,7 @@ public class LearningActivityController {
 			consumes = "learningActivity object sents as response body", 
 			httpMethod = "PUT")
 	@PutMapping("/")
-	public ResponseEntity<LearningActivity> updateAssessment(@RequestBody LearningActivity learningActivity) {
+	public ResponseEntity<LearningActivity> updateAssessment(@Valid @RequestBody LearningActivity learningActivity) {
 		try {
 			LearningActivity updatedActivity = learningService.updateLearningActivity(learningActivity);
 			return new ResponseEntity<>(updatedActivity, HttpStatus.OK);
