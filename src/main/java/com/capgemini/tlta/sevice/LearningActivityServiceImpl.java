@@ -13,6 +13,9 @@ import com.capgemini.tlta.model.LearningActivity;
 import com.capgemini.tlta.repository.AssessmentActivityRepository;
 import com.capgemini.tlta.repository.LearningActivityRepository;
 
+/**
+ * The Class LearningActivityServiceImpl.
+ */
 @Service( value = "learningActivityService")
 @Transactional
 public class LearningActivityServiceImpl implements LearningActivityService{
@@ -21,6 +24,15 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 	LearningActivityRepository learningActivityRepository;
 	@Autowired
 	AssessmentActivityRepository assessmentRepository;
+	
+	/**
+	 * Adds the learning activity.
+	 *
+	 * @param learningActivity the learning activity
+	 * @return the learning activity
+	 * @throws PersistenceException the persistence exception
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public LearningActivity addLearningActivity(LearningActivity learningActivity)
 			throws PersistenceException,ActivityException {
@@ -35,6 +47,13 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 		}
 	}
 
+	/**
+	 * Search learning activity by id.
+	 *
+	 * @param id the id
+	 * @return the learning activity
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public LearningActivity searchLearningActivityById(Integer id) throws ActivityException {
 		try {
@@ -42,8 +61,9 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 					learningActivityRepository.findById(id);
 			if(optional.isPresent()) {
 				System.out.println(optional.get());
-				System.out.println(optional.get().getAssesment().getId());
+				//System.out.println(optional.get().getAssesment().getId());
 				return optional.get();
+				
 			}else {
 				return null;
 			}			
@@ -54,6 +74,13 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 		}
 	}
 
+	/**
+	 * Delete learning activity.
+	 *
+	 * @param id the id
+	 * @return the integer
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public Integer deleteLearningActivity(Integer id) throws ActivityException {
 		try {
@@ -81,6 +108,14 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 	}
 	@Autowired
 	AssessmentActivityRepository assessmentActivityRepository;
+	
+	/**
+	 * Update learning activity.
+	 *
+	 * @param learningActivity the learning activity
+	 * @return the learning activity
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public LearningActivity updateLearningActivity(LearningActivity learningActivity) throws ActivityException {
 		
@@ -95,6 +130,14 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 	}
 	}
 
+	/**
+	 * Adds the learning activity with assessment.
+	 *
+	 * @param learningActivity the learning activity
+	 * @param id the id
+	 * @return the learning activity
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public LearningActivity addLearningActivityWithAssessment(
 			LearningActivity learningActivity,Integer id)

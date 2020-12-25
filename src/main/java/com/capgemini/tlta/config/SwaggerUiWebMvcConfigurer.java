@@ -11,14 +11,27 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 //https://springfox.github.io/springfox/docs/snapshot/
 
+/**
+ * The Class SwaggerUiWebMvcConfigurer.
+ */
 @Component
 public class SwaggerUiWebMvcConfigurer implements WebMvcConfigurer {
 	private final String baseUrl;
 
+	/**
+	 * Instantiates a new swagger ui web mvc configurer.
+	 *
+	 * @param baseUrl the base url
+	 */
 	public SwaggerUiWebMvcConfigurer(@Value("${springfox.documentation.swagger-ui.base-url:}") String baseUrl) {
 		this.baseUrl = baseUrl;
 	}
 
+	/**
+	 * Adds the resource handlers.
+	 *
+	 * @param registry the registry
+	 */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		String baseUrl = StringUtils.trimTrailingCharacter(this.baseUrl, '/');
@@ -27,6 +40,11 @@ public class SwaggerUiWebMvcConfigurer implements WebMvcConfigurer {
 				.resourceChain(false);
 	}
 
+	/**
+	 * Adds the view controllers.
+	 *
+	 * @param registry the registry
+	 */
 	// http://localhost:8081/springfox/swagger-ui/index.html
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
@@ -34,6 +52,11 @@ public class SwaggerUiWebMvcConfigurer implements WebMvcConfigurer {
 				.setViewName("forward:" + baseUrl + "/swagger-ui/index.html");
 	}
 
+	/**
+	 * Adds the cors mappings.
+	 *
+	 * @param registry the registry
+	 */
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/api/assessments").allowedOrigins("http://editor.swagger.io");

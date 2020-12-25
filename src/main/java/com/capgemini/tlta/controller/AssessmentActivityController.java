@@ -22,19 +22,25 @@ import com.capgemini.tlta.sevice.AssessmentActivityService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+/**
+ * The Class AssessmentActivityController.
+ */
 @Api
 @RestController
 @RequestMapping("/api/assessments")
-//@Slf4j
 public class AssessmentActivityController {
 	
-	//Autowired byName
-	//@Resource(name = "productServiceSpringData")
+	
 	@Autowired(required = false)
 	@Qualifier(value = "assessmentActivityService")
 	private AssessmentActivityService assessmentService;
 
-	//get assessments by Id
+	/**
+	 * Gets the assessment by id.
+	 *
+	 * @param id the id
+	 * @return the assessment by id
+	 */
 	//http://localhost:8081/springfox/api/assessments/1
 	@ApiOperation(value = "Get Assessment By Id",
 			response = Assessment.class,
@@ -51,7 +57,11 @@ public class AssessmentActivityController {
 		}
 	}
 
-	//get all assessments
+	/**
+	 * Gets the all assessments.
+	 *
+	 * @return the all assessments
+	 */
 	//http://localhost:8081/springfox/api/assessments/
 	@ApiOperation(value = "Get All Assessment",
 			response = Assessment.class,
@@ -69,8 +79,14 @@ public class AssessmentActivityController {
 		}
 	}
 
-	//http://localhost:8081/springfox/api/assessments/
-	//add assessment	
+	
+	/**
+	 * Adds the assessment.
+	 *
+	 * @param assessment the assessment
+	 * @return the string
+	 */
+	//http://localhost:8081/springfox/api/assessments/	
 	@ApiOperation(value = "Add Assessment",
 			response = String.class,
 			tags = "get-Assessment",
@@ -82,7 +98,7 @@ public class AssessmentActivityController {
 		try {
 			Assessment status= assessmentService.addAssessmentActivity(assessment);
 			if(status != null) {
-				return "assessment:"+assessment.getAssesment_name()+" added to database";
+				return "assessment:"+assessment.getAssessmentName()+" added to database";
 			}else {
 				return "Unable to add assessment to database";
 			}
@@ -92,8 +108,14 @@ public class AssessmentActivityController {
 		}
 	}
 
+	
+	/**
+	 * Delete assessment.
+	 *
+	 * @param id the id
+	 * @return the string
+	 */
 	//http://localhost:8081/springfox/api/assessments/1
-	//delete assessment
 	@ApiOperation(value = "Delete assessment By Id",
 			response = String.class,
 			tags = "delete-assessment",
@@ -115,8 +137,14 @@ public class AssessmentActivityController {
 		}
 	}
 
+	
+	/**
+	 * Update assessment.
+	 *
+	 * @param assessment the assessment
+	 * @return the response entity
+	 */
 	//http://localhost:8081/springfox/api/assessments/
-	//update assessment
 	@ApiOperation(value = "Update Assessment",
 			response = Assessment.class,
 			tags = "update-Assessment",

@@ -25,58 +25,81 @@ import com.capgemini.tlta.sevice.LearningActivityService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+/**
+ * The Class LearningActivityController.
+ */
 @Api
 @RestController
 @RequestMapping("/api/learningActivity")
 public class LearningActivityController {
+	
 	@Autowired(required = false)
 	@Qualifier(value = "learningActivityService")
 	private LearningActivityService learningService;
 
-	// get learningActivity by Id
+	/**
+	 * Gets the learning activity by id.
+	 *
+	 * @param id the id
+	 * @return the learning activity by id
+	 */
 	// http://localhost:8081/springfox/api/learningActivity/1
-	@ApiOperation(value = "Get Learning Activities By Id", response = LearningActivity.class, tags = "get-Learning-Activity", consumes = "learningActivityId", httpMethod = "GET")
+	@ApiOperation(value = "Get Learning Activities By Id", 
+			response = LearningActivity.class, 
+			tags = "get-Learning-Activity", 
+			consumes = "learningActivityId", 
+			httpMethod = "GET")
 	@GetMapping("/{id}")
 	public ResponseEntity<LearningActivity> getLearningActivityById(@PathVariable Integer id) {
 		try {
 			LearningActivity learningActivity = learningService.searchLearningActivityById(id);
-//			log.info("Product added"+ product);
 			return new ResponseEntity<>(learningActivity, HttpStatus.OK);
 		} catch (ActivityException e) {
-//			log.error(e.getMessage());
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
 
-	// get all learning activities
+	/**
+	 * Gets the all learning activity.
+	 *
+	 * @return the all learning activity
+	 */
 	// http://localhost:8081/springfox/api/learningActivity/getall/
-	@ApiOperation(value = "Get All learning activities", response = LearningActivity.class, tags = "get-LearningActivity", httpMethod = "GET")
+	@ApiOperation(value = "Get All learning activities", 
+			response = LearningActivity.class, 
+			tags = "get-LearningActivity", 
+			httpMethod = "GET")
 
 	@GetMapping("getall/")
 	public ResponseEntity<List<LearningActivity>> getAllLearningActivity() {
 		try {
 			List<LearningActivity> learningActivityList = learningService.getAllLearningActivity();
-//				log.info("Returning all product details");
 			return new ResponseEntity<>(learningActivityList, HttpStatus.OK);
 		} catch (ActivityException e) {
-//				log.error(e.getMessage());
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
 
+	/**
+	 * Adds the learning activity.
+	 *
+	 * @param learningActivity the learning activity
+	 * @return the string
+	 */
 	// http://localhost:8081/springfox/api/learningActivity/
-	// add product
-	@ApiOperation(value = "Add a learning activity", response = String.class, tags = "get-learningActivity", consumes = "receives learningActivity object as request body", httpMethod = "POST")
+	@ApiOperation(value = "Add a learning activity", 
+			response = String.class, 
+			tags = "get-learningActivity", 
+			consumes = "receives learningActivity object as request body", 
+			httpMethod = "POST")
 
 	@PostMapping("/")
 	public String addLearningActivity(@RequestBody LearningActivity learningActivity) {
 		try {
 			LearningActivity status = learningService.addLearningActivity(learningActivity);
 			if (status != null) {
-//					log.info("product:"+product.getProductName()+" added to database");
 				return "Learning Activity " + learningActivity.getId() + " added to database";
 			} else {
-//					log.debug("Unable to add product");
 				return "Unable to add product to database";
 			}
 
@@ -85,19 +108,28 @@ public class LearningActivityController {
 		}
 	}
 
-	// http://localhost:8081/springfox/api/learningActivity/
-	// add product
-	@ApiOperation(value = "Add a learning activity", response = String.class, tags = "get-learningActivity", consumes = "receives learningActivity object as request body", httpMethod = "POST")
+	
+	/**
+	 * Adds the learning activity with assessment.
+	 *
+	 * @param learningActivity the learning activity
+	 * @param id the id
+	 * @return the string
+	 */
+	// http://localhost:8081/springfox/api/learningActivity/5
+	@ApiOperation(value = "Add a learning activity", 
+			response = String.class, 
+			tags = "get-learningActivity", 
+			consumes = "receives learningActivity object as request body", 
+			httpMethod = "POST")
 
 	@PostMapping("/{id}")
 	public String addLearningActivityWithAssessment(@RequestBody LearningActivity learningActivity,@PathVariable Integer id) {
 		try {
 			LearningActivity status = learningService.addLearningActivityWithAssessment(learningActivity,id);
 			if (status != null) {
-//							log.info("product:"+product.getProductName()+" added to database");
 				return "Learning Activity " + learningActivity.getId() + " added to database";
 			} else {
-//							log.debug("Unable to add product");
 				return "Unable to add product to database";
 			}
 
@@ -106,19 +138,27 @@ public class LearningActivityController {
 		}
 	}
 
+
+	/**
+	 * Delete assessment.
+	 *
+	 * @param id the id
+	 * @return the string
+	 */
 	// http://localhost:8081/springfox/api/learningActivity/1
-	// delete product
-	@ApiOperation(value = "Delete learning activity By Id", response = String.class, tags = "delete-learning-activity", consumes = "learning activity Id", httpMethod = "DELETE")
+	@ApiOperation(value = "Delete learning activity By Id", 
+			response = String.class, 
+			tags = "delete-learning-activity", 
+			consumes = "learning activity Id", 
+			httpMethod = "DELETE")
 
 	@DeleteMapping("/{id}")
 	public String deleteAssessment(@PathVariable Integer id) {
 		try {
 			Integer status = learningService.deleteLearningActivity(id);
 			if (status == 1) {
-//					log.info("product: "+id+" deleted from database");
 				return "Activity : " + id + " deleted from database";
 			} else {
-//					log.debug("Unable to delete product from database");
 				return "Unable to delete activity from database";
 			}
 
@@ -127,9 +167,18 @@ public class LearningActivityController {
 		}
 	}
 
+	/**
+	 * Update assessment.
+	 *
+	 * @param learningActivity the learning activity
+	 * @return the response entity
+	 */
 	// http://localhost:8081/springfox/api/learningActivity/
-	// update product
-	@ApiOperation(value = "Update learning activity", response = LearningActivity.class, tags = "update-learning-activity", consumes = "learningActivity object sents as response body", httpMethod = "PUT")
+	@ApiOperation(value = "Update learning activity", 
+			response = LearningActivity.class, 
+			tags = "update-learning-activity", 
+			consumes = "learningActivity object sents as response body", 
+			httpMethod = "PUT")
 	@PutMapping("/")
 	public ResponseEntity<LearningActivity> updateAssessment(@RequestBody LearningActivity learningActivity) {
 		try {

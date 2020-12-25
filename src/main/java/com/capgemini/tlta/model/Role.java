@@ -1,17 +1,16 @@
 package com.capgemini.tlta.model;
 
-public enum Role {
-	USER("user"),
-	MODERATOR("moderator") ,
-	ADMIN("admin");
-	
-private String role;
-	
-	private Role(String role) {
-		this.role=role;
-	}
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-	public String getRole() {
-		return role;
-	}
+/**
+ * The Enum Role.
+ */
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+public enum Role {
+	USER("user"), MODERATOR("moderator"), ADMIN("admin");
+	
+	@Getter
+	private String role;
 }

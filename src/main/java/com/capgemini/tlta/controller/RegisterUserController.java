@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,16 +23,23 @@ import com.capgemini.tlta.sevice.RegisterUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+/**
+ * The Class RegisterUserController.
+ */
 @Api
 @RestController
-//@CrossOrigin(origins = "http://localhost:8081")
 @RequestMapping("/api/users")
 public class RegisterUserController {
 	@Autowired(required = false)
 	@Qualifier(value = "registerUserService")
 	private RegisterUserService userService;
 
-	// get user by Id
+	/**
+	 * Gets the register user by id.
+	 *
+	 * @param id the id
+	 * @return the register user by id
+	 */
 	// http://localhost:8081/springfox/api/users/1
 	@ApiOperation(value = "Get user By Id", 
 			response = RegisterUser.class, 
@@ -48,7 +56,11 @@ public class RegisterUserController {
 		}
 	}
 
-	// get all users
+	/**
+	 * Gets the all register users.
+	 *
+	 * @return the all register users
+	 */
 	// http://localhost:8081/springfox/api/users/
 	@ApiOperation(value = "Get All users", 
 			response = RegisterUser.class, 
@@ -65,69 +77,101 @@ public class RegisterUserController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
+
+	/**
+	 * Adds the register user.
+	 *
+	 * @param user the user
+	 * @return the string
+	 */
+	// http://localhost:8081/springfox/api/users/
+	@ApiOperation(value = "Add User", 
+			response = String.class, 
+			tags = "Add-User", 
+			consumes = "receives RegisterUser object as request body", 
+			httpMethod = "POST")
+
+	@PostMapping("/")
+	public String addRegisterUser(@RequestBody RegisterUser user) {
+		try {
+			RegisterUser status = userService.addUser(user);
+			if (status != null) {
+				return "user:" + user.getFirstName() + " " + user.getLastName() + " added to database";
+			} else {
+				return "Unable to add user to database";
+			}
+
+		} catch (RegisterUserException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
+	}
+
+
+	/**
+	 * Delete register user.
+	 *
+	 * @param id the id
+	 * @return the string
+	 */
+	// http://localhost:8081/springfox/api/users/1
+	@ApiOperation(value = "Delete user By Id", 
+			response = String.class, 
+			tags = "delete-user", 
+			consumes = "user Id", 
+			httpMethod = "DELETE")
+
+	@DeleteMapping("/{id}")
+	public String deleteRegisterUser(@PathVariable Integer id) {
+		try {
+			Integer status = userService.deleteUser(id);
+			if (status == 1) {
+				return "RegisterUser: " + id + " deleted from database";
+			} else {
+				return "Unable to delete RegisterUser from database";
+			}
+
+		} catch (RegisterUserException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
+	}
 	
-	//http://localhost:8081/springfox/api/users/
-		//add assessment	
-		@ApiOperation(value = "Add User",
-				response = String.class,
-				tags = "Add-User",
-				consumes = "receives RegisterUser object as request body",
-				httpMethod = "POST") 
-		
-		@PostMapping("/")
-		public String addRegisterUser(@RequestBody RegisterUser user) {
-			try {
-				RegisterUser status= userService.addUser(user);
-				if(status != null) {
-					return "user:"+user.getFirstName()+" "+user.getLastName()+" added to database";
-				}else {
-					return "Unable to add user to database";
-				}
+	@ApiOperation(value = "Update User First Name",
+			response = RegisterUser.class,
+			tags = "update user first name",
+			consumes = "User id and first name sents as response body",
+			httpMethod = "PUT") 
+	//http://localhost:8081/springfox/api/users/1/Komal/
+	@PutMapping("/{id}/{firstName}/")	
+	public ResponseEntity<RegisterUser> updateUserFirstName(@PathVariable Integer id, @PathVariable String firstName) {
+		try {
+			RegisterUser updatedUser= userService.updateFirstName(id, firstName);
+			return new ResponseEntity<>(updatedUser,HttpStatus.OK);
 
-			}catch(RegisterUserException e) {
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
-			}
+		}catch(RegisterUserException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
 		}
-		
-		//http://localhost:8081/springfox/api/users/1
-		//delete user
-		@ApiOperation(value = "Delete user By Id",
-				response = String.class,
-				tags = "delete-user",
-				consumes = "user Id",
-				httpMethod = "DELETE") 
-		
-		@DeleteMapping("/{id}")
-		public String deleteRegisterUser(@PathVariable Integer id) {
-			try {
-				Integer status= userService.deleteUser(id);
-				if(status ==1) {
-					return "RegisterUser: "+id+" deleted from database";
-				}else {
-					return "Unable to delete RegisterUser from database";
-				}
+	}
 
-			}catch(RegisterUserException e) {
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
-			}
+	 
+	// http://localhost:8081/springfox/api/users/4/firstname/lastname/pass
+	// update user
+	@ApiOperation(value = "Update User", 
+			response = String.class, 
+			tags = "update-User-password", 
+			consumes = "RegisterUser id, firstname, lastname, new password sents String as response body",
+			httpMethod = "PUT")
+	@PutMapping("/{id}/{firstName}/{lastName}/{pass}/")
+	public String updatePassword(@PathVariable Integer id, @PathVariable String firstName,
+			@PathVariable String lastName,@PathVariable String pass) {
+		try {
+			RegisterUser updatedUser = userService.updatePassword(id, firstName, lastName,pass);
+			if(updatedUser!=null)
+			return "Password updated successfully for user with id :"+id;
+			else
+				return "Unable to update password";
+
+		} catch (RegisterUserException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
-
-		//TODO: error Invalid CORS Request
-//		//http://localhost:8081/springfox/api/users/firstname/lastname/
-//		//update user
-//		@ApiOperation(value = "Update User",
-//				response = RegisterUser.class,
-//				tags = "update-User",
-//				consumes = "RegisterUser object sents as response body",
-//				httpMethod = "PUT") 
-//		@PutMapping("/{firstName}/{lastName}")
-//		public ResponseEntity<RegisterUser> updatePassword(@RequestBody RegisterUser user,@PathVariable String firstName,@PathVariable String lastName) {
-//			try {
-//				RegisterUser updatedUser= userService.updatePassword(user, firstName, lastName);
-//				return new ResponseEntity<>(updatedUser,HttpStatus.OK);
-//
-//			}catch(RegisterUserException e) {
-//				throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
-//			}
-//		}
+	}
 }
