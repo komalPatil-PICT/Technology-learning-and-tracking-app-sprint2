@@ -1,6 +1,8 @@
 package com.capgemini.tlta.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.List;
 
@@ -12,18 +14,19 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application;
 import com.capgemini.tlta.model.Assessment;
-import com.capgemini.tlta.model.RegisterUser;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { TechnologyLearningAndTrackingAppSprint2Application.class })
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 
 @DataJpaTest
+@DirtiesContext
 public class AssessmentActivityRepositoryIntegrationTest {
 	@Autowired
 	private TestEntityManager entityManager;
@@ -74,17 +77,37 @@ public class AssessmentActivityRepositoryIntegrationTest {
 				jpa.getAssessmentName(), cpp.getAssessmentName());
 	}
 
-//
-//	@Test
-//	public void testUpdateAssessment() {
-//		Assessment p = new Assessment("test");
-//		entityManager.persistAndFlush(p);
-//		p.setAssessmentName("java");
-//
-//		assessmentActivityRepository.save(p);
-//
-//		Assessment updatedProduct = assessmentActivityRepository.findById(p.getId()).orElse(null);
-//
-//		assertThat(updatedProduct.getAssessmentName()).isEqualTo(p.getAssessmentName());
-//	}
+
+	/**
+	 * Update assessment test.
+	 */
+	@Test
+	public void updateAssessment_test() {
+		Assessment assessment = new Assessment("test");
+		entityManager.persistAndFlush(assessment);		
+		
+		// check if insertion is successful
+		assertNotNull(entityManager.find(Assessment.class, assessment.getId()));
+		
+		assessment.setAssessmentName("java");
+		entityManager.persistAndFlush(assessment);
+		
+		Assessment updatedProduct = entityManager.find(Assessment.class, assessment.getId());
+		assertThat(updatedProduct.getAssessmentName()).isEqualTo(assessment.getAssessmentName());
+	}
+	
+    @Test
+    public void deleteAssessmentActivity_test() {
+    	
+    	Assessment assessment = new Assessment("React");
+		entityManager.persistAndFlush(assessment);
+		
+		// check if insertion is successful
+		assertNotNull(entityManager.find(Assessment.class, assessment.getId()));
+    	
+    	entityManager.remove(assessment);
+        
+    	Assessment deletedProduct = entityManager.find(Assessment.class, assessment.getId());
+        assertNull(deletedProduct);
+    }
 }

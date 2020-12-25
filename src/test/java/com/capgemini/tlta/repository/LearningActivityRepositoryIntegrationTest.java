@@ -1,7 +1,10 @@
 package com.capgemini.tlta.repository;
 
-import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +14,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -21,12 +25,14 @@ import com.capgemini.tlta.model.LearningActivity;
 @ContextConfiguration(classes = { TechnologyLearningAndTrackingAppSprint2Application.class })
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @DataJpaTest
+@DirtiesContext
 public class LearningActivityRepositoryIntegrationTest {
 	@Autowired
 	private TestEntityManager entityManager;
 
 	@Autowired
 	private LearningActivityRepository learningActivityRepository;
+	
 	@BeforeEach
 	public void resetDb() {
 		learningActivityRepository.deleteAll();
@@ -83,10 +89,29 @@ public class LearningActivityRepositoryIntegrationTest {
         entityManager.persistAndFlush(activity);
         activity.setActivityName("java");
        
-        learningActivityRepository.save(activity);  
-        LearningActivity updatedProduct = learningActivityRepository
-        		.findById(activity.getId())
-        		.orElse(null);
-        assertThat(updatedProduct.getActivityName()).isEqualTo(activity.getActivityName());
+        entityManager.persistAndFlush(activity);  
+        LearningActivity updatedActivity = entityManager.find(LearningActivity.class, activity.getId());
+        
+        assertThat(updatedActivity.getActivityName()).isEqualTo(activity.getActivityName());
+    }
+    
+    @Test
+    public void deleteLearningActivity_test() {
+    	
+    	// add a new LearningActivity
+    	LearningActivity java = new LearningActivity("java");
+    	
+    	// save new LearningActivity to database repository
+    	entityManager.persistAndFlush(java);
+    	
+    	// test if LearningActivity is inserted
+    	assertNotNull(entityManager.find(LearningActivity.class, java.getId()));
+    	
+    	// delete the inserted LearningActivity
+        entityManager.remove(java);
+        
+        // test if the LearningActivity is deleted
+        LearningActivity deleted= entityManager.find(LearningActivity.class, java.getId());
+        assertNull(deleted);
     }
 }

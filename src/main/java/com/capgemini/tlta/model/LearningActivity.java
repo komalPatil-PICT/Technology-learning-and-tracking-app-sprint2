@@ -54,7 +54,7 @@ public class LearningActivity implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "activity_realsedate")
-	private Date activityRealseDate;
+	private Date activityReleaseDate;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "assesment_id", nullable = true)

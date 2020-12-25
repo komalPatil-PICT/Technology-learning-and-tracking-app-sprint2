@@ -53,6 +53,7 @@ public class AssessmentServiceImplIntegrationTest {
         Mockito.when(assessmentRepository.findAll()).thenReturn(assessments);
         Mockito.when(assessmentRepository.findById(-99)).thenReturn(Optional.empty());
     }
+    
     @Test
     public void whenValidId_thenAssessmentShouldBeFound() throws AssesmentException {
         Assessment fromDb = assessmentService.searchAssessmentActivityById(11);

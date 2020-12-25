@@ -1,9 +1,10 @@
 package com.capgemini.tlta.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.List;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
@@ -23,6 +25,7 @@ import com.capgemini.tlta.model.RegisterUser;
 @ContextConfiguration(classes = { TechnologyLearningAndTrackingAppSprint2Application.class })
 @AutoConfigureTestDatabase(replace=Replace.NONE)
 @DataJpaTest
+@DirtiesContext
 public class RegisterUserRepositoryIntegrationTest {
     @Autowired
     private TestEntityManager entityManager;
@@ -65,5 +68,35 @@ public class RegisterUserRepositoryIntegrationTest {
         assertThat(allRegisterUsers).hasSize(3).extracting(RegisterUser::getFirstName).
         containsOnly(alex.getFirstName(), ron.getFirstName(), bob.getFirstName());
     }
-
-}
+    
+    @Test
+    public void updateUserFirstName_test() {
+    	RegisterUser user = new RegisterUser("bob");
+        entityManager.persistAndFlush(user);
+        user.setFirstName("alex");
+       
+        entityManager.persistAndFlush(user);  
+        RegisterUser updatedUser = entityManager.find(RegisterUser.class, user.getId());
+        
+        assertThat(updatedUser.getFirstName()).isEqualTo(user.getFirstName());
+    }
+    
+    @Test
+    public void deleteUser_test() {
+    	
+    	// add a new RegisterUser
+    	RegisterUser user = new RegisterUser("john");
+    	
+    	// save new RegisterUser to database repository
+    	entityManager.persistAndFlush(user);
+    	
+    	// test if RegisterUser is inserted
+    	assertNotNull(entityManager.find(RegisterUser.class, user.getId()));
+    	
+    	// delete the inserted RegisterUser
+        entityManager.remove(user);
+        
+        // test if the RegisterUser is deleted
+        RegisterUser deleted= entityManager.find(RegisterUser.class, user.getId());
+        assertNull(deleted);
+    }}
