@@ -139,15 +139,19 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 	 * @throws ActivityException the activity exception
 	 */
 	@Override
-	public LearningActivity addLearningActivityWithAssessment(
-			LearningActivity learningActivity,Integer id)
+	public LearningActivity addLearningActivityWithAssessment(LearningActivityDO learningActivityDo)
 			throws ActivityException {
+		
+		System.out.println(learningActivityDo.getActivityName());
+		
 		Assessment assessment = null;
-		LearningActivity learning = null;
+		LearningActivity learning = new LearningActivity(learningActivityDo);
+		
 		try {
-			assessment = assessmentRepository.getOne(id);
-			learningActivity.setAssesment(assessment);
-			learning = learningActivityRepository.save(learningActivity);
+			assessment = assessmentRepository.getOne(learningActivityDo.getAssessmentId());
+			learning.setAssesment(assessment);
+			learning.setActivityName(learningActivityDo.getActivityName());
+			learning = learningActivityRepository.save(learning);
 			return learning;
 		}catch(DataAccessException e) {
 			throw new ActivityException(e.getMessage(),e);

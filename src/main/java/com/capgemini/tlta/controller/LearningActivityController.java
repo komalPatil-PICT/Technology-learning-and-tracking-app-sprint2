@@ -3,7 +3,6 @@ package com.capgemini.tlta.controller;
 import java.util.List;
 
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -20,6 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.capgemini.tlta.exception.ActivityException;
 import com.capgemini.tlta.model.LearningActivity;
+import com.capgemini.tlta.sevice.LearningActivityDO;
 import com.capgemini.tlta.sevice.LearningActivityService;
 
 import io.swagger.annotations.Api;
@@ -87,6 +87,7 @@ public class LearningActivityController {
 	 * @return the string
 	 */
 	// http://localhost:8081/springfox/api/learningActivity/
+
 	@ApiOperation(value = "Add a learning activity", 
 			response = LearningActivity.class, 
 			tags = "get-learningActivity", 
@@ -94,15 +95,32 @@ public class LearningActivityController {
 			httpMethod = "POST")
 
 	@PostMapping("/")
-	public LearningActivity addLearningActivity(@Valid @RequestBody LearningActivity learningActivity) {
+	public LearningActivity addLearningActivityWithAssessment(@RequestBody LearningActivityDO learningActivityDo) {
 		LearningActivity status = null;
 		try {
-			status = learningService.addLearningActivity(learningActivity);
+			status = learningService.addLearningActivityWithAssessment(learningActivityDo);
 			return status;
-			} catch (ActivityException e) {
+		
+		} catch (ActivityException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
+//	@ApiOperation(value = "Add a learning activity", 
+//			response = LearningActivity.class, 
+//			tags = "get-learningActivity", 
+//			consumes = "receives learningActivity object as request body", 
+//			httpMethod = "POST")
+//
+//	@PostMapping("/")
+//	public LearningActivity addLearningActivity(@RequestBody LearningActivity learningActivity) {
+//		LearningActivity status = null;
+//		try {
+//			status = learningService.addLearningActivity(learningActivity);
+//			return status;
+//			} catch (ActivityException e) {
+//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+//		}
+//	}
 
 	
 	/**
@@ -112,25 +130,12 @@ public class LearningActivityController {
 	 * @param id the id
 	 * @return the string
 	 */
-	// http://localhost:8081/springfox/api/learningActivity/5
+	// http://localhost:8081/springfox/api/learningActivity/
 	@ApiOperation(value = "Add a learning activity", 
 			response = LearningActivity.class, 
 			tags = "get-learningActivity", 
 			consumes = "receives learningActivity object as request body", 
 			httpMethod = "POST")
-
-	@PostMapping("/{id}")
-	public LearningActivity addLearningActivityWithAssessment(@Valid @RequestBody LearningActivity learningActivity,@PathVariable Integer id) {
-		LearningActivity status = null;
-		try {
-			status = learningService.addLearningActivityWithAssessment(learningActivity,id);
-			return status;
-		
-		} catch (ActivityException e) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-		}
-	}
-
 
 	/**
 	 * Delete assessment.

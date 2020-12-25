@@ -45,11 +45,12 @@ public class UserActivityServiceImpl implements UserActivityService {
 			throws ActivityException {
 		LearningActivity learning = null;
 		RegisterUser register = null;
-		UserActivity user = new UserActivity();
+		UserActivity user = new UserActivity(userActivityDo);
 		try {
 
 			learning = learningActivityRepository.getOne(userActivityDo.getLearningActivityId());
 			register = registerUserRepository.getOne(userActivityDo.getUserId());
+			
 			
 			user.setLearningActivity(learning);
 			user.setRegisterUser(register);

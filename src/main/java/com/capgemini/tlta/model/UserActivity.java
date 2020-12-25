@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.capgemini.tlta.sevice.UserActivityDO;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -42,4 +44,9 @@ public class UserActivity {
 	
 	@Column(name = "certificate")
 	private String certificate;
+	
+	public UserActivity(UserActivityDO userDo) {
+		status = userDo.getStatus();
+		certificate = userDo.getCertificate();
+	}
 }
