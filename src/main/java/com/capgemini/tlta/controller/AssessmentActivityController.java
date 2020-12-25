@@ -1,6 +1,8 @@
 package com.capgemini.tlta.controller;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -94,7 +96,7 @@ public class AssessmentActivityController {
 			httpMethod = "POST") 
 	
 	@PostMapping("/")
-	public Assessment addAssessment(@RequestBody Assessment assessment) {
+	public Assessment addAssessment(@Valid @RequestBody Assessment assessment) {
 		Assessment status = null;
 		try {
 			status = assessmentService.addAssessmentActivity(assessment);
@@ -147,7 +149,7 @@ public class AssessmentActivityController {
 			consumes = "Assessment object sents as response body",
 			httpMethod = "PUT") 
 	@PutMapping("/")
-	public ResponseEntity<Assessment> updateAssessment(@RequestBody Assessment assessment) {
+	public ResponseEntity<Assessment> updateAssessment(@Valid @RequestBody Assessment assessment) {
 		try {
 			Assessment updatedAssessment= assessmentService.updateAssessmentActivity(assessment);
 			return new ResponseEntity<>(updatedAssessment,HttpStatus.OK);
