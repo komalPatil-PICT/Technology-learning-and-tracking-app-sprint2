@@ -70,7 +70,7 @@ public class LearningActivityController {
 			tags = "get-LearningActivity", 
 			httpMethod = "GET")
 
-	@GetMapping("getall/")
+	@GetMapping("/")
 	public ResponseEntity<List<LearningActivity>> getAllLearningActivity() {
 		try {
 			List<LearningActivity> learningActivityList = learningService.getAllLearningActivity();
@@ -88,22 +88,18 @@ public class LearningActivityController {
 	 */
 	// http://localhost:8081/springfox/api/learningActivity/
 	@ApiOperation(value = "Add a learning activity", 
-			response = String.class, 
+			response = LearningActivity.class, 
 			tags = "get-learningActivity", 
 			consumes = "receives learningActivity object as request body", 
 			httpMethod = "POST")
 
 	@PostMapping("/")
-	public String addLearningActivity(@RequestBody LearningActivity learningActivity) {
+	public LearningActivity addLearningActivity(@RequestBody LearningActivity learningActivity) {
+		LearningActivity status = null;
 		try {
-			LearningActivity status = learningService.addLearningActivity(learningActivity);
-			if (status != null) {
-				return "Learning Activity " + learningActivity.getId() + " added to database";
-			} else {
-				return "Unable to add product to database";
-			}
-
-		} catch (ActivityException e) {
+			status = learningService.addLearningActivity(learningActivity);
+			return status;
+			} catch (ActivityException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
@@ -118,21 +114,18 @@ public class LearningActivityController {
 	 */
 	// http://localhost:8081/springfox/api/learningActivity/5
 	@ApiOperation(value = "Add a learning activity", 
-			response = String.class, 
+			response = LearningActivity.class, 
 			tags = "get-learningActivity", 
 			consumes = "receives learningActivity object as request body", 
 			httpMethod = "POST")
 
 	@PostMapping("/{id}")
-	public String addLearningActivityWithAssessment(@RequestBody LearningActivity learningActivity,@PathVariable Integer id) {
+	public LearningActivity addLearningActivityWithAssessment(@RequestBody LearningActivity learningActivity,@PathVariable Integer id) {
+		LearningActivity status = null;
 		try {
-			LearningActivity status = learningService.addLearningActivityWithAssessment(learningActivity,id);
-			if (status != null) {
-				return "Learning Activity " + learningActivity.getId() + " added to database";
-			} else {
-				return "Unable to add product to database";
-			}
-
+			status = learningService.addLearningActivityWithAssessment(learningActivity,id);
+			return status;
+		
 		} catch (ActivityException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}

@@ -88,21 +88,17 @@ public class AssessmentActivityController {
 	 */
 	//http://localhost:8081/springfox/api/assessments/	
 	@ApiOperation(value = "Add Assessment",
-			response = String.class,
+			response = Assessment.class,
 			tags = "get-Assessment",
 			consumes = "receives Assessment object as request body",
 			httpMethod = "POST") 
 	
 	@PostMapping("/")
-	public String addAssessment(@RequestBody Assessment assessment) {
+	public Assessment addAssessment(@RequestBody Assessment assessment) {
+		Assessment status = null;
 		try {
-			Assessment status= assessmentService.addAssessmentActivity(assessment);
-			if(status != null) {
-				return "assessment:"+assessment.getAssessmentName()+" added to database";
-			}else {
-				return "Unable to add assessment to database";
-			}
-
+			status = assessmentService.addAssessmentActivity(assessment);
+			return status;
 		}catch(AssesmentException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
 		}

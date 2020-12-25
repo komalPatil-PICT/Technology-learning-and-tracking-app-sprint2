@@ -86,21 +86,17 @@ public class RegisterUserController {
 	 */
 	// http://localhost:8081/springfox/api/users/
 	@ApiOperation(value = "Add User", 
-			response = String.class, 
+			response = RegisterUser.class, 
 			tags = "Add-User", 
 			consumes = "receives RegisterUser object as request body", 
 			httpMethod = "POST")
 
 	@PostMapping("/")
-	public String addRegisterUser(@RequestBody RegisterUser user) {
+	public RegisterUser addRegisterUser(@RequestBody RegisterUser user) {
+		RegisterUser status = null;
 		try {
-			RegisterUser status = userService.addUser(user);
-			if (status != null) {
-				return "user:" + user.getFirstName() + " " + user.getLastName() + " added to database";
-			} else {
-				return "Unable to add user to database";
-			}
-
+			status = userService.addUser(user);
+			return status;
 		} catch (RegisterUserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
