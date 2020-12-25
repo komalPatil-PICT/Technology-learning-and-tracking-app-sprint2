@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -37,6 +38,7 @@ public class UserActivity {
 	@JoinColumn(name = "activity_id")
 	private LearningActivity learningActivity;
 
+	//@NotNull(message="Status should be Registered/Completed/Approved/Rejected")
 	@Column(name = "status")
 	private String status = "register";
 	

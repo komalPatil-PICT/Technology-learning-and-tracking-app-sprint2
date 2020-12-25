@@ -28,12 +28,14 @@ public class UserActivityServiceImpl implements UserActivityService {
 	@Autowired
 	UserActivityRepository userActivityRepository;
 	
-//	@Override
-//	public Integer uploadCerificate(String filePath, Integer userId, Integer activityId) throws ActivityException {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
+	@Override
+	public Integer uploadCerificate(UserActivityDO userActivityDo,String filePath, Integer userId, Integer activityId) throws ActivityException {
+
+
+		return null;
+	}
+	
+
 //	@Override
 //	public UserActivity updateStatus(UserActivity userActivity, String status) throws ActivityException {
 //		// TODO Auto-generated method stub

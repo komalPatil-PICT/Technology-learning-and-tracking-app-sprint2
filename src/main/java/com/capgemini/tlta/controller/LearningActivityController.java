@@ -2,6 +2,7 @@ package com.capgemini.tlta.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,7 +20,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.capgemini.tlta.exception.ActivityException;
 import com.capgemini.tlta.model.LearningActivity;
-
 import com.capgemini.tlta.sevice.LearningActivityService;
 
 import io.swagger.annotations.Api;
@@ -94,7 +94,7 @@ public class LearningActivityController {
 			httpMethod = "POST")
 
 	@PostMapping("/")
-	public String addLearningActivity(@RequestBody LearningActivity learningActivity) {
+	public String addLearningActivity(@Valid @RequestBody LearningActivity learningActivity) {
 		try {
 			LearningActivity status = learningService.addLearningActivity(learningActivity);
 			if (status != null) {
@@ -124,7 +124,7 @@ public class LearningActivityController {
 			httpMethod = "POST")
 
 	@PostMapping("/{id}")
-	public String addLearningActivityWithAssessment(@RequestBody LearningActivity learningActivity,@PathVariable Integer id) {
+	public String addLearningActivityWithAssessment(@Valid @RequestBody LearningActivity learningActivity,@PathVariable Integer id) {
 		try {
 			LearningActivity status = learningService.addLearningActivityWithAssessment(learningActivity,id);
 			if (status != null) {
@@ -180,7 +180,7 @@ public class LearningActivityController {
 			consumes = "learningActivity object sents as response body", 
 			httpMethod = "PUT")
 	@PutMapping("/")
-	public ResponseEntity<LearningActivity> updateAssessment(@RequestBody LearningActivity learningActivity) {
+	public ResponseEntity<LearningActivity> updateAssessment(@Valid @RequestBody LearningActivity learningActivity) {
 		try {
 			LearningActivity updatedActivity = learningService.updateLearningActivity(learningActivity);
 			return new ResponseEntity<>(updatedActivity, HttpStatus.OK);

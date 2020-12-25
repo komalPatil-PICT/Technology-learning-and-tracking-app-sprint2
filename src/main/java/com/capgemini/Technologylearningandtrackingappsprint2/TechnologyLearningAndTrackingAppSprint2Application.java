@@ -7,8 +7,10 @@ import java.util.function.Predicate;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
 
 import springfox.documentation.oas.annotations.EnableOpenApi;
 import springfox.documentation.spi.DocumentationType;
@@ -21,6 +23,9 @@ import springfox.documentation.spring.web.plugins.Docket;
 @EntityScan(basePackages = "com.capgemini.tlta.model")
 @EnableJpaRepositories(basePackages = "com.capgemini.tlta.repository")
 @EnableOpenApi
+//@EnableConfigurationProperties({
+//    FileStorageProperties.class
+//})
 public class TechnologyLearningAndTrackingAppSprint2Application {
 
 	/**
