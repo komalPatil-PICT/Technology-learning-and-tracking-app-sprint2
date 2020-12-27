@@ -19,6 +19,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.URL;
@@ -57,20 +58,20 @@ public class LearningActivity implements Serializable {
 	@Column(name = "activity_link")
 	private String activityLink;
 
-	@NotBlank(message="Activity level should be Beginner/Intermediate/Expert")
+	@Null(message="Activity level should be Beginner/Intermediate/Expert")
 	@Size(min=6)
 	@Column(name = "activity_level")
 	private String activityLevel;
 
-	@NotNull(message="Please provide activity duration in hours")
+	@Null(message="Please provide activity duration in hours")
 	@Column(name = "activity_time")
 	private Double activityTime;
 
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	@NotNull(message="Please provide a date in yyyy-MM-dd format")
+	@Null(message="Please provide a date in yyyy-MM-dd format")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "activity_realsedate")
-	private Date activityRealseDate;
+	private Date activityReleaseDate;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "assesment_id", nullable = true)

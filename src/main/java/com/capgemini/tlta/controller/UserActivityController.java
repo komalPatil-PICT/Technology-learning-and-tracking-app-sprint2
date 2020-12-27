@@ -1,5 +1,7 @@
 package com.capgemini.tlta.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -89,7 +91,7 @@ public class UserActivityController {
 			httpMethod = "POST")
 
 	@PostMapping("/")
-	public String addUserLearningActivity(@RequestBody UserActivityDO userActivityDo) {
+	public String addUserLearningActivity(@Valid @RequestBody UserActivityDO userActivityDo) {
 		try {
 			UserActivity status = userActivityService.userRegisterToLearningActivity(userActivityDo);
 			if (status != null) {

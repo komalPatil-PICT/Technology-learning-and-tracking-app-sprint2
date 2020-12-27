@@ -14,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -45,18 +46,18 @@ public class Assessment implements Serializable {
 	@Column(name = "assesment_name")
 	private String assessmentName;
 
-	@NotBlank(message="Assessment type should be MCQ/Written Test/Coding")
+	@Null(message="Assessment type should be MCQ/Written Test/Coding")
 	@Size(min=3)
 	@Column(name = "assesment_type")
 	private String assessmentType;
 
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	@NotNull(message="Please provide a date in yyyy-MM-dd format")
+	@Null(message="Please provide a date in yyyy-MM-dd format")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "assesment_release_date")
 	private Date assessmentReleaseDate;
 
-	@NotNull(message="Please provide a duration in hours")
+	@Null(message="Please provide a duration in hours")
 	@Column(name = "assesment_time_duration")
 	private Double assessmentTimeDuration;
 

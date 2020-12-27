@@ -121,23 +121,7 @@ public class LearningActivityController {
 //			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 //		}
 //	}
-
-	
-	/**
-	 * Adds the learning activity with assessment.
-	 *
-	 * @param learningActivity the learning activity
-	 * @param id the id
-	 * @return the string
-	 */
-	// http://localhost:8081/springfox/api/learningActivity/
-	@ApiOperation(value = "Add a learning activity", 
-			response = LearningActivity.class, 
-			tags = "get-learningActivity", 
-			consumes = "receives learningActivity object as request body", 
-			httpMethod = "POST")
-
-	/**
+/**
 	 * Delete assessment.
 	 *
 	 * @param id the id

@@ -52,6 +52,7 @@ public class AssessmentControllerIntegrationTest {
 	@Test
 	public void whenPostAssessment_thenCreateAssessment() throws Exception {
 		Assessment jpa = new Assessment("jpa");
+		
 		given(service.addAssessmentActivity(Mockito.any())).willReturn(jpa);
 
 		mvc.perform(post("/api/assessments/")
