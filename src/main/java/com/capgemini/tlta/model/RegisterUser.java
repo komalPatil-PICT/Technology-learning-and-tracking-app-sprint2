@@ -44,22 +44,22 @@ public class RegisterUser {
 	@Column(name = "first_name")
 	private String firstName;
 	
-	@Null
+	//@Null
 	@Size(min=2, message="Last name should have atleast 2 characters!")
 	@Column(name = "last_name")
 	private String lastName;
 	
-	@Null
+	//@Null
 	@Email(message="Email format invalid!")
 	@Column(name = "email")
 	private String emailId;
 	
-	@Null
+	//@Null
 	@Pattern(regexp="^[A-Za-z_0-9@#$%]{6,12}",message="Password must be 6 characters")
 	@Column(name = "password")
 	private String password;
 	
-	@Null
+	//@Null
 	@Column(name = "role")
 	@Enumerated(EnumType.STRING)
 	private Role role;

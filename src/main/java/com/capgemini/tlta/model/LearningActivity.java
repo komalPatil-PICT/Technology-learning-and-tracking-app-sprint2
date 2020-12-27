@@ -58,17 +58,17 @@ public class LearningActivity implements Serializable {
 	@Column(name = "activity_link")
 	private String activityLink;
 
-	@Null(message="Activity level should be Beginner/Intermediate/Expert")
+	//@Null(message="Activity level should be Beginner/Intermediate/Expert")
 	@Size(min=6)
 	@Column(name = "activity_level")
 	private String activityLevel;
 
-	@Null(message="Please provide activity duration in hours")
+	//@Null(message="Please provide activity duration in hours")
 	@Column(name = "activity_time")
 	private Double activityTime;
 
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	@Null(message="Please provide a date in yyyy-MM-dd format")
+	//@Null(message="Please provide a date in yyyy-MM-dd format")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "activity_realsedate")
 	private Date activityReleaseDate;

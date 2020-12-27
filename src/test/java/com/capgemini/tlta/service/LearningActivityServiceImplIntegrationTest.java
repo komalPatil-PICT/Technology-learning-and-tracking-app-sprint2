@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.capgemini.tlta.exception.ActivityException;
@@ -23,7 +24,7 @@ import com.capgemini.tlta.repository.AssessmentActivityRepository;
 import com.capgemini.tlta.repository.LearningActivityRepository;
 import com.capgemini.tlta.sevice.LearningActivityService;
 import com.capgemini.tlta.sevice.LearningActivityServiceImpl;
-
+@DirtiesContext
 @ExtendWith(SpringExtension.class)
 public class LearningActivityServiceImplIntegrationTest {
 	@TestConfiguration

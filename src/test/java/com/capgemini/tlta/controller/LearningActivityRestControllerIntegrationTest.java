@@ -25,6 +25,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -33,7 +34,7 @@ import com.capgemini.tlta.model.LearningActivity;
 import com.capgemini.tlta.repository.AssessmentActivityRepository;
 import com.capgemini.tlta.repository.LearningActivityRepository;
 import com.capgemini.tlta.sevice.LearningActivityDO;
-
+@DirtiesContext
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TechnologyLearningAndTrackingAppSprint2Application.class)
 @AutoConfigureMockMvc
@@ -45,26 +46,29 @@ public class LearningActivityRestControllerIntegrationTest {
 
 	@Autowired
 	private AssessmentActivityRepository repository;
-	
+
 	@Autowired
 	private LearningActivityRepository learningRepository;
-	
+
 	@BeforeEach
 	public void resetDb() {
 		learningRepository.deleteAll();
 		repository.deleteAll();
 	}
-//	TODO	
+//	TODO
 //	@Test
 //	public void whenValidInput_thenCreateLearningActivity() throws IOException, Exception {
-//		LearningActivity java = new LearningActivity("Java");
-//		mvc.perform(post("/api/learningActivity/")
+//		LearningActivityDO java = new LearningActivityDO("Java");
+//		LearningActivity java1 = new LearningActivity(java);
+//	
+//		mvc.perform(
+//				post("/api/learningActivity/")
 //				.contentType(MediaType.APPLICATION_JSON)
-//				.content(JsonUtil.toJson(java)));
+//				.content(JsonUtil.toJson(java1)));
 //
 //		List<LearningActivity> found = learningRepository.findAll();
-//		assertThat(found)
-//		.extracting(LearningActivity::getActivityName).containsOnly("Java");
+//		assertThat(found).extracting(LearningActivity::getActivityName)
+//		.containsOnly("Java");
 //	}
 
 	@Test

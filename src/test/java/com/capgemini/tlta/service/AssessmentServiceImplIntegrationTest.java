@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.capgemini.tlta.exception.AssesmentException;
@@ -21,7 +22,7 @@ import com.capgemini.tlta.model.Assessment;
 import com.capgemini.tlta.repository.AssessmentActivityRepository;
 import com.capgemini.tlta.sevice.AssessmentActivityService;
 import com.capgemini.tlta.sevice.AssessmentActivityServiceImpl;
-
+@DirtiesContext
 @ExtendWith(SpringExtension.class)
 public class AssessmentServiceImplIntegrationTest {
 

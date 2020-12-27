@@ -23,6 +23,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -31,7 +32,7 @@ import com.capgemini.tlta.model.LearningActivity;
 import com.capgemini.tlta.sevice.AssessmentActivityService;
 import com.capgemini.tlta.sevice.LearningActivityDO;
 import com.capgemini.tlta.sevice.LearningActivityService;
-
+@DirtiesContext
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TechnologyLearningAndTrackingAppSprint2Application.class)
 @AutoConfigureMockMvc
@@ -48,24 +49,25 @@ public class LearningActivityControllerIntegrationTest {
 	@MockBean
 	private LearningActivityDO learningActivityDo; 
 	
-// 	TODO 
-//	@Test
-//	public void whenPostLearningActivity_thenCreateLearningActivity() throws Exception {
-//		LearningActivityDO java = new LearningActivityDO();
-//		java.setActivityName("Java");
-//		LearningActivity java1 = new LearningActivity(java);
-//	
-//		given(service.addLearningActivityWithAssessment(Mockito.any())).willReturn(java1);
-//
-//		mvc.perform(post("/api/learningActivity/")
-//				.contentType(MediaType.APPLICATION_JSON)
-//				.content(JsonUtil.toJson(java)))
-//				.andExpect(status().isOk())
-//				.andExpect(jsonPath("$.activityName", is("Java")));
-//
-//		verify(service, VerificationModeFactory.times(1)).addLearningActivity(Mockito.any());
-//		reset(service);
-//	}
+ 	
+	@Test
+	public void whenPostLearningActivity_thenCreateLearningActivity() throws Exception {
+		LearningActivityDO java = new LearningActivityDO("Java");
+		
+		LearningActivity java1 = new LearningActivity(java);
+	
+		given(service.addLearningActivityWithAssessment(Mockito.any())).willReturn(java1);
+
+		mvc.perform(post("/api/learningActivity/")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(JsonUtil.toJson(java1)))
+				.andExpect(status().isOk())
+				.andExpect(jsonPath("$.activityName", is("Java")));
+
+		verify(service, VerificationModeFactory.times(1))
+		.addLearningActivityWithAssessment(Mockito.any());
+		reset(service);
+	}
 	
 	@Test
 	public void givenLearningActivities_whenGetLearningActivities_thenReturnJsonArray() throws Exception {
