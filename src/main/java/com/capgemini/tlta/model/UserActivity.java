@@ -55,4 +55,9 @@ public class UserActivity {
 		status = userDo.getStatus();
 		certificate = userDo.getCertificate();
 	}
+
+
+	public UserActivity(String status) {
+		this.status=status;
+	}
 }
