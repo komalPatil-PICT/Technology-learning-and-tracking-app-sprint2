@@ -30,13 +30,13 @@ public class UserActivityServiceImpl implements UserActivityService {
 	
 //	@Override
 //	public Integer uploadCerificate(String filePath, Integer userId, Integer activityId) throws ActivityException {
-//		// TODO Auto-generated method stub
+//		
 //		return null;
 //	}
 //
 //	@Override
 //	public UserActivity updateStatus(UserActivity userActivity, String status) throws ActivityException {
-//		// TODO Auto-generated method stub
+//		
 //		return null;
 //	}
 

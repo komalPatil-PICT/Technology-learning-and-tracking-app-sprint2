@@ -5,7 +5,7 @@ public class UserActivityDaoImpl{
 //	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("technology-learning-and-tracking-app");
 //	private RegisterUserDao loginDao = new RegisterUserDaoImpl();
 //	private LearningActivityDao learningActivityDao = new LearningActivityDaoImpl();
-//	//TODO this methode is not working
+
 //	
 //	public Integer uploadCerificate(String filePath,Integer userId,Integer activityId) throws PersistenceException {
 //		EntityManager em = emf.createEntityManager();

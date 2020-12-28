@@ -36,7 +36,7 @@ public class RegisterUserDaoImpl{
 
 	
 	public RegisterUser getUserById(Integer id) throws PersistenceException {
-		// TODO Auto-generated method stub
+		
 		EntityManager entityManager=emf.createEntityManager();
 		try {
 
@@ -72,7 +72,7 @@ public class RegisterUserDaoImpl{
 	}
 	
 	public Integer deleteUser(Integer id) throws PersistenceException {
-		// TODO Auto-generated method stub
+		
 		EntityManager entityManager=emf.createEntityManager();
 		try {
 			entityManager.getTransaction().begin();
@@ -93,7 +93,7 @@ public class RegisterUserDaoImpl{
 
 	
 	public RegisterUser updatePassword(RegisterUser login, String firstName, String lastName) throws PersistenceException {
-		// TODO Auto-generated method stub
+		
 		EntityManager entityManager=emf.createEntityManager();
 		try {
 			entityManager.getTransaction().begin();
@@ -114,7 +114,7 @@ public class RegisterUserDaoImpl{
 
 	
 	public RegisterUser updateFirstName(RegisterUser login) throws PersistenceException {
-		// TODO Auto-generated method stub
+		
 		EntityManager entityManager=emf.createEntityManager();
 		try {
 			entityManager.getTransaction().begin();
@@ -136,7 +136,7 @@ public class RegisterUserDaoImpl{
 
 	
 	public RegisterUser updateLastName(RegisterUser login) throws PersistenceException {
-		// TODO Auto-generated method stub
+		
 		EntityManager entityManager=emf.createEntityManager();
 		try {
 			entityManager.getTransaction().begin();
@@ -157,7 +157,7 @@ public class RegisterUserDaoImpl{
 	}
 	
 	public RegisterUser updatePassword(RegisterUser login) throws PersistenceException {
-		// TODO Auto-generated method stub
+		
 		EntityManager entityManager=emf.createEntityManager();
 		try {
 			entityManager.getTransaction().begin();
@@ -178,7 +178,7 @@ public class RegisterUserDaoImpl{
 
 	
 	public List<RegisterUser> getAllRegisteredUser() throws PersistenceException {
-		// TODO Auto-generated method stub
+		
 		EntityManager entityManager=emf.createEntityManager();
 
 		String jql= "From RegisterUser a";
