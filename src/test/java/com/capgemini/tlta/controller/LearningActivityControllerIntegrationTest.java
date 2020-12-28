@@ -13,6 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -32,7 +33,10 @@ import com.capgemini.tlta.model.LearningActivity;
 import com.capgemini.tlta.sevice.AssessmentActivityService;
 import com.capgemini.tlta.sevice.LearningActivityDO;
 import com.capgemini.tlta.sevice.LearningActivityService;
-@DirtiesContext
+
+/**
+ * The Class LearningActivityControllerIntegrationTest.
+ */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TechnologyLearningAndTrackingAppSprint2Application.class)
 @AutoConfigureMockMvc
@@ -49,7 +53,20 @@ public class LearningActivityControllerIntegrationTest {
 	@MockBean
 	private LearningActivityDO learningActivityDo; 
 	
- 	
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
+	@BeforeEach
+    public void setUp() throws Exception {
+    }
+	
+	/**
+	 * When post learning activity then create learning activity.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
 	public void whenPostLearningActivity_thenCreateLearningActivity() throws Exception {
 		LearningActivityDO java = new LearningActivityDO("Java");
@@ -69,6 +86,11 @@ public class LearningActivityControllerIntegrationTest {
 		reset(service);
 	}
 	
+	/**
+	 * Given learning activities when get learning activities then return json array.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
 	public void givenLearningActivities_whenGetLearningActivities_thenReturnJsonArray() throws Exception {
 		LearningActivity java = new LearningActivity("java");

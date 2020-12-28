@@ -72,13 +72,13 @@ public class UserActivityController {
 	 * @param learningActivity the learning activity
 	 * @return the string
 	 */
-	// http://localhost:8081/springfox/api/userActivity/
 	@ApiOperation(value = "Add a User Activity", 
 			response = String.class, 
 			tags = "add-User-Activity", 
 			consumes = "receives UserActivity object as request body", 
 			httpMethod = "POST")
-
+	
+	// http://localhost:8081/springfox/api/userActivity/
 	@PostMapping("/")
 	public String addUserLearningActivity(@Valid @RequestBody UserActivityDO userActivityDo) {
 		try {
@@ -99,12 +99,12 @@ public class UserActivityController {
 	 *
 	 * @return the all user activity
 	 */
-	// http://localhost:8081/springfox/api/userActivity
 	@ApiOperation(value = "Get All User Activity", 
 			response = List.class, 
 			tags = "get-All-Use-Activity", 
 			httpMethod = "GET")
-
+	
+	// http://localhost:8081/springfox/api/userActivity
 	@GetMapping("/")
 	public ResponseEntity<List<UserActivity>> getAllUserActivity() {
 		try {
@@ -115,13 +115,19 @@ public class UserActivityController {
 		}
 	}
 	
+	/**
+	 * Delete user activity.
+	 *
+	 * @param id the id
+	 * @return the string
+	 */
 	@ApiOperation(value = "Delete UserActivity By Id",
 			response = String.class,
 			tags = "delete-user-activity",
 			consumes = "User Activity Id",
-			httpMethod = "DELETE") 
-	@DeleteMapping("/{id}")
+			httpMethod = "DELETE")
 	//http://localhost:8081/springfox/api/userActivity/1
+	@DeleteMapping("/{id}")
 	public String deleteUserActivity(@PathVariable Integer id) {
 		try {
 			Integer status = userActivityService.deleteUserActivityById(id);
@@ -136,13 +142,21 @@ public class UserActivityController {
 		}
 	}
 	
+	/**
+	 * Upload to DB.
+	 *
+	 * @param file the file
+	 * @param id the id
+	 * @return the string
+	 */
 	@ApiOperation(value = "Upload Certificate By userActivityId", 
 			response = String.class, 
 			tags = "Upload-certificate", 
 			consumes = "multipart file and userActivityId", 
 			httpMethod = "PUT")
-	@PutMapping("/upload/{id}")
 	//http://localhost:8081/springfox/api/userActivity/upload/1
+	
+	@PutMapping("/upload/{id}")
 	public String uploadToDB(@RequestParam("file") MultipartFile file, @PathVariable Integer id) {
 		try {
 			boolean isUploaded = userActivityService.uploadCerificate(file, id);
@@ -159,13 +173,19 @@ public class UserActivityController {
 		}
 	}
 	
+	/**
+	 * Download from DB.
+	 *
+	 * @param id the id
+	 * @return the response entity
+	 */
 	@ApiOperation(value = "Download certificate By userActivityId", 
 			response = ResponseEntity.class, 
 			tags = "Download-Certificate", 
 			consumes = "UserActivityId", 
 			httpMethod = "GET")
-	@GetMapping("/download/{id}")
 	//http://localhost:8081/springfox/api/userActivity/download/1
+	@GetMapping("/download/{id}")
 	public ResponseEntity downloadFromDB(@PathVariable Integer id) {
 		
 		try {

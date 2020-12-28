@@ -138,6 +138,7 @@ public class RegisterUserController {
 			tags = "update user first name",
 			consumes = "User id and first name sents as response body",
 			httpMethod = "PUT") 
+
 	//http://localhost:8081/springfox/api/users/1/Komal/
 	@PutMapping("/{id}/{firstName}/")	
 	public ResponseEntity<RegisterUser> updateUserFirstName(@Valid @PathVariable Integer id, @PathVariable String firstName) {
@@ -151,13 +152,21 @@ public class RegisterUserController {
 	}
 
 	 
-	// http://localhost:8081/springfox/api/users/4/firstname/lastname/pass
-	// update user
+	/**
+	 * Update password.
+	 *
+	 * @param id the id
+	 * @param firstName the first name
+	 * @param lastName the last name
+	 * @param pass the pass
+	 * @return the string
+	 */
 	@ApiOperation(value = "Update User", 
 			response = String.class, 
 			tags = "update-User-password", 
 			consumes = "RegisterUser id, firstname, lastname, new password sents String as response body",
 			httpMethod = "PUT")
+	// http://localhost:8081/springfox/api/users/4/firstname/lastname/pass
 	@PutMapping("/{id}/{firstName}/{lastName}/{pass}/")
 	public String updatePassword(@Valid @PathVariable Integer id, @PathVariable String firstName,
 			@PathVariable String lastName,@PathVariable String pass) {

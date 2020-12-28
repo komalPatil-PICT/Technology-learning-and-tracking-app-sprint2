@@ -1,4 +1,5 @@
 package com.capgemini.tlta.sevice;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,26 +15,20 @@ import static com.capgemini.tlta.exception.AppConstants.WRONG_PASSWORD;
 
 import java.util.Optional;
 
-
 /**
- * 
- * @author Sandhya 
- *
+ * The Class LoginServiceImpl.
  */
-
-//@Service annotation is used to mark the class as a service provider
 @Service
 public class LoginServiceImpl implements LoginService {
 
-	// LoginServiceimpl should implement all the methods present in LoginService
-	// interface
-
-	@Autowired // To get a relation with User repository
+	@Autowired
 	private LoginRepository loginRepository;
 
-	// **************//
-	/*
-	 * signin the page by User using Id and the password
+	/**
+	 * Sign in.
+	 *
+	 * @param registerUser the register user
+	 * @return the string
 	 */
 	@Override
 	public String signIn(Login registerUser) {
@@ -57,14 +52,16 @@ public class LoginServiceImpl implements LoginService {
 		return str;
 	}
 
-	// **************//
-	/*
-	 * signout the page by User using Id and the password
+	/**
+	 * Sign out.
+	 *
+	 * @param registerUser the register user
+	 * @return the string
 	 */
 	@Override
 	public String signOut(LogOutPayload registerUser) {
 		String str = null;
-		Optional<RegisterUser> userObj = loginRepository.findById(1);
+		Optional<RegisterUser> userObj = loginRepository.findById(registerUser.getId());
 		if (!userObj.isPresent()) {
 			throw new ResourceNotFound(USER_NOT_FOUND);
 		} else {
@@ -78,10 +75,12 @@ public class LoginServiceImpl implements LoginService {
 		return str;
 	}
 
-
-	// **************//
-	/*
-	 * reset password of User
+	/**
+	 * Change password.
+	 *
+	 * @param registerUser the register user
+	 * @param new_password the new password
+	 * @return the string
 	 */
 	@Override
 	public String changePassword(Login registerUser, String new_password) {
@@ -91,7 +90,7 @@ public class LoginServiceImpl implements LoginService {
 			throw new ResourceNotFound(USER_NOT_FOUND);
 		} else {
 			String pwd = userObj.get().getPassword();
-			if (!pwd.equals(registerUser.getPassword())) {
+			if (pwd.equals(registerUser.getPassword())) {
 				throw new ResourceNotFound(WRONG_PASSWORD);
 			}
 			try {

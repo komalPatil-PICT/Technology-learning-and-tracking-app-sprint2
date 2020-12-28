@@ -13,6 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -33,11 +34,13 @@ import com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningA
 import com.capgemini.tlta.model.Assessment;
 import com.capgemini.tlta.model.RegisterUser;
 import com.capgemini.tlta.sevice.AssessmentActivityService;
-@DirtiesContext
+
+/**
+ * The Class AssessmentControllerIntegrationTest.
+ */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TechnologyLearningAndTrackingAppSprint2Application.class)
 @AutoConfigureMockMvc 
-@AutoConfigureTestDatabase(replace=Replace.NONE)
 public class AssessmentControllerIntegrationTest {
 	@Autowired
 	private MockMvc mvc;
@@ -45,6 +48,14 @@ public class AssessmentControllerIntegrationTest {
 	@MockBean
 	private AssessmentActivityService service;
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
+	@BeforeEach
+    public void setUp() throws Exception {
+    }
 	/**
 	 * When post assessment then create assessment.
 	 *
@@ -66,6 +77,11 @@ public class AssessmentControllerIntegrationTest {
 		reset(service);
 	}
 	
+	/**
+	 * Given assessments when get assessments then return json array.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
 	public void givenAssessments_whenGetAssessments_thenReturnJsonArray() throws Exception {
 		Assessment jpa = new Assessment("jpa");

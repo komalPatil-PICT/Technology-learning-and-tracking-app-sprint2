@@ -14,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.io.IOException;
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.MediaType;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -32,7 +31,10 @@ import com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningA
 import com.capgemini.tlta.model.Assessment;
 import com.capgemini.tlta.repository.AssessmentActivityRepository;
 import com.capgemini.tlta.repository.LearningActivityRepository;
-@DirtiesContext
+
+/**
+ * The Class AssessmentRestControllerIntegrationTest.
+ */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TechnologyLearningAndTrackingAppSprint2Application.class)
 @AutoConfigureMockMvc
@@ -47,12 +49,21 @@ public class AssessmentRestControllerIntegrationTest {
 	@Autowired
 	private LearningActivityRepository learningRepository;
 	
-	@BeforeEach
+	/**
+	 * Reset db.
+	 */
+	@AfterEach
 	public void resetDb() {
 		learningRepository.deleteAll();
 		repository.deleteAll();
 	}
 
+	/**
+	 * When valid input then create assessment.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 * @throws Exception the exception
+	 */
 	@Test
 	public void whenValidInput_thenCreateAssessment() throws IOException, Exception {
 		Assessment java = new Assessment("Java");
@@ -65,6 +76,11 @@ public class AssessmentRestControllerIntegrationTest {
 		.extracting(Assessment::getAssessmentName).containsOnly("Java");
 	}
 
+	/**
+	 * Given assessments when get assessments then status 200.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
 	public void givenAssessments_whenGetAssessments_thenStatus200() throws Exception {
 		createTestAssessment("Java");
@@ -78,6 +94,11 @@ public class AssessmentRestControllerIntegrationTest {
 
 	}
 
+	/**
+	 * Creates the test assessment.
+	 *
+	 * @param name the name
+	 */
 	private void createTestAssessment(String name) {
 		Assessment emp = new Assessment(name);
 		repository.saveAndFlush(emp);

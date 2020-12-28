@@ -158,23 +158,4 @@ public class AssessmentActivityController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
 		}
 	}
-	
-//	@ApiOperation(value = "Update Assessment by id",
-//			response = Assessment.class,
-//			tags = "update-Assessment",
-//			consumes = "Assessment object sents as response body",
-//			httpMethod = "PATCH") 
-//	@PatchMapping("/")
-//	public ResponseEntity<Assessment> updateAssessmentById(@RequestBody Assessment assessment,@PathVariable Integer id) {
-//		try {
-//			Assessment updatedAssessment= assessmentService.updateAssessmentActivityById(assessment,id);
-////			log.info("Product: "+ product.getProductId()+ " updated");
-//			return new ResponseEntity<>(updatedAssessment,HttpStatus.OK);
-//
-//		}catch(AssesmentException e) {
-////			log.error(e.getMessage());
-//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
-//		}
-//	}
-
 }

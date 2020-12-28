@@ -14,7 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.io.IOException;
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,28 +27,40 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application;
 import com.capgemini.tlta.model.RegisterUser;
 import com.capgemini.tlta.repository.RegisterUserRepository;
-@DirtiesContext
+
+/**
+ * The Class RegisterUserRestControllerIntegrationTest.
+ */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TechnologyLearningAndTrackingAppSprint2Application.class)
 @AutoConfigureMockMvc 
 @AutoConfigureTestDatabase(replace=Replace.NONE)
 public class RegisterUserRestControllerIntegrationTest {
-
     @Autowired
     private MockMvc mvc;
 
     @Autowired
     private RegisterUserRepository repository;
 
-    @BeforeEach
+    /**
+     * Reset db.
+     */
+    @AfterEach
     public void resetDb() {
         repository.deleteAll();
     }
 
+    /**
+     * When valid input then create register user.
+     *
+     * @throws IOException Signals that an I/O exception has occurred.
+     * @throws Exception the exception
+     */
     @Test
     public void whenValidInput_thenCreateRegisterUser() throws IOException, Exception {
     	RegisterUser alex = new RegisterUser("Alex");
@@ -59,6 +71,12 @@ public class RegisterUserRestControllerIntegrationTest {
         List<RegisterUser> found = repository.findAll();
         assertThat(found).extracting(RegisterUser::getFirstName).containsOnly("Alex");
     }
+    
+    /**
+     * Given register users when get register users then status 200.
+     *
+     * @throws Exception the exception
+     */
     @Test
     public void givenRegisterUsers_whenGetRegisterUsers_thenStatus200() throws Exception {
         createTestRegisterUser("Alex");
@@ -74,9 +92,14 @@ public class RegisterUserRestControllerIntegrationTest {
           .andExpect(jsonPath("$[1].firstName", is("Bob")));
         
     }
-
-   private void createTestRegisterUser(String name) {
-	   RegisterUser emp = new RegisterUser(name);
-        repository.saveAndFlush(emp);
-    }  
+    
+	/**
+	 * Creates the test register user.
+	 *
+	 * @param name the name
+	 */
+	private void createTestRegisterUser(String name) {
+		RegisterUser emp = new RegisterUser(name);
+		repository.saveAndFlush(emp);
+	}
 }

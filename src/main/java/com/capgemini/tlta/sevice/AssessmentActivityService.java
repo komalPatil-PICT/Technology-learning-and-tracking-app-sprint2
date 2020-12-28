@@ -9,7 +9,7 @@ import com.capgemini.tlta.model.Assessment;
  * The Interface AssessmentActivityService.
  */
 public interface AssessmentActivityService {
-	
+
 	/**
 	 * Adds the assessment activity.
 	 *
@@ -17,8 +17,8 @@ public interface AssessmentActivityService {
 	 * @return the assessment
 	 * @throws AssesmentException the assesment exception
 	 */
-	public Assessment addAssessmentActivity(Assessment assessmentActivity) throws AssesmentException; 
-	
+	public Assessment addAssessmentActivity(Assessment assessmentActivity) throws AssesmentException;
+
 	/**
 	 * Search assessment activity by id.
 	 *
@@ -27,7 +27,7 @@ public interface AssessmentActivityService {
 	 * @throws AssesmentException the assesment exception
 	 */
 	public Assessment searchAssessmentActivityById(Integer id) throws AssesmentException;
-	
+
 	/**
 	 * Delete assessment activity.
 	 *
@@ -36,8 +36,15 @@ public interface AssessmentActivityService {
 	 * @throws AssesmentException the assesment exception
 	 */
 	public Integer deleteAssessmentActivity(Integer id) throws AssesmentException;
-	public List<Assessment> getAllAssessmentActivity() throws AssesmentException; 
-	
+
+	/**
+	 * Gets the all assessment activity.
+	 *
+	 * @return the all assessment activity
+	 * @throws AssesmentException the assesment exception
+	 */
+	public List<Assessment> getAllAssessmentActivity() throws AssesmentException;
+
 	/**
 	 * Update assessment activity.
 	 *
@@ -46,5 +53,5 @@ public interface AssessmentActivityService {
 	 * @throws AssesmentException the assesment exception
 	 */
 	public Assessment updateAssessmentActivity(Assessment assessmentActivity) throws AssesmentException;
-  
+
 }

@@ -1,13 +1,17 @@
 package com.capgemini.tlta.exception;
 
+/**
+ * The Class ResourceNotFound.
+ */
 public class ResourceNotFound extends RuntimeException {
-
-	 /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	public ResourceNotFound(String message){
-	        super(message);
-	    }
+	/**
+	 * Instantiates a new resource not found.
+	 *
+	 * @param message the message
+	 */
+	public ResourceNotFound(String message) {
+		super(message);
+	}
 }

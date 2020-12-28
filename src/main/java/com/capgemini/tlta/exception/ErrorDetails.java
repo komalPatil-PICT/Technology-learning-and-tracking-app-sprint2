@@ -1,11 +1,21 @@
 package com.capgemini.tlta.exception;
 import java.util.Date;
 
+/**
+ * The Class ErrorDetails.
+ */
 public class ErrorDetails {
 	private Date timestamp;
 	private String message;
 	private String details;
 	
+	/**
+	 * Instantiates a new error details.
+	 *
+	 * @param timestamp the timestamp
+	 * @param message the message
+	 * @param details the details
+	 */
 	public ErrorDetails(Date timestamp, String message, String details) {
 		super();
 		this.timestamp = timestamp;

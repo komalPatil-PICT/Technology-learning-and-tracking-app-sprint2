@@ -24,9 +24,7 @@ import com.capgemini.tlta.model.Assessment;
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { TechnologyLearningAndTrackingAppSprint2Application.class })
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-
 @DataJpaTest
-@DirtiesContext
 public class AssessmentActivityRepositoryIntegrationTest {
 	@Autowired
 	private TestEntityManager entityManager;
@@ -37,11 +35,11 @@ public class AssessmentActivityRepositoryIntegrationTest {
 	@Autowired
 	private LearningActivityRepository learningRepository;
 	
-	@BeforeEach
-	public void resetDb() {
-		learningRepository.deleteAll();
-		assessmentActivityRepository.deleteAll();
-	}
+//	@BeforeEach
+//	public void resetDb() {
+//		learningRepository.deleteAll();
+//		assessmentActivityRepository.deleteAll();
+//	}
 
 	@Test
 	public void whenFindById_thenReturnUser() {

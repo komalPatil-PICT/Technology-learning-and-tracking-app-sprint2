@@ -87,7 +87,6 @@ public class LearningActivityController {
 	 * @return the string
 	 */
 	// http://localhost:8081/springfox/api/learningActivity/
-
 	@ApiOperation(value = "Add a learning activity", 
 			response = LearningActivity.class, 
 			tags = "get-learningActivity", 
@@ -105,23 +104,8 @@ public class LearningActivityController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
-//	@ApiOperation(value = "Add a learning activity", 
-//			response = LearningActivity.class, 
-//			tags = "get-learningActivity", 
-//			consumes = "receives learningActivity object as request body", 
-//			httpMethod = "POST")
-//
-//	@PostMapping("/")
-//	public LearningActivity addLearningActivity(@RequestBody LearningActivity learningActivity) {
-//		LearningActivity status = null;
-//		try {
-//			status = learningService.addLearningActivity(learningActivity);
-//			return status;
-//			} catch (ActivityException e) {
-//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-//		}
-//	}
-/**
+
+	/**
 	 * Delete assessment.
 	 *
 	 * @param id the id
@@ -161,6 +145,7 @@ public class LearningActivityController {
 			tags = "update-learning-activity", 
 			consumes = "learningActivity object sents as response body", 
 			httpMethod = "PUT")
+	
 	@PutMapping("/")
 	public ResponseEntity<LearningActivity> updateAssessment(@Valid @RequestBody LearningActivity learningActivity) {
 		try {

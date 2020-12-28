@@ -1,20 +1,15 @@
 package com.capgemini.tlta.controller;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.io.IOException;
-import java.util.List;
-
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +18,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -33,13 +26,14 @@ import com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningA
 import com.capgemini.tlta.model.LearningActivity;
 import com.capgemini.tlta.repository.AssessmentActivityRepository;
 import com.capgemini.tlta.repository.LearningActivityRepository;
-import com.capgemini.tlta.sevice.LearningActivityDO;
-@DirtiesContext
+
+/**
+ * The Class LearningActivityRestControllerIntegrationTest.
+ */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TechnologyLearningAndTrackingAppSprint2Application.class)
 @AutoConfigureMockMvc
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-
 public class LearningActivityRestControllerIntegrationTest {
 	@Autowired
 	private MockMvc mvc;
@@ -50,27 +44,20 @@ public class LearningActivityRestControllerIntegrationTest {
 	@Autowired
 	private LearningActivityRepository learningRepository;
 
-	@BeforeEach
+	/**
+	 * Reset db.
+	 */
+	@AfterEach
 	public void resetDb() {
 		learningRepository.deleteAll();
 		repository.deleteAll();
 	}
-//	TODO
-//	@Test
-//	public void whenValidInput_thenCreateLearningActivity() throws IOException, Exception {
-//		LearningActivityDO java = new LearningActivityDO("Java");
-//		LearningActivity java1 = new LearningActivity(java);
-//	
-//		mvc.perform(
-//				post("/api/learningActivity/")
-//				.contentType(MediaType.APPLICATION_JSON)
-//				.content(JsonUtil.toJson(java1)));
-//
-//		List<LearningActivity> found = learningRepository.findAll();
-//		assertThat(found).extracting(LearningActivity::getActivityName)
-//		.containsOnly("Java");
-//	}
 
+	/**
+	 * Given learning activities when get learning activities then status 200.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
 	public void givenLearningActivities_whenGetLearningActivities_thenStatus200() throws Exception {
 		createTestLearningActivity("Java");
@@ -84,6 +71,11 @@ public class LearningActivityRestControllerIntegrationTest {
 
 	}
 
+	/**
+	 * Creates the test learning activity.
+	 *
+	 * @param name the name
+	 */
 	private void createTestLearningActivity(String name) {
 		LearningActivity emp = new LearningActivity(name);
 		learningRepository.saveAndFlush(emp);

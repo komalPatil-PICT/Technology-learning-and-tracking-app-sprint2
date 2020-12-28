@@ -89,8 +89,8 @@ public class LearningActivity implements Serializable {
 		this.activityTime = learningDo.getActivityTime();
 	}
 	
-	public LearningActivity(String activity_name) {
-		this.activityName = activity_name;
+	public LearningActivity(String activityName) {
+		this.activityName = activityName;
 	}
 	
 	/**

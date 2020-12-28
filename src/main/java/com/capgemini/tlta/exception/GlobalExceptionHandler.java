@@ -8,9 +8,19 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 
+/**
+ * The Class GlobalExceptionHandler.
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+	/**
+	 * Resource not found handling.
+	 *
+	 * @param exception the exception
+	 * @param request the request
+	 * @return the response entity
+	 */
 	// handling specific exception
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<?> resourceNotFoundHandling(ResourceNotFoundException exception, WebRequest request){
@@ -19,8 +29,13 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
 	}
 
-	// handling global exception
-	
+	/**
+	 * Global exception handling.
+	 *
+	 * @param exception the exception
+	 * @param request the request
+	 * @return the response entity
+	 */
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<?> globalExceptionHandling(Exception exception, WebRequest request){
 		ErrorDetails errorDetails = 
@@ -28,6 +43,12 @@ public class GlobalExceptionHandler {
 		return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
+	/**
+	 * Custom validation error handling.
+	 *
+	 * @param exception the exception
+	 * @return the response entity
+	 */
 	//handling custome exception
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<?> customValidationErrorHandling(MethodArgumentNotValidException exception ){

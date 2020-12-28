@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.tlta.exception.BaseResponse;
+import com.capgemini.tlta.model.Assessment;
 import com.capgemini.tlta.model.LogOutPayload;
 import com.capgemini.tlta.model.Login;
 import com.capgemini.tlta.sevice.LoginService;
@@ -16,24 +17,25 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
- * 
- * @author Sandhya
- *
+ * The Class LoginController.
  */
-
 @RestController
-
 @RequestMapping("/api/Login")
 @Api(value = "RegisterUser")
 public class LoginController {
 
-
-
 	@Autowired 
 	private LoginService loginService;
 
-	@PostMapping("/login") 
+	/**
+	 * Sign in.
+	 *
+	 * @param registerUser the register user
+	 * @return the response entity
+	 */
+	//http://localhost:8081/springfox/api/Login
 	@ApiOperation(value = "SignIn")
+	@PostMapping("/login")
 	public ResponseEntity<?> signIn( @RequestBody Login registerUser) {
 		String str = loginService.signIn(registerUser);
 		BaseResponse baseResponse = new BaseResponse();
@@ -42,7 +44,12 @@ public class LoginController {
 		return new ResponseEntity<>(baseResponse, HttpStatus.OK);
 	}
 
-
+	/**
+	 * Sign out.
+	 *
+	 * @param registerUser the register user
+	 * @return the response entity
+	 */
 
 	@PostMapping("/logout") 
 	@ApiOperation(value = "SignOut")
@@ -54,8 +61,13 @@ public class LoginController {
 		return new ResponseEntity<>(baseResponse, HttpStatus.OK);
 	}
 
-
-
+	/**
+	 * Change password.
+	 *
+	 * @param registerUser the register user
+	 * @param new_password the new password
+	 * @return the response entity
+	 */
 	@PostMapping("/reset")
 	@ApiOperation(value = "Reset Password")
 	public ResponseEntity<?> changePassword( @RequestBody Login registerUser, String new_password) {
@@ -65,7 +77,5 @@ public class LoginController {
 		baseResponse.setResponse(str);
 		return new ResponseEntity<>(baseResponse, HttpStatus.OK);
 	}
-
-
 
 }

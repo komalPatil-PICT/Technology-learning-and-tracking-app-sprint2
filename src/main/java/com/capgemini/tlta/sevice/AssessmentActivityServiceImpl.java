@@ -1,4 +1,5 @@
 package com.capgemini.tlta.sevice;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -14,13 +15,13 @@ import com.capgemini.tlta.repository.AssessmentActivityRepository;
 /**
  * The Class AssessmentActivityServiceImpl.
  */
-@Service( value = "assessmentActivityService")
+@Service(value = "assessmentActivityService")
 @Transactional
-public class AssessmentActivityServiceImpl implements AssessmentActivityService{
-	
+public class AssessmentActivityServiceImpl implements AssessmentActivityService {
+
 	@Autowired
 	AssessmentActivityRepository assessmentActivityRepository;
-	
+
 	/**
 	 * Adds the assessment activity.
 	 *
@@ -30,19 +31,18 @@ public class AssessmentActivityServiceImpl implements AssessmentActivityService{
 	 */
 	@Override
 	public Assessment addAssessmentActivity(Assessment assessmentActivity) throws AssesmentException {
-		
+
 		try {
 			Assessment assessment = new Assessment();
 			assessment = assessmentActivityRepository.save(assessmentActivity);
 			return assessment;
-		}catch(DataAccessException e) {
-			throw new AssesmentException(e.getMessage(),e);
-		}catch(Exception e) {
-			throw new AssesmentException(e.getMessage(),e);
+		} catch (DataAccessException e) {
+			throw new AssesmentException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new AssesmentException(e.getMessage(), e);
 		}
 
 	}
-	
 
 	/**
 	 * Search assessment activity by id.
@@ -53,23 +53,21 @@ public class AssessmentActivityServiceImpl implements AssessmentActivityService{
 	 */
 	@Override
 	public Assessment searchAssessmentActivityById(Integer id) throws AssesmentException {
-		
+
 		try {
-			Optional<Assessment> optional= 
-					assessmentActivityRepository.findById(id);
-			if(optional.isPresent()) {
+			Optional<Assessment> optional = assessmentActivityRepository.findById(id);
+			if (optional.isPresent()) {
 				System.out.println(optional.get());
 				return optional.get();
-			}else {
+			} else {
 				return null;
-			}			
-		}catch(DataAccessException e) {
-			throw new AssesmentException(e.getMessage(),e);
-		}catch(Exception e) {
-			throw new AssesmentException(e.getMessage(),e);
+			}
+		} catch (DataAccessException e) {
+			throw new AssesmentException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new AssesmentException(e.getMessage(), e);
 		}
 	}
-	
 
 	/**
 	 * Delete assessment activity.
@@ -83,23 +81,22 @@ public class AssessmentActivityServiceImpl implements AssessmentActivityService{
 		try {
 			assessmentActivityRepository.deleteById(id);
 			return 1;
-		}catch(DataAccessException e) {
-			throw new AssesmentException(e.getMessage(),e);
-		}catch(Exception e) {
-			throw new AssesmentException(e.getMessage(),e);
+		} catch (DataAccessException e) {
+			throw new AssesmentException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new AssesmentException(e.getMessage(), e);
 		}
 	}
 
 	@Override
 	public List<Assessment> getAllAssessmentActivity() throws AssesmentException {
 		try {
-			List<Assessment>assessementList=
-					assessmentActivityRepository.findAll();
+			List<Assessment> assessementList = assessmentActivityRepository.findAll();
 			return assessementList;
-		}catch(DataAccessException e) {
-			throw new AssesmentException(e.getMessage(),e);
-		}catch(Exception e) {
-			throw new AssesmentException(e.getMessage(),e);
+		} catch (DataAccessException e) {
+			throw new AssesmentException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new AssesmentException(e.getMessage(), e);
 		}
 	}
 
@@ -113,18 +110,13 @@ public class AssessmentActivityServiceImpl implements AssessmentActivityService{
 	@Override
 	public Assessment updateAssessmentActivity(Assessment assessmentActivity) throws AssesmentException {
 		try {
-			Assessment p= 
-					assessmentActivityRepository.save(assessmentActivity);
+			Assessment p = assessmentActivityRepository.save(assessmentActivity);
 			return p;
-		}catch(DataAccessException e) {
-			throw new AssesmentException(e.getMessage(),e);
-		}catch(Exception e) {
-			throw new AssesmentException(e.getMessage(),e);
+		} catch (DataAccessException e) {
+			throw new AssesmentException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new AssesmentException(e.getMessage(), e);
 		}
 	}
 
-	}
-	
-	
-	
-
+}

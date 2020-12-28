@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.capgemini.tlta.exception.RegisterUserException;
@@ -22,12 +21,23 @@ import com.capgemini.tlta.repository.RegisterUserRepository;
 import com.capgemini.tlta.sevice.RegisterUserService;
 import com.capgemini.tlta.sevice.RegisterUserServiceImpl;
 
-@DirtiesContext
+/**
+ * The Class RegisterUserServiceImplIntegrationTest.
+ */
 @ExtendWith(SpringExtension.class)
 public class RegisterUserServiceImplIntegrationTest {
 
+	/**
+	 * The Class registerUserServiceImplTestContextConfiguration.
+	 */
 	@TestConfiguration
     static class registerUserServiceImplTestContextConfiguration {
+        
+        /**
+         * Register user service.
+         *
+         * @return the register user service
+         */
         @Bean
         public RegisterUserService registerUserService() {
             return new RegisterUserServiceImpl();
@@ -40,6 +50,9 @@ public class RegisterUserServiceImplIntegrationTest {
     @MockBean
     private RegisterUserRepository userRepository;
     
+    /**
+     * Sets up the test data source.
+     */
     @BeforeEach
     public void setUp() {
     	RegisterUser john = new RegisterUser("john");
@@ -54,6 +67,13 @@ public class RegisterUserServiceImplIntegrationTest {
         Mockito.when(userRepository.findAll()).thenReturn(users);
         Mockito.when(userRepository.findById(-99)).thenReturn(Optional.empty());
     }
+    
+    
+    /**
+     * When valid id then user should be found.
+     *
+     * @throws RegisterUserException the register user exception
+     */
     @Test
     public void whenValidId_thenUserShouldBeFound() throws RegisterUserException {
         RegisterUser fromDb = userService.getUserById(11);
@@ -62,6 +82,11 @@ public class RegisterUserServiceImplIntegrationTest {
         verifyFindByIdIsCalledOnce();
     }
     
+    /**
+     * When in valid id then user should not be found.
+     *
+     * @throws RegisterUserException the register user exception
+     */
     @Test
     public void whenInValidId_thenUserShouldNotBeFound() throws RegisterUserException {
         RegisterUser fromDb = userService.getUserById(-99);
@@ -69,6 +94,11 @@ public class RegisterUserServiceImplIntegrationTest {
         assertThat(fromDb).isNull();
     }
     
+    /**
+     * Given 3 users when get all then return 3 records.
+     *
+     * @throws RegisterUserException the register user exception
+     */
     @Test
     public void given3Users_whenGetAll_thenReturn3Records() throws RegisterUserException {
         RegisterUser alex = new RegisterUser("alex");
@@ -80,10 +110,18 @@ public class RegisterUserServiceImplIntegrationTest {
         assertThat(allUsers).hasSize(3).extracting(RegisterUser::getFirstName).contains(alex.getFirstName(), john.getFirstName(), bob.getFirstName());
     }
     
+    /**
+     * Verify find by id is called once.
+     */
     private void verifyFindByIdIsCalledOnce() {
         Mockito.verify(userRepository, VerificationModeFactory.times(1)).findById(Mockito.anyInt());
         Mockito.reset(userRepository);
     }
+    
+    
+    /**
+     * Verify find all users is called once.
+     */
     private void verifyFindAllUsersIsCalledOnce() {
         Mockito.verify(userRepository, VerificationModeFactory.times(1)).findAll();
         Mockito.reset(userRepository);

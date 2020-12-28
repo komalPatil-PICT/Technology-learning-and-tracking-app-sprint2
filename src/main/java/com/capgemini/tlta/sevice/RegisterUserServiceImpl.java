@@ -111,13 +111,13 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 	 * @throws RegisterUserException the register user exception
 	 */
 	@Override
-	public RegisterUser updatePassword(Integer id, String firstName, String lastName,String password)
+	public RegisterUser updatePassword(Integer id, String firstName, String lastName, String password)
 			throws RegisterUserException {
 		RegisterUser user = null;
 		try {
-			System.out.println(user+","+id);
+			System.out.println(user + "," + id);
 			user = userRepository.getOne(id);
-			
+
 			if (user.getFirstName().equals(firstName) && user.getLastName().equals(lastName)) {
 				user.setPassword(password);
 				user = userRepository.save(user);
@@ -153,7 +153,7 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 		} catch (Exception e) {
 			throw new RegisterUserException(e.getMessage(), e);
 		}
-		
+
 	}
 
 	/**

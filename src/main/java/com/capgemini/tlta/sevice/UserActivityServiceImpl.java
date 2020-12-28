@@ -19,22 +19,31 @@ import com.capgemini.tlta.repository.LearningActivityRepository;
 import com.capgemini.tlta.repository.RegisterUserRepository;
 import com.capgemini.tlta.repository.UserActivityRepository;
 
+/**
+ * The Class UserActivityServiceImpl.
+ */
 @Service(value = "userActivityService")
 @Transactional
 public class UserActivityServiceImpl implements UserActivityService {
 
 	@Autowired
 	LearningActivityRepository learningActivityRepository;
-	
+
 	@Autowired
 	RegisterUserRepository registerUserRepository;
-	
+
 	@Autowired
 	UserActivityRepository userActivityRepository;
-	
+
+	/**
+	 * User register to learning activity.
+	 *
+	 * @param userActivityDo the user activity do
+	 * @return the user activity
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
-	public UserActivity userRegisterToLearningActivity(UserActivityDO userActivityDo)
-			throws ActivityException {
+	public UserActivity userRegisterToLearningActivity(UserActivityDO userActivityDo) throws ActivityException {
 		LearningActivity learning = null;
 		RegisterUser register = null;
 		UserActivity user = new UserActivity(userActivityDo);
@@ -42,7 +51,7 @@ public class UserActivityServiceImpl implements UserActivityService {
 
 			learning = learningActivityRepository.getOne(userActivityDo.getLearningActivityId());
 			register = registerUserRepository.getOne(userActivityDo.getUserId());
-			
+
 			user.setLearningActivity(learning);
 			user.setRegisterUser(register);
 
@@ -55,28 +64,35 @@ public class UserActivityServiceImpl implements UserActivityService {
 		}
 	}
 
+	/**
+	 * Gets the user activity by id.
+	 *
+	 * @param id the id
+	 * @return the user activity by id
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public UserActivity getUserActivityById(Integer id) throws ActivityException {
 		try {
-			Optional<UserActivity> optional= 
-					userActivityRepository.findById(id);
-			if(optional.isPresent()) {
+			Optional<UserActivity> optional = userActivityRepository.findById(id);
+			if (optional.isPresent()) {
 				System.out.println(optional.get());
 				return optional.get();
-			}else {
+			} else {
 				return null;
-			}			
-		}catch(DataAccessException e) {
-			throw new ActivityException(e.getMessage(),e);
-		}catch(Exception e) {
-			throw new ActivityException(e.getMessage(),e);
+			}
+		} catch (DataAccessException e) {
+			throw new ActivityException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new ActivityException(e.getMessage(), e);
 		}
-		
+
 	}
+
 	@Override
 	public List<UserActivity> getAllUserActivities() throws ActivityException {
 		List<UserActivity> allActivities = null;
-		
+
 		try {
 			allActivities = userActivityRepository.findAll();
 			return allActivities;
@@ -87,6 +103,13 @@ public class UserActivityServiceImpl implements UserActivityService {
 		}
 	}
 
+	/**
+	 * Delete user activity by id.
+	 *
+	 * @param id the id
+	 * @return the integer
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public Integer deleteUserActivityById(Integer id) throws ActivityException {
 		try {
@@ -99,6 +122,14 @@ public class UserActivityServiceImpl implements UserActivityService {
 		}
 	}
 
+	/**
+	 * Upload cerificate.
+	 *
+	 * @param file the file
+	 * @param id the id
+	 * @return true, if successful
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public boolean uploadCerificate(MultipartFile file, Integer id) throws ActivityException {
 		boolean isUploaded = false;
@@ -106,14 +137,14 @@ public class UserActivityServiceImpl implements UserActivityService {
 			UserActivity activity = userActivityRepository.findById(id).get();
 			String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 			activity.setFile(file.getBytes());
-			
+
 			activity.setCertificate(fileName);
 			userActivityRepository.save(activity);
-			
+
 			isUploaded = true;
 		} catch (DataAccessException e) {
 			throw new ActivityException(e.getMessage(), e);
-		} catch(IOException e) {
+		} catch (IOException e) {
 			throw new ActivityException(e.getMessage(), e);
 		} catch (Exception e) {
 			throw new ActivityException(e.getMessage(), e);
@@ -121,6 +152,13 @@ public class UserActivityServiceImpl implements UserActivityService {
 		return isUploaded;
 	}
 
+	/**
+	 * Gets the certificate name by id.
+	 *
+	 * @param id the id
+	 * @return the certificate name by id
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public String getCertificateNameById(Integer id) throws ActivityException {
 		try {
@@ -134,6 +172,13 @@ public class UserActivityServiceImpl implements UserActivityService {
 		}
 	}
 
+	/**
+	 * Gets the certificate by id.
+	 *
+	 * @param id the id
+	 * @return the certificate by id
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public byte[] getCertificateById(Integer id) throws ActivityException {
 		try {

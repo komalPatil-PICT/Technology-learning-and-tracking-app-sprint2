@@ -65,8 +65,8 @@ public class Assessment implements Serializable {
 	@JsonIgnore
 	private LearningActivity learningActivity;
 
-	public Assessment(String assesment_name) {
-		this.assessmentName = assesment_name;
+	public Assessment(String assesmentName) {
+		this.assessmentName = assesmentName;
 	}
 
 	/**
