@@ -42,7 +42,7 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 			throw new RegisterUserException(e.getMessage(), e);
 		}
 	}
-
+	
 	/**
 	 * Gets the user by id.
 	 *
@@ -80,7 +80,7 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 
 		return null;
 	}
-
+	
 	/**
 	 * Delete user.
 	 *
@@ -104,9 +104,10 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 	/**
 	 * Update password.
 	 *
-	 * @param user      the user
+	 * @param id the id
 	 * @param firstName the first name
-	 * @param lastName  the last name
+	 * @param lastName the last name
+	 * @param password the password
 	 * @return the register user
 	 * @throws RegisterUserException the register user exception
 	 */
@@ -134,7 +135,8 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 	/**
 	 * Update first name.
 	 *
-	 * @param login the login
+	 * @param id the id
+	 * @param firstName the first name
 	 * @return the register user
 	 * @throws RegisterUserException the register user exception
 	 */
@@ -169,6 +171,12 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 		return null;
 	}
 
+	/**
+	 * Gets the all registered user.
+	 *
+	 * @return the all registered user
+	 * @throws RegisterUserException the register user exception
+	 */
 	@Override
 	public List<RegisterUser> getAllRegisteredUser() throws RegisterUserException {
 

@@ -3,32 +3,34 @@ package com.capgemini.tlta.sevice;
 import com.capgemini.tlta.model.LogOutPayload;
 import com.capgemini.tlta.model.Login;
 
+/**
+ * The Interface LoginService.
+ */
 public interface LoginService {
+
 	/**
-	 * Sign in customer
-	 * 
-	 * @param customerMaster
-	 * @return sign in successful else throw invalid customer
+	 * Sign in.
+	 *
+	 * @param registerUser the register user
+	 * @return the string
 	 */
 	public String signIn(Login registerUser);
-
+	
 	/**
-	 * Sign out
-	 * 
-	 * @param customerMaster
-	 * @return sign out successful
+	 * Sign out.
+	 *
+	 * @param registerUser the register user
+	 * @return the string
 	 */
-
 	public String signOut(LogOutPayload registerUser);
-
+	
 	/**
-	 * Change Password
-	 * 
-	 * @param customerMaster
-	 * @param new_password
-	 * @return changed password
+	 * Change password.
+	 *
+	 * @param registerUser the register user
+	 * @param new_password the new password
+	 * @return the string
 	 */
-
 	public String changePassword(Login registerUser, String new_password);
 
 }

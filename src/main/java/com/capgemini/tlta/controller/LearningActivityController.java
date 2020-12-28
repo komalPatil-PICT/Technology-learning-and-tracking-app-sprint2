@@ -80,11 +80,12 @@ public class LearningActivityController {
 		}
 	}
 
+	
 	/**
-	 * Adds the learning activity.
+	 * Adds the learning activity with assessment.
 	 *
-	 * @param learningActivity the learning activity
-	 * @return the string
+	 * @param learningActivityDo the learning activity do
+	 * @return the learning activity
 	 */
 	// http://localhost:8081/springfox/api/learningActivity/
 	@ApiOperation(value = "Add a learning activity", 

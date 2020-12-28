@@ -21,6 +21,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -46,18 +47,18 @@ public class Assessment implements Serializable {
 	@Column(name = "assesment_name")
 	private String assessmentName;
 
-	//@Null(message="Assessment type should be MCQ/Written Test/Coding")
+	@NotNull(message="Assessment type should be like MCQ/Written Test/Coding")
 	@Size(min=3)
 	@Column(name = "assesment_type")
 	private String assessmentType;
 
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	//@Null(message="Please provide a date in yyyy-MM-dd format")
+	@NotNull(message="Please provide a date in yyyy-MM-dd format")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "assesment_release_date")
 	private Date assessmentReleaseDate;
 
-	//@Null(message="Please provide a duration in hours")
+	@NotNull(message="Please provide a duration in hours")
 	@Column(name = "assesment_time_duration")
 	private Double assessmentTimeDuration;
 
@@ -76,5 +77,17 @@ public class Assessment implements Serializable {
 	 */
 	public static long getSerialVersionUid() {
 		return serialVersionUID;
+	}
+
+	public Assessment(
+			@NotNull @Size(min = 3, max = 30, message = "Assessment name should have atleast 3 characters") String assessmentName,
+			@NotNull(message = "Assessment type should be like MCQ/Written Test/Coding") @Size(min = 3) String assessmentType,
+			@NotNull(message = "Please provide a date in yyyy-MM-dd format") Date assessmentReleaseDate,
+			@NotNull(message = "Please provide a duration in hours") Double assessmentTimeDuration) {
+		super();
+		this.assessmentName = assessmentName;
+		this.assessmentType = assessmentType;
+		this.assessmentReleaseDate = assessmentReleaseDate;
+		this.assessmentTimeDuration = assessmentTimeDuration;
 	}
 }

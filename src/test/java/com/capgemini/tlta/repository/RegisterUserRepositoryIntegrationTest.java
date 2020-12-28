@@ -18,6 +18,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application;
 import com.capgemini.tlta.model.RegisterUser;
+import com.capgemini.tlta.model.Role;
 
 
 /**
@@ -39,7 +40,7 @@ public class RegisterUserRepositoryIntegrationTest {
 	 */
 	@Test
 	public void whenFindById_thenReturnUser() {
-		RegisterUser user = new RegisterUser("Bhavana");
+		RegisterUser user = new RegisterUser("Bhavana","Vele","alex@gmail.com","12@#sdsd345",Role.USER);
 		entityManager.persistAndFlush(user);
 
 		RegisterUser fromDb = userRepository.findById(user.getId()).orElse(null);
@@ -60,14 +61,17 @@ public class RegisterUserRepositoryIntegrationTest {
      */
     @Test
     public void givenSetOfUsers_whenFindAll_thenReturnAllUsers() {
-    	RegisterUser alex = new RegisterUser("alex");
-    	RegisterUser ron = new RegisterUser("ron");
-    	RegisterUser bob = new RegisterUser("bob");
+    	RegisterUser alex = new RegisterUser("alex","Vele","alex@gmail.com","12#$%d",Role.USER);
+    	RegisterUser ron = new RegisterUser("ron","Vele","alex@gmail.com","12#$%d",Role.USER);
+    	RegisterUser bob = new RegisterUser("bob","Vele","alex@gmail.com","12&^as",Role.USER);
 
-        entityManager.persist(alex);
-        entityManager.persist(bob);
-        entityManager.persist(ron);
-        entityManager.flush();
+    	userRepository.save(alex);
+    	userRepository.save(ron);
+    	userRepository.save(bob);
+//        entityManager.persist(alex);
+//        entityManager.persist(bob);
+//        entityManager.persist(ron);
+//        entityManager.flush();
 
         List<RegisterUser> allRegisterUsers = userRepository.findAll();
 
@@ -80,7 +84,7 @@ public class RegisterUserRepositoryIntegrationTest {
      */
     @Test
     public void updateUserFirstName_test() {
-    	RegisterUser user = new RegisterUser("bob");
+    	RegisterUser user = new RegisterUser("bob","Vele","alex@gmail.com","123asas#$#45",Role.USER);
         entityManager.persistAndFlush(user);
         user.setFirstName("alex");
        
@@ -95,7 +99,7 @@ public class RegisterUserRepositoryIntegrationTest {
      */
     @Test
     public void deleteUser_test() {
-    	RegisterUser user = new RegisterUser("john");
+    	RegisterUser user = new RegisterUser("john","Vele","alex@gmail.com","123AS#$#45",Role.USER);
     	entityManager.persistAndFlush(user);
     	
     	assertNotNull(entityManager.find(RegisterUser.class, user.getId()));

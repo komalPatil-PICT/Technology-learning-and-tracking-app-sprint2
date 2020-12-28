@@ -2,6 +2,7 @@ package com.capgemini.tlta.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,11 +57,11 @@ public class AssessmentServiceImplIntegrationTest {
 	 */
 	@BeforeEach
 	public void setUp() {
-		Assessment java = new Assessment("Java");
+		Assessment java = new Assessment("Java","MCQ",new Date(),4d);
 		java.setId(11);
 
-		Assessment cpp = new Assessment("cpp");
-		Assessment jpa = new Assessment("jpa");
+		Assessment cpp = new Assessment("cpp","MCQ",new Date(),4d);
+		Assessment jpa = new Assessment("jpa","MCQ",new Date(),4d);
 
 		List<Assessment> assessments = Arrays.asList(java, jpa, cpp);
 
@@ -101,9 +102,9 @@ public class AssessmentServiceImplIntegrationTest {
 	 */
 	@Test
 	public void given3Assessment_whenGetAll_thenReturn3Records() throws AssesmentException {
-		Assessment java = new Assessment("Java");
-		Assessment jpa = new Assessment("jpa");
-		Assessment cpp = new Assessment("cpp");
+		Assessment java = new Assessment("Java","MCQ",new Date(),4d);
+		Assessment jpa = new Assessment("jpa","MCQ",new Date(),4d);
+		Assessment cpp = new Assessment("cpp","MCQ",new Date(),4d);
 
 		List<Assessment> allAssessments = assessmentService.getAllAssessmentActivity();
 		verifyFindAllAssessmentsIsCalledOnce();

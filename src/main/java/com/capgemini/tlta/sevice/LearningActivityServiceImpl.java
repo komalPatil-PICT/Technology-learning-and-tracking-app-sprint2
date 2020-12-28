@@ -24,14 +24,14 @@ public class LearningActivityServiceImpl implements LearningActivityService {
 	LearningActivityRepository learningActivityRepository;
 	@Autowired
 	AssessmentActivityRepository assessmentRepository;
-
+	
 	/**
 	 * Adds the learning activity.
 	 *
 	 * @param learningActivity the learning activity
 	 * @return the learning activity
 	 * @throws PersistenceException the persistence exception
-	 * @throws ActivityException    the activity exception
+	 * @throws ActivityException the activity exception
 	 */
 	@Override
 	public LearningActivity addLearningActivity(LearningActivity learningActivity)
@@ -46,7 +46,7 @@ public class LearningActivityServiceImpl implements LearningActivityService {
 			throw new ActivityException(e.getMessage(), e);
 		}
 	}
-
+	
 	/**
 	 * Search learning activity by id.
 	 *
@@ -59,8 +59,6 @@ public class LearningActivityServiceImpl implements LearningActivityService {
 		try {
 			Optional<LearningActivity> optional = learningActivityRepository.findById(id);
 			if (optional.isPresent()) {
-				System.out.println(optional.get());
-				// System.out.println(optional.get().getAssesment().getId());
 				return optional.get();
 
 			} else {
@@ -92,6 +90,12 @@ public class LearningActivityServiceImpl implements LearningActivityService {
 		}
 	}
 
+	/**
+	 * Gets the all learning activity.
+	 *
+	 * @return the all learning activity
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public List<LearningActivity> getAllLearningActivity() throws ActivityException {
 		try {
@@ -105,8 +109,6 @@ public class LearningActivityServiceImpl implements LearningActivityService {
 		}
 	}
 
-	@Autowired
-	AssessmentActivityRepository assessmentActivityRepository;
 
 	/**
 	 * Update learning activity.
@@ -131,8 +133,7 @@ public class LearningActivityServiceImpl implements LearningActivityService {
 	/**
 	 * Adds the learning activity with assessment.
 	 *
-	 * @param learningActivity the learning activity
-	 * @param id               the id
+	 * @param learningActivityDo the learning activity do
 	 * @return the learning activity
 	 * @throws ActivityException the activity exception
 	 */

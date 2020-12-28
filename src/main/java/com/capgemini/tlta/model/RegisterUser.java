@@ -44,22 +44,22 @@ public class RegisterUser {
 	@Column(name = "first_name")
 	private String firstName;
 	
-	//@Null
+	@NotNull
 	@Size(min=2, message="Last name should have atleast 2 characters!")
 	@Column(name = "last_name")
 	private String lastName;
 	
-	//@Null
+	@NotNull
 	@Email(message="Email format invalid!")
 	@Column(name = "email")
 	private String emailId;
 	
-	//@Null
+	@NotNull
 	@Pattern(regexp="^[A-Za-z_0-9@#$%]{6,12}",message="Password must be 6 characters")
 	@Column(name = "password")
 	private String password;
 	
-	//@Null
+	@NotNull
 	@Column(name = "role")
 	@Enumerated(EnumType.STRING)
 	private Role role;
@@ -79,5 +79,21 @@ public class RegisterUser {
 	
 	public RegisterUser(String name) {
 		this.firstName=name;
+	}
+
+	public RegisterUser(
+			@NotNull @Size(min = 2, message = "First name should have atleast 2 characters!") String firstName,
+			@NotNull @Size(min = 2, message = "Last name should have atleast 2 characters!") String lastName,
+			@NotNull @Email(message = "Email format invalid!") String emailId,
+			@NotNull @Pattern(regexp = "^[A-Za-z_0-9@#$%]{6,12}", message = "Password must be 6 characters") String password,
+			@NotNull Role role) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.emailId = emailId;
+		this.password = password;
+		this.role = role;
 	}	
+	
+	
 }

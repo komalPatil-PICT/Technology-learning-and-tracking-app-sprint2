@@ -3,6 +3,7 @@ package com.capgemini.tlta.service;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,7 @@ import com.capgemini.tlta.exception.ActivityException;
 import com.capgemini.tlta.model.LearningActivity;
 import com.capgemini.tlta.repository.AssessmentActivityRepository;
 import com.capgemini.tlta.repository.LearningActivityRepository;
+import com.capgemini.tlta.sevice.LearningActivityDO;
 import com.capgemini.tlta.sevice.LearningActivityService;
 import com.capgemini.tlta.sevice.LearningActivityServiceImpl;
 
@@ -61,15 +63,19 @@ public class LearningActivityServiceImplIntegrationTest {
      */
     @BeforeEach
     public void setUp() {
-    	LearningActivity java = new LearningActivity("Java");
-        java.setId(11);
+    	LearningActivityDO java = new LearningActivityDO("Java","http://java.com","intermediate",3d,new Date());
+		LearningActivityDO jpa = new LearningActivityDO("Jpa","http://java.com","intermediate",3d,new Date());
+		LearningActivityDO cpp = new LearningActivityDO("Cpp","http://java.com","intermediate",3d,new Date());
+    	
+    	LearningActivity java1 = new LearningActivity(java);
+        java1.setId(11);
 
-        LearningActivity cpp = new LearningActivity("cpp");
-        LearningActivity jpa = new LearningActivity("jpa");
+        LearningActivity cpp1 = new LearningActivity(cpp);
+        LearningActivity jpa1 = new LearningActivity(jpa);
 
-        List<LearningActivity> LearningActivity = Arrays.asList(java, jpa, cpp);
+        List<LearningActivity> LearningActivity = Arrays.asList(java1, jpa1, cpp1);
 
-        Mockito.when(learningActivityRepository.findById(java.getId())).thenReturn(Optional.of(java));
+        Mockito.when(learningActivityRepository.findById(java1.getId())).thenReturn(Optional.of(java1));
         Mockito.when(learningActivityRepository.findAll()).thenReturn(LearningActivity);
         Mockito.when(learningActivityRepository.findById(-99)).thenReturn(Optional.empty());
     }
@@ -108,9 +114,13 @@ public class LearningActivityServiceImplIntegrationTest {
      */
     @Test
     public void given3LearningActivity_whenGetAll_thenReturn3Records() throws ActivityException {
-    	LearningActivity java = new LearningActivity("Java");
-    	LearningActivity jpa = new LearningActivity("jpa");
-    	LearningActivity cpp = new LearningActivity("cpp");
+    	LearningActivityDO java = new LearningActivityDO("Java","http://java.com","intermediate",3d,new Date());
+		LearningActivityDO jpa = new LearningActivityDO("Jpa","http://java.com","intermediate",3d,new Date());
+		LearningActivityDO cpp = new LearningActivityDO("Cpp","http://java.com","intermediate",3d,new Date());
+    	
+    	LearningActivity java1 = new LearningActivity(java);
+    	LearningActivity jpa1 = new LearningActivity(jpa);
+    	LearningActivity cpp1 = new LearningActivity(cpp);
 
         List<LearningActivity> allLearningActivity = learningActivityService.getAllLearningActivity();
         verifyFindAllLearningActivitiesIsCalledOnce();

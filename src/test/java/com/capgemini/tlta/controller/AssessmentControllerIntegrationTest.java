@@ -11,6 +11,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -63,7 +64,7 @@ public class AssessmentControllerIntegrationTest {
 	 */
 	@Test
 	public void whenPostAssessment_thenCreateAssessment() throws Exception {
-		Assessment jpa = new Assessment("jpa");
+		Assessment jpa = new Assessment("jpa","MCQ",new Date(),4d);
 		
 		given(service.addAssessmentActivity(Mockito.any())).willReturn(jpa);
 
@@ -84,9 +85,9 @@ public class AssessmentControllerIntegrationTest {
 	 */
 	@Test
 	public void givenAssessments_whenGetAssessments_thenReturnJsonArray() throws Exception {
-		Assessment jpa = new Assessment("jpa");
-		Assessment java = new Assessment("java");
-		Assessment cpp = new Assessment("cpp");
+		Assessment jpa = new Assessment("jpa","MCQ",new Date(),4d);
+		Assessment java = new Assessment("java","MCQ",new Date(),4d);
+		Assessment cpp = new Assessment("cpp","MCQ",new Date(),4d);
 
 		List<Assessment> allAssessments = Arrays.asList(jpa, java, cpp);
 

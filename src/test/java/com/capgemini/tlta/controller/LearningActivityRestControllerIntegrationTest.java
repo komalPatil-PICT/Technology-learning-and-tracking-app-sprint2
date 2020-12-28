@@ -9,6 +9,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import java.util.Date;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,6 +28,7 @@ import com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningA
 import com.capgemini.tlta.model.LearningActivity;
 import com.capgemini.tlta.repository.AssessmentActivityRepository;
 import com.capgemini.tlta.repository.LearningActivityRepository;
+import com.capgemini.tlta.sevice.LearningActivityDO;
 
 /**
  * The Class LearningActivityRestControllerIntegrationTest.
@@ -60,8 +63,11 @@ public class LearningActivityRestControllerIntegrationTest {
 	 */
 	@Test
 	public void givenLearningActivities_whenGetLearningActivities_thenStatus200() throws Exception {
-		createTestLearningActivity("Java");
-		createTestLearningActivity("Jpa");
+		LearningActivityDO java = new LearningActivityDO("Java","http://java.com","intermediate",3d,new Date());
+		LearningActivityDO jpa = new LearningActivityDO("Jpa","http://java.com","intermediate",3d,new Date());
+		
+		createTestLearningActivity(java);
+		createTestLearningActivity(jpa);
 
 		mvc.perform(get("/api/learningActivity/").contentType(MediaType.APPLICATION_JSON)).andDo(print())
 				.andExpect(status().isOk()).andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -76,8 +82,8 @@ public class LearningActivityRestControllerIntegrationTest {
 	 *
 	 * @param name the name
 	 */
-	private void createTestLearningActivity(String name) {
-		LearningActivity emp = new LearningActivity(name);
+	private void createTestLearningActivity(LearningActivityDO activityDo) {
+		LearningActivity emp = new LearningActivity(activityDo);
 		learningRepository.saveAndFlush(emp);
 	}
 }

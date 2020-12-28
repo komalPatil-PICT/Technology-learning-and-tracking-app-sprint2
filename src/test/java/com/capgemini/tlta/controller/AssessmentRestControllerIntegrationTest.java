@@ -1,6 +1,7 @@
 package com.capgemini.tlta.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.hasSize;
@@ -12,6 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.AfterEach;
@@ -66,7 +68,7 @@ public class AssessmentRestControllerIntegrationTest {
 	 */
 	@Test
 	public void whenValidInput_thenCreateAssessment() throws IOException, Exception {
-		Assessment java = new Assessment("Java");
+		Assessment java = new Assessment("Java","MCQ",new Date(),4d);
 		mvc.perform(post("/api/assessments/")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(JsonUtil.toJson(java)));
@@ -83,8 +85,8 @@ public class AssessmentRestControllerIntegrationTest {
 	 */
 	@Test
 	public void givenAssessments_whenGetAssessments_thenStatus200() throws Exception {
-		createTestAssessment("Java");
-		createTestAssessment("Jpa");
+		createTestAssessment("Java","MCQ",new Date(),4d);
+		createTestAssessment("Jpa","MCQ",new Date(),4d);
 
 		mvc.perform(get("/api/assessments/").contentType(MediaType.APPLICATION_JSON)).andDo(print())
 				.andExpect(status().isOk()).andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -99,8 +101,8 @@ public class AssessmentRestControllerIntegrationTest {
 	 *
 	 * @param name the name
 	 */
-	private void createTestAssessment(String name) {
-		Assessment emp = new Assessment(name);
+	private void createTestAssessment(String name,String type,Date date,Double time) {
+		Assessment emp = new Assessment(name,type,date,time);
 		repository.saveAndFlush(emp);
 	}
 

@@ -33,7 +33,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 /**
- * The Class LearningActivityController.
+ * The Class UserActivityController.
  */
 @Api
 @RestController
@@ -43,14 +43,14 @@ public class UserActivityController {
 	@Autowired(required = false)
 	@Qualifier(value = "userActivityService")
 	private UserActivityService userActivityService;
-
+	// http://localhost:8081/springfox/api/userActivity/1
+	
 	/**
-	 * Gets the learning activity by id.
+	 * Gets the user activity by id.
 	 *
 	 * @param id the id
-	 * @return the learning activity by id
+	 * @return the user activity by id
 	 */
-	// http://localhost:8081/springfox/api/userActivity/1
 	@ApiOperation(value = "Get User Activities By Id", 
 			response = UserActivity.class, 
 			tags = "get-User-Activity", 
@@ -67,9 +67,9 @@ public class UserActivityController {
 	}
 
 	/**
-	 * Adds the learning activity.
+	 * Adds the user learning activity.
 	 *
-	 * @param learningActivity the learning activity
+	 * @param userActivityDo the user activity do
 	 * @return the string
 	 */
 	@ApiOperation(value = "Add a User Activity", 
@@ -95,7 +95,7 @@ public class UserActivityController {
 	}
 	
 	/**
-	 * Gets the all user activities.
+	 * Gets the all user activity.
 	 *
 	 * @return the all user activity
 	 */
@@ -154,8 +154,7 @@ public class UserActivityController {
 			tags = "Upload-certificate", 
 			consumes = "multipart file and userActivityId", 
 			httpMethod = "PUT")
-	//http://localhost:8081/springfox/api/userActivity/upload/1
-	
+	//http://localhost:8081/springfox/api/userActivity/upload/1	
 	@PutMapping("/upload/{id}")
 	public String uploadToDB(@RequestParam("file") MultipartFile file, @PathVariable Integer id) {
 		try {
@@ -172,6 +171,7 @@ public class UserActivityController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
+	
 	
 	/**
 	 * Download from DB.

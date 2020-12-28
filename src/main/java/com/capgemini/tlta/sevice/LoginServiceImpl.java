@@ -90,7 +90,7 @@ public class LoginServiceImpl implements LoginService {
 			throw new ResourceNotFound(USER_NOT_FOUND);
 		} else {
 			String pwd = userObj.get().getPassword();
-			if (pwd.equals(registerUser.getPassword())) {
+			if (!pwd.equals(registerUser.getPassword())) {
 				throw new ResourceNotFound(WRONG_PASSWORD);
 			}
 			try {

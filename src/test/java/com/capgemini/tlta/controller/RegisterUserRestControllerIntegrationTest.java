@@ -31,6 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application;
 import com.capgemini.tlta.model.RegisterUser;
+import com.capgemini.tlta.model.Role;
 import com.capgemini.tlta.repository.RegisterUserRepository;
 
 /**
@@ -63,7 +64,7 @@ public class RegisterUserRestControllerIntegrationTest {
      */
     @Test
     public void whenValidInput_thenCreateRegisterUser() throws IOException, Exception {
-    	RegisterUser alex = new RegisterUser("Alex");
+    	RegisterUser alex = new RegisterUser("Alex","Vele","alex@gmail.com","12345@fsq",Role.USER);
         mvc.perform(post("/api/users/")
         		.contentType(MediaType.APPLICATION_JSON)
         		.content(JsonUtil.toJson(alex)));
@@ -79,8 +80,8 @@ public class RegisterUserRestControllerIntegrationTest {
      */
     @Test
     public void givenRegisterUsers_whenGetRegisterUsers_thenStatus200() throws Exception {
-        createTestRegisterUser("Alex");
-        createTestRegisterUser("Bob");
+        createTestRegisterUser("Alex","Vele","alex@gmail.com","1as235@fsq",Role.USER);
+        createTestRegisterUser("Bob","Sora","bob@gmail.com","1rea45@fsq",Role.USER);
 
         
         mvc.perform(get("/api/users/").contentType(MediaType.APPLICATION_JSON))
@@ -98,8 +99,8 @@ public class RegisterUserRestControllerIntegrationTest {
 	 *
 	 * @param name the name
 	 */
-	private void createTestRegisterUser(String name) {
-		RegisterUser emp = new RegisterUser(name);
+	private void createTestRegisterUser(String name,String lastname,String email,String pass,Role role) {
+		RegisterUser emp = new RegisterUser(name,lastname,email,pass,role);
 		repository.saveAndFlush(emp);
 	}
 }

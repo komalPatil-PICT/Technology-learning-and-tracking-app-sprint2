@@ -33,6 +33,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application;
 import com.capgemini.tlta.model.RegisterUser;
+import com.capgemini.tlta.model.Role;
 import com.capgemini.tlta.sevice.RegisterUserService;
 
 @ExtendWith(SpringExtension.class)
@@ -55,7 +56,7 @@ public class RegisterUserControllerIntegrationTest {
 	 */
 	@Test
 	public void whenPostUser_thenCreateUser() throws Exception {
-		RegisterUser alex = new RegisterUser("Alex");
+		RegisterUser alex = new RegisterUser("Alex","Vele","alex@gmail.com","12345@fsq",Role.USER);
 		given(service.addUser(Mockito.any())).willReturn(alex);
 
 		mvc.perform(post("/api/users/")
@@ -73,9 +74,9 @@ public class RegisterUserControllerIntegrationTest {
 	 */
 	@Test
 	public void givenUsers_whenGetUsers_thenReturnJsonArray() throws Exception {
-		RegisterUser alex = new RegisterUser("alex");
-		RegisterUser john = new RegisterUser("john");
-		RegisterUser bob = new RegisterUser("bob");
+		RegisterUser alex = new RegisterUser("alex","Vele","alex@gmail.com","12345%sas21",Role.USER);
+		RegisterUser john = new RegisterUser("john","Vele","jon@gmail.com","1234@#ds5",Role.USER);
+		RegisterUser bob = new RegisterUser("bob","Vele","bob@gmail.com","12@#ddx345",Role.USER);
 
 		List<RegisterUser> allRegisterUsers = Arrays.asList(alex, john, bob);
 

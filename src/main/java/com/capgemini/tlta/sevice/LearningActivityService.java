@@ -8,7 +8,7 @@ import com.capgemini.tlta.model.LearningActivity;
  * The Interface LearningActivityService.
  */
 public interface LearningActivityService {
-
+	
 	/**
 	 * Adds the learning activity.
 	 *
@@ -17,7 +17,7 @@ public interface LearningActivityService {
 	 * @throws ActivityException the activity exception
 	 */
 	public LearningActivity addLearningActivity(LearningActivity learningActivity) throws ActivityException;
-
+	
 	/**
 	 * Search learning activity by id.
 	 *
@@ -26,7 +26,7 @@ public interface LearningActivityService {
 	 * @throws ActivityException the activity exception
 	 */
 	public LearningActivity searchLearningActivityById(Integer id) throws ActivityException;
-
+	
 	/**
 	 * Delete learning activity.
 	 *
@@ -35,15 +35,8 @@ public interface LearningActivityService {
 	 * @throws ActivityException the activity exception
 	 */
 	public Integer deleteLearningActivity(Integer id) throws ActivityException;
-
-	/**
-	 * Gets the all learning activity.
-	 *
-	 * @return the all learning activity
-	 * @throws ActivityException the activity exception
-	 */
 	public List<LearningActivity> getAllLearningActivity() throws ActivityException;
-
+	
 	/**
 	 * Update learning activity.
 	 *
@@ -52,12 +45,11 @@ public interface LearningActivityService {
 	 * @throws ActivityException the activity exception
 	 */
 	public LearningActivity updateLearningActivity(LearningActivity learningActivity) throws ActivityException;
-
+	
 	/**
 	 * Adds the learning activity with assessment.
 	 *
-	 * @param learningActivity the learning activity
-	 * @param id               the id
+	 * @param learningActivityDo the learning activity do
 	 * @return the learning activity
 	 * @throws ActivityException the activity exception
 	 */

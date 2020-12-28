@@ -11,6 +11,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -24,7 +25,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -69,7 +69,7 @@ public class LearningActivityControllerIntegrationTest {
 	 */
 	@Test
 	public void whenPostLearningActivity_thenCreateLearningActivity() throws Exception {
-		LearningActivityDO java = new LearningActivityDO("Java");
+		LearningActivityDO java = new LearningActivityDO("Java","http://java.com","intermediate",3d,new Date());
 		
 		LearningActivity java1 = new LearningActivity(java);
 	
@@ -93,11 +93,15 @@ public class LearningActivityControllerIntegrationTest {
 	 */
 	@Test
 	public void givenLearningActivities_whenGetLearningActivities_thenReturnJsonArray() throws Exception {
-		LearningActivity java = new LearningActivity("java");
-		LearningActivity jpa = new LearningActivity("jpa");
-		LearningActivity cpp = new LearningActivity("cpp");
+		LearningActivityDO java = new LearningActivityDO("Java","http://java.com","intermediate",3d,new Date());
+		LearningActivityDO jpa = new LearningActivityDO("Jpa","http://java.com","intermediate",3d,new Date());
+		LearningActivityDO cpp = new LearningActivityDO("Cpp","http://java.com","intermediate",3d,new Date());
+		
+		LearningActivity java1 = new LearningActivity(java);
+		LearningActivity jpa1 = new LearningActivity(jpa);
+		LearningActivity cpp1 = new LearningActivity(cpp);
 
-		List<LearningActivity> allLearningActivities = Arrays.asList(java, jpa, cpp);
+		List<LearningActivity> allLearningActivities = Arrays.asList(java1, jpa1, cpp1);
 
 		given(service.getAllLearningActivity()).willReturn(allLearningActivities);
 

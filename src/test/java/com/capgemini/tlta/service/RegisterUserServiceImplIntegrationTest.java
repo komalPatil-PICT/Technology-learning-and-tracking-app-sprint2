@@ -17,6 +17,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.capgemini.tlta.exception.RegisterUserException;
 import com.capgemini.tlta.model.RegisterUser;
+import com.capgemini.tlta.model.Role;
 import com.capgemini.tlta.repository.RegisterUserRepository;
 import com.capgemini.tlta.sevice.RegisterUserService;
 import com.capgemini.tlta.sevice.RegisterUserServiceImpl;
@@ -55,11 +56,11 @@ public class RegisterUserServiceImplIntegrationTest {
      */
     @BeforeEach
     public void setUp() {
-    	RegisterUser john = new RegisterUser("john");
+    	RegisterUser john = new RegisterUser("john","Vele","alex@gmail.com","12345%sas21",Role.USER);
         john.setId(11);
 
-        RegisterUser bob = new RegisterUser("bob");
-        RegisterUser alex = new RegisterUser("alex");
+        RegisterUser bob = new RegisterUser("bob","Vele","alex@gmail.com","12345%sas21",Role.USER);
+        RegisterUser alex = new RegisterUser("alex","Vele","alex@gmail.com","12345%sas21",Role.USER);
 
         List<RegisterUser> users = Arrays.asList(john, bob, alex);
 
@@ -101,9 +102,9 @@ public class RegisterUserServiceImplIntegrationTest {
      */
     @Test
     public void given3Users_whenGetAll_thenReturn3Records() throws RegisterUserException {
-        RegisterUser alex = new RegisterUser("alex");
-        RegisterUser john = new RegisterUser("john");
-        RegisterUser bob = new RegisterUser("bob");
+        RegisterUser alex = new RegisterUser("alex","Vele","alex@gmail.com","12345%sas21",Role.USER);
+        RegisterUser john = new RegisterUser("john","Vele","alex@gmail.com","12345%sas21",Role.USER);
+        RegisterUser bob = new RegisterUser("bob","Vele","alex@gmail.com","12345%sas21",Role.USER);
 
         List<RegisterUser> allUsers = userService.getAllRegisteredUser();
         verifyFindAllUsersIsCalledOnce();

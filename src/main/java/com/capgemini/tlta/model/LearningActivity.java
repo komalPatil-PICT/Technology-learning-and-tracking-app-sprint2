@@ -53,22 +53,21 @@ public class LearningActivity implements Serializable {
 	@Column(name = "activity_name")
 	private String activityName;
 
-	
 	@URL
 	@Column(name = "activity_link")
 	private String activityLink;
 
-	//@Null(message="Activity level should be Beginner/Intermediate/Expert")
+	@NotNull(message="Activity level should be Beginner/Intermediate/Expert")
 	@Size(min=6)
 	@Column(name = "activity_level")
 	private String activityLevel;
 
-	//@Null(message="Please provide activity duration in hours")
+	@NotNull(message="Please provide activity duration in hours")
 	@Column(name = "activity_time")
 	private Double activityTime;
 
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	//@Null(message="Please provide a date in yyyy-MM-dd format")
+	@NotNull(message="Please provide a date in yyyy-MM-dd format")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "activity_realsedate")
 	private Date activityReleaseDate;
@@ -101,4 +100,21 @@ public class LearningActivity implements Serializable {
 	public static long getSerialVersionUid() {
 		return serialVersionUID;
 	}
+
+	public LearningActivity(
+			@NotNull @Size(min = 3, max = 30, message = "Activity name should have atleast 3 characters") String activityName,
+			@URL String activityLink,
+			@NotNull(message = "Activity level should be Beginner/Intermediate/Expert") @Size(min = 6) String activityLevel,
+			@NotNull(message = "Please provide activity duration in hours") Double activityTime,
+			@NotNull(message = "Please provide a date in yyyy-MM-dd format") Date activityReleaseDate) {
+		super();
+		
+		this.activityName = activityName;
+		this.activityLink = activityLink;
+		this.activityLevel = activityLevel;
+		this.activityTime = activityTime;
+		this.activityReleaseDate = activityReleaseDate;
+	}
+	
+	
 }
