@@ -19,6 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class LearningActivityDO {
 
 	/**
@@ -62,6 +63,7 @@ public class LearningActivityDO {
 		this.activityTime = activityTime;
 		this.activityReleaseDate = activityReleaseDate;
 	}
-	
+
+
 	
 }

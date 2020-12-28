@@ -5297,3 +5297,819 @@ List of constraint violations:[
 2020-12-28 22:08:09,218 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
 2020-12-28 22:08:09,237 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
 2020-12-28 22:08:09,241 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-12-28 22:15:20,879 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [Thread-58] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 22:15:23,578 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [Thread-58] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 22:15:28,059 INFO com.zaxxer.hikari.HikariDataSource [Thread-58] HikariPool-10 - Shutdown initiated...
+2020-12-28 22:15:29,674 INFO com.zaxxer.hikari.HikariDataSource [Thread-58] HikariPool-10 - Shutdown completed.
+2020-12-28 22:16:25,161 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Starting TechnologyLearningAndTrackingAppSprint2Application using Java 1.8.0_171 on DESKTOP-98UELJ9 with PID 6884 (D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2\target\classes started by DELL in D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2)
+2020-12-28 22:16:25,162 DEBUG com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-28 22:16:25,163 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] No active profile set, falling back to default profiles: default
+2020-12-28 22:23:12,983 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.capgemini.tlta.controller.UserActivityRestControllerIntegrationTest], using SpringBootContextLoader
+2020-12-28 22:23:12,988 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [com.capgemini.tlta.controller.UserActivityRestControllerIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-12-28 22:23:13,410 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-12-28 22:23:13,431 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@39b43d60, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@44be0077, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2205a05d, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@72ef8d15, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6aa8e115, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5e21e98f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@51a9ad5e, org.springframework.test.context.event.EventPublishingTestExecutionListener@5f20155b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@72ade7e3, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@239105a8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@3fce8fd9, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@609bcfb6, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7d94beb9, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@560348e6]
+2020-12-28 22:23:14,698 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-12-28 22:23:15,904 INFO com.capgemini.tlta.controller.UserActivityRestControllerIntegrationTest [main] Starting UserActivityRestControllerIntegrationTest using Java 1.8.0_171 on DESKTOP-98UELJ9 with PID 2656 (started by DELL in D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2)
+2020-12-28 22:23:15,904 DEBUG com.capgemini.tlta.controller.UserActivityRestControllerIntegrationTest [main] Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-28 22:23:15,912 INFO com.capgemini.tlta.controller.UserActivityRestControllerIntegrationTest [main] No active profile set, falling back to default profiles: default
+2020-12-28 22:23:21,642 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-28 22:23:21,803 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 146 ms. Found 5 JPA repository interfaces.
+2020-12-28 22:23:26,285 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 0 (http)
+2020-12-28 22:23:26,342 INFO org.apache.coyote.http11.Http11NioProtocol [main] Initializing ProtocolHandler ["http-nio-auto-1"]
+2020-12-28 22:23:26,355 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2020-12-28 22:23:26,356 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-28 22:23:26,358 INFO org.apache.catalina.core.AprLifecycleListener [main] Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2020-12-28 22:23:26,359 INFO org.apache.catalina.core.AprLifecycleListener [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-12-28 22:23:26,359 INFO org.apache.catalina.core.AprLifecycleListener [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-12-28 22:23:26,512 INFO org.apache.catalina.core.AprLifecycleListener [main] OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-12-28 22:23:26,965 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2020-12-28 22:23:26,965 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 10955 ms
+2020-12-28 22:23:28,019 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-12-28 22:23:28,579 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-12-28 22:23:28,599 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+2020-12-28 22:23:29,331 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-28 22:23:29,604 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.25.Final
+2020-12-28 22:23:30,244 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-12-28 22:23:30,942 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-12-28 22:23:33,843 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-28 22:23:33,877 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 22:23:35,859 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-28 22:23:37,088 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [main] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 22:23:39,207 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 22:23:40,175 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring TestDispatcherServlet ''
+2020-12-28 22:23:40,175 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Initializing Servlet ''
+2020-12-28 22:23:40,177 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Completed initialization in 2 ms
+2020-12-28 22:23:40,396 INFO org.apache.coyote.http11.Http11NioProtocol [main] Starting ProtocolHandler ["http-nio-auto-1"]
+2020-12-28 22:23:40,716 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 58964 (http) with context path ''
+2020-12-28 22:23:41,626 INFO com.capgemini.tlta.controller.UserActivityRestControllerIntegrationTest [main] Started UserActivityRestControllerIntegrationTest in 28.144 seconds (JVM running for 30.651)
+2020-12-28 22:23:42,924 DEBUG com.capgemini.tlta.aspect.LoggerAspect [main] Entering method : com.capgemini.tlta.controller.UserActivityController.getAllUserActivity() with argument[s] = []
+2020-12-28 22:23:43,008 INFO com.capgemini.tlta.aspect.LoggerAspect [main] Returning details of all user Activities
+2020-12-28 22:23:43,008 DEBUG com.capgemini.tlta.aspect.LoggerAspect [main] Exiting method: com.capgemini.tlta.controller.UserActivityController.getAllUserActivity() with result = <200 OK OK,[com.capgemini.tlta.model.UserActivity@3ec52163, com.capgemini.tlta.model.UserActivity@6334c0d8],[]>
+2020-12-28 22:23:43,911 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [SpringContextShutdownHook] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 22:23:43,943 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringContextShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 22:23:43,944 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2020-12-28 22:23:43,993 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-12-28 22:23:44,000 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2020-12-28 22:31:05,897 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.capgemini.tlta.controller.UserActivityControllerIntegrationTest], using SpringBootContextLoader
+2020-12-28 22:31:05,905 INFO org.springframework.test.context.support.AbstractContextLoader [main] Could not detect default resource locations for test class [com.capgemini.tlta.controller.UserActivityControllerIntegrationTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2020-12-28 22:31:06,221 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2020-12-28 22:31:06,242 INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper [main] Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50313382, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1cb346ea, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4c012563, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@14a50707, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4d518b32, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4bd31064, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@e3c0e40, org.springframework.test.context.event.EventPublishingTestExecutionListener@329dbdbf, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7354b8c5, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@20d7d6fb, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4ef782af, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@11d8ae8b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@479cbee5, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@59e2d8e3]
+2020-12-28 22:31:06,717 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-12-28 22:31:06,775 INFO com.capgemini.tlta.controller.UserActivityControllerIntegrationTest [main] Starting UserActivityControllerIntegrationTest using Java 1.8.0_171 on DESKTOP-98UELJ9 with PID 2804 (started by DELL in D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2)
+2020-12-28 22:31:06,776 DEBUG com.capgemini.tlta.controller.UserActivityControllerIntegrationTest [main] Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-28 22:31:06,783 INFO com.capgemini.tlta.controller.UserActivityControllerIntegrationTest [main] No active profile set, falling back to default profiles: default
+2020-12-28 22:31:09,019 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-28 22:31:09,131 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [main] Finished Spring Data repository scanning in 98 ms. Found 5 JPA repository interfaces.
+2020-12-28 22:31:15,912 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 0 (http)
+2020-12-28 22:31:15,925 INFO org.apache.coyote.http11.Http11NioProtocol [main] Initializing ProtocolHandler ["http-nio-auto-1"]
+2020-12-28 22:31:15,925 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2020-12-28 22:31:15,925 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-28 22:31:15,927 INFO org.apache.catalina.core.AprLifecycleListener [main] Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2020-12-28 22:31:15,927 INFO org.apache.catalina.core.AprLifecycleListener [main] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-12-28 22:31:15,928 INFO org.apache.catalina.core.AprLifecycleListener [main] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-12-28 22:31:15,931 INFO org.apache.catalina.core.AprLifecycleListener [main] OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-12-28 22:31:16,173 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2020-12-28 22:31:16,173 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 9292 ms
+2020-12-28 22:31:16,614 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-12-28 22:31:16,939 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-12-28 22:31:17,020 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [main] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:db'
+2020-12-28 22:31:17,454 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-28 22:31:17,554 INFO org.hibernate.Version [main] HHH000412: Hibernate ORM core version 5.4.25.Final
+2020-12-28 22:31:17,616 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-12-28 22:31:17,919 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-12-28 22:31:24,233 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-28 22:31:24,468 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 22:31:27,413 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [main] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-28 22:31:28,291 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [main] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 22:31:29,536 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 22:31:30,626 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring TestDispatcherServlet ''
+2020-12-28 22:31:30,626 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Initializing Servlet ''
+2020-12-28 22:31:30,629 INFO org.springframework.test.web.servlet.TestDispatcherServlet [main] Completed initialization in 3 ms
+2020-12-28 22:31:31,031 INFO org.apache.coyote.http11.Http11NioProtocol [main] Starting ProtocolHandler ["http-nio-auto-1"]
+2020-12-28 22:31:31,302 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 58978 (http) with context path ''
+2020-12-28 22:31:32,477 INFO com.capgemini.tlta.controller.UserActivityControllerIntegrationTest [main] Started UserActivityControllerIntegrationTest in 26.181 seconds (JVM running for 27.795)
+2020-12-28 22:31:33,287 DEBUG com.capgemini.tlta.aspect.LoggerAspect [main] Entering method : com.capgemini.tlta.controller.UserActivityController.getAllUserActivity() with argument[s] = []
+2020-12-28 22:31:33,405 INFO com.capgemini.tlta.aspect.LoggerAspect [main] Returning details of all user Activities
+2020-12-28 22:31:33,405 DEBUG com.capgemini.tlta.aspect.LoggerAspect [main] Exiting method: com.capgemini.tlta.controller.UserActivityController.getAllUserActivity() with result = <200 OK OK,[com.capgemini.tlta.model.UserActivity@6e349258, com.capgemini.tlta.model.UserActivity@41092c8, com.capgemini.tlta.model.UserActivity@2e590e36],[]>
+2020-12-28 22:31:34,068 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [main] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 22:31:34,077 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [main] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 22:31:34,078 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [main] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2020-12-28 22:31:34,128 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown initiated...
+2020-12-28 22:31:34,139 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Shutdown completed.
+2020-12-28 22:57:28,589 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-12-28 22:57:28,782 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Starting TechnologyLearningAndTrackingAppSprint2Application using Java 1.8.0_171 on DESKTOP-98UELJ9 with PID 4044 (D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2\target\classes started by DELL in D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2)
+2020-12-28 22:57:28,784 DEBUG com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-28 22:57:28,785 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] No active profile set, falling back to default profiles: default
+2020-12-28 22:57:32,959 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 22:57:32,959 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 22:58:31,445 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-28 22:58:36,737 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 3978 ms. Found 5 JPA repository interfaces.
+2020-12-28 22:59:45,270 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 22:59:47,275 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2020-12-28 22:59:47,294 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2020-12-28 22:59:47,295 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-28 22:59:47,350 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2020-12-28 22:59:47,351 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-12-28 22:59:47,351 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-12-28 22:59:52,531 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-12-28 22:59:56,152 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-12-28 22:59:56,152 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 143056 ms
+2020-12-28 23:00:18,443 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-28 23:00:27,027 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.25.Final
+2020-12-28 23:00:49,248 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-12-28 23:00:59,074 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2020-12-28 23:01:29,935 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2020-12-28 23:01:32,716 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-12-28 23:02:25,910 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-28 23:02:26,148 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 23:02:26,559 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-12-28 23:02:37,723 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-28 23:02:41,625 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 23:02:44,337 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 23:02:50,341 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2020-12-28 23:02:52,790 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path '/springfox'
+2020-12-28 23:02:57,730 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Started TechnologyLearningAndTrackingAppSprint2Application in 347.382 seconds (JVM running for 349.066)
+2020-12-28 23:06:29,787 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 23:06:29,788 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-12-28 23:06:29,795 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Completed initialization in 7 ms
+2020-12-28 23:06:31,304 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-1] Entering method : com.capgemini.tlta.controller.LearningActivityController.getAllLearningActivity() with argument[s] = []
+2020-12-28 23:07:02,337 INFO com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-1] Returning details of all Learning Activity
+2020-12-28 23:07:02,337 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-1] Exiting method: com.capgemini.tlta.controller.LearningActivityController.getAllLearningActivity() with result = <200 OK OK,[com.capgemini.tlta.model.LearningActivity@17b2c31e],[]>
+2020-12-28 23:09:34,751 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-6] Entering method : com.capgemini.tlta.controller.LearningActivityController.addLearningActivityWithAssessment() with argument[s] = [com.capgemini.tlta.sevice.LearningActivityDO@5505bb77]
+2020-12-28 23:09:41,429 ERROR org.springframework.transaction.interceptor.TransactionInterceptor [http-nio-8081-exec-6] Application exception overridden by commit exception
+com.capgemini.tlta.exception.ActivityException: Validation failed for classes [com.capgemini.tlta.model.LearningActivity] during persist time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='Please provide a date in yyyy-MM-dd format', propertyPath=activityReleaseDate, rootBeanClass=class com.capgemini.tlta.model.LearningActivity, messageTemplate='Please provide a date in yyyy-MM-dd format'}
+]
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl.addLearningActivityWithAssessment(LearningActivityServiceImpl.java:158)
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl$$FastClassBySpringCGLIB$$8cb72c16.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl$$EnhancerBySpringCGLIB$$8cfedcc4.addLearningActivityWithAssessment(<generated>)
+	at com.capgemini.tlta.controller.LearningActivityController.addLearningActivityWithAssessment(LearningActivityController.java:101)
+	at com.capgemini.tlta.controller.LearningActivityController$$FastClassBySpringCGLIB$$1ad3746.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.capgemini.tlta.aspect.LoggerAspect.logAround2(LoggerAspect.java:161)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.capgemini.tlta.controller.LearningActivityController$$EnhancerBySpringCGLIB$$cf59c1ea.addLearningActivityWithAssessment(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: javax.validation.ConstraintViolationException: Validation failed for classes [com.capgemini.tlta.model.LearningActivity] during persist time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='Please provide a date in yyyy-MM-dd format', propertyPath=activityReleaseDate, rootBeanClass=class com.capgemini.tlta.model.LearningActivity, messageTemplate='Please provide a date in yyyy-MM-dd format'}
+]
+	at org.hibernate.cfg.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:140)
+	at org.hibernate.cfg.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:80)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.preInsert(EntityIdentityInsertAction.java:203)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:78)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:645)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:282)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:317)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:330)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:185)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:128)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:55)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:720)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:706)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362)
+	at com.sun.proxy.$Proxy142.persist(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311)
+	at com.sun.proxy.$Proxy142.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:557)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:524)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:531)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:156)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:131)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at com.sun.proxy.$Proxy146.save(Unknown Source)
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl.addLearningActivityWithAssessment(LearningActivityServiceImpl.java:153)
+	... 88 common frames omitted
+2020-12-28 23:09:41,503 ERROR com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-6] Error in com.capgemini.tlta.controller.LearningActivityController.addLearningActivityWithAssessment()
+2020-12-28 23:09:41,505 ERROR com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-6] Transaction silently rolled back because it has been marked as rollback-only
+2020-12-28 23:09:41,505 ERROR com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-6] Transaction silently rolled back because it has been marked as rollback-only
+2020-12-28 23:09:41,641 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8081-exec-6] Resolved [org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only]
+2020-12-28 23:10:49,378 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-7] Entering method : com.capgemini.tlta.controller.LearningActivityController.addLearningActivityWithAssessment() with argument[s] = [com.capgemini.tlta.sevice.LearningActivityDO@64c055dc]
+2020-12-28 23:10:49,383 ERROR org.springframework.transaction.interceptor.TransactionInterceptor [http-nio-8081-exec-7] Application exception overridden by commit exception
+com.capgemini.tlta.exception.ActivityException: Validation failed for classes [com.capgemini.tlta.model.LearningActivity] during persist time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='Please provide a date in yyyy-MM-dd format', propertyPath=activityReleaseDate, rootBeanClass=class com.capgemini.tlta.model.LearningActivity, messageTemplate='Please provide a date in yyyy-MM-dd format'}
+]
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl.addLearningActivityWithAssessment(LearningActivityServiceImpl.java:158)
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl$$FastClassBySpringCGLIB$$8cb72c16.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl$$EnhancerBySpringCGLIB$$8cfedcc4.addLearningActivityWithAssessment(<generated>)
+	at com.capgemini.tlta.controller.LearningActivityController.addLearningActivityWithAssessment(LearningActivityController.java:101)
+	at com.capgemini.tlta.controller.LearningActivityController$$FastClassBySpringCGLIB$$1ad3746.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.capgemini.tlta.aspect.LoggerAspect.logAround2(LoggerAspect.java:161)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.capgemini.tlta.controller.LearningActivityController$$EnhancerBySpringCGLIB$$cf59c1ea.addLearningActivityWithAssessment(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: javax.validation.ConstraintViolationException: Validation failed for classes [com.capgemini.tlta.model.LearningActivity] during persist time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='Please provide a date in yyyy-MM-dd format', propertyPath=activityReleaseDate, rootBeanClass=class com.capgemini.tlta.model.LearningActivity, messageTemplate='Please provide a date in yyyy-MM-dd format'}
+]
+	at org.hibernate.cfg.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:140)
+	at org.hibernate.cfg.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:80)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.preInsert(EntityIdentityInsertAction.java:203)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:78)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:645)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:282)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:317)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:330)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:185)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:128)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:55)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:720)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:706)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362)
+	at com.sun.proxy.$Proxy142.persist(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311)
+	at com.sun.proxy.$Proxy142.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:557)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:524)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:531)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:156)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:131)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at com.sun.proxy.$Proxy146.save(Unknown Source)
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl.addLearningActivityWithAssessment(LearningActivityServiceImpl.java:153)
+	... 88 common frames omitted
+2020-12-28 23:10:49,385 ERROR com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-7] Error in com.capgemini.tlta.controller.LearningActivityController.addLearningActivityWithAssessment()
+2020-12-28 23:10:49,385 ERROR com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-7] Transaction silently rolled back because it has been marked as rollback-only
+2020-12-28 23:10:49,385 ERROR com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-7] Transaction silently rolled back because it has been marked as rollback-only
+2020-12-28 23:10:49,387 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8081-exec-7] Resolved [org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only]
+2020-12-28 23:17:17,392 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-12-28 23:17:17,403 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Starting TechnologyLearningAndTrackingAppSprint2Application using Java 1.8.0_171 on DESKTOP-98UELJ9 with PID 1596 (D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2\target\classes started by DELL in D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2)
+2020-12-28 23:17:17,404 DEBUG com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-28 23:17:17,404 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] No active profile set, falling back to default profiles: default
+2020-12-28 23:17:17,752 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 23:17:17,752 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 23:17:33,799 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-28 23:17:34,758 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 878 ms. Found 5 JPA repository interfaces.
+2020-12-28 23:18:00,010 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 23:18:00,118 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2020-12-28 23:18:00,133 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2020-12-28 23:18:00,133 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-28 23:18:00,153 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2020-12-28 23:18:00,153 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-12-28 23:18:00,153 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-12-28 23:18:02,340 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-12-28 23:18:03,612 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-12-28 23:18:03,612 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 45859 ms
+2020-12-28 23:18:11,017 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-28 23:18:13,964 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.25.Final
+2020-12-28 23:18:20,231 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-12-28 23:18:22,394 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2020-12-28 23:18:37,111 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2020-12-28 23:18:38,491 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-12-28 23:18:54,097 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-28 23:18:54,148 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 23:18:54,209 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-12-28 23:18:57,228 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-28 23:18:58,573 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 23:18:59,528 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 23:19:00,789 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2020-12-28 23:19:01,055 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path '/springfox'
+2020-12-28 23:19:02,346 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Started TechnologyLearningAndTrackingAppSprint2Application in 106.586 seconds (JVM running for 108.39)
+2020-12-28 23:19:26,561 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 23:19:26,562 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-12-28 23:19:26,563 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Completed initialization in 1 ms
+2020-12-28 23:19:27,248 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-1] Entering method : com.capgemini.tlta.controller.LearningActivityController.addLearningActivityWithAssessment() with argument[s] = [com.capgemini.tlta.sevice.LearningActivityDO@3de8b953]
+2020-12-28 23:19:27,706 ERROR org.springframework.transaction.interceptor.TransactionInterceptor [http-nio-8081-exec-1] Application exception overridden by commit exception
+com.capgemini.tlta.exception.ActivityException: Validation failed for classes [com.capgemini.tlta.model.LearningActivity] during persist time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='Please provide a date in yyyy-MM-dd format', propertyPath=activityReleaseDate, rootBeanClass=class com.capgemini.tlta.model.LearningActivity, messageTemplate='Please provide a date in yyyy-MM-dd format'}
+]
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl.addLearningActivityWithAssessment(LearningActivityServiceImpl.java:154)
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl$$FastClassBySpringCGLIB$$8cb72c16.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl$$EnhancerBySpringCGLIB$$5364f455.addLearningActivityWithAssessment(<generated>)
+	at com.capgemini.tlta.controller.LearningActivityController.addLearningActivityWithAssessment(LearningActivityController.java:101)
+	at com.capgemini.tlta.controller.LearningActivityController$$FastClassBySpringCGLIB$$1ad3746.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at com.capgemini.tlta.aspect.LoggerAspect.logAround2(LoggerAspect.java:161)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:634)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:624)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:72)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.capgemini.tlta.controller.LearningActivityController$$EnhancerBySpringCGLIB$$edeb0842.addLearningActivityWithAssessment(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:197)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:141)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:894)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1061)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:961)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:652)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:888)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1597)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: javax.validation.ConstraintViolationException: Validation failed for classes [com.capgemini.tlta.model.LearningActivity] during persist time for groups [javax.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='Please provide a date in yyyy-MM-dd format', propertyPath=activityReleaseDate, rootBeanClass=class com.capgemini.tlta.model.LearningActivity, messageTemplate='Please provide a date in yyyy-MM-dd format'}
+]
+	at org.hibernate.cfg.beanvalidation.BeanValidationEventListener.validate(BeanValidationEventListener.java:140)
+	at org.hibernate.cfg.beanvalidation.BeanValidationEventListener.onPreInsert(BeanValidationEventListener.java:80)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.preInsert(EntityIdentityInsertAction.java:203)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:78)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:645)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:282)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:317)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:330)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:185)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:128)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:55)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:720)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:706)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362)
+	at com.sun.proxy.$Proxy142.persist(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311)
+	at com.sun.proxy.$Proxy142.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:557)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:524)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:531)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:156)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:131)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215)
+	at com.sun.proxy.$Proxy146.save(Unknown Source)
+	at com.capgemini.tlta.sevice.LearningActivityServiceImpl.addLearningActivityWithAssessment(LearningActivityServiceImpl.java:149)
+	... 88 common frames omitted
+2020-12-28 23:19:27,707 ERROR com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-1] Error in com.capgemini.tlta.controller.LearningActivityController.addLearningActivityWithAssessment()
+2020-12-28 23:19:27,707 ERROR com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-1] Transaction silently rolled back because it has been marked as rollback-only
+2020-12-28 23:19:27,707 ERROR com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-1] Transaction silently rolled back because it has been marked as rollback-only
+2020-12-28 23:19:27,892 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8081-exec-1] Resolved [org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only]
+2020-12-28 23:21:13,218 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-4] Entering method : com.capgemini.tlta.controller.LearningActivityController.addLearningActivityWithAssessment() with argument[s] = [com.capgemini.tlta.sevice.LearningActivityDO@13b0da56]
+2020-12-28 23:21:13,789 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-4] Exiting method: com.capgemini.tlta.controller.LearningActivityController.addLearningActivityWithAssessment() with result = com.capgemini.tlta.model.LearningActivity@1d773650
+2020-12-28 23:27:48,398 INFO org.hibernate.validator.internal.util.Version [background-preinit] HV000001: Hibernate Validator 6.1.6.Final
+2020-12-28 23:27:48,437 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Starting TechnologyLearningAndTrackingAppSprint2Application using Java 1.8.0_171 on DESKTOP-98UELJ9 with PID 12884 (D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2\target\classes started by DELL in D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2)
+2020-12-28 23:27:48,438 DEBUG com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-28 23:27:48,439 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] No active profile set, falling back to default profiles: default
+2020-12-28 23:27:48,575 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-12-28 23:27:48,575 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-12-28 23:28:00,375 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-28 23:28:01,665 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 1007 ms. Found 5 JPA repository interfaces.
+2020-12-28 23:28:24,029 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 23:28:24,458 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2020-12-28 23:28:24,473 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2020-12-28 23:28:24,474 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-28 23:28:24,494 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2020-12-28 23:28:24,494 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-12-28 23:28:24,510 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-12-28 23:28:24,872 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-12-28 23:28:25,476 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-12-28 23:28:25,476 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 36900 ms
+2020-12-28 23:28:27,971 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-28 23:28:28,518 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.25.Final
+2020-12-28 23:28:31,126 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2020-12-28 23:28:32,232 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2020-12-28 23:28:40,758 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2020-12-28 23:28:41,328 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-12-28 23:28:48,542 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-28 23:28:48,597 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 23:28:48,656 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-12-28 23:28:51,054 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-28 23:28:51,665 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 23:28:52,186 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 23:28:52,707 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2020-12-28 23:28:52,917 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path '/springfox'
+2020-12-28 23:28:53,712 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Started TechnologyLearningAndTrackingAppSprint2Application in 65.908 seconds (JVM running for 67.043)
+2020-12-28 23:31:22,252 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 23:31:22,252 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
+2020-12-28 23:31:22,254 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Completed initialization in 2 ms
+2020-12-28 23:32:14,879 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8081-exec-3] Resolved [org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!]
+2020-12-28 23:34:58,508 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [Thread-6] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 23:34:58,517 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [Thread-6] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 23:34:58,575 INFO com.zaxxer.hikari.HikariDataSource [Thread-6] HikariPool-1 - Shutdown initiated...
+2020-12-28 23:34:58,662 INFO com.zaxxer.hikari.HikariDataSource [Thread-6] HikariPool-1 - Shutdown completed.
+2020-12-28 23:34:59,159 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Starting TechnologyLearningAndTrackingAppSprint2Application using Java 1.8.0_171 on DESKTOP-98UELJ9 with PID 12884 (D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2\target\classes started by DELL in D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2)
+2020-12-28 23:34:59,159 DEBUG com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-28 23:34:59,160 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] No active profile set, falling back to default profiles: default
+2020-12-28 23:35:17,173 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-28 23:35:17,203 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 30 ms. Found 5 JPA repository interfaces.
+2020-12-28 23:35:22,744 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 23:35:22,745 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2020-12-28 23:35:22,745 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2020-12-28 23:35:22,746 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-28 23:35:22,747 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2020-12-28 23:35:22,747 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-12-28 23:35:22,748 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-12-28 23:35:22,748 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-12-28 23:35:23,034 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-12-28 23:35:23,034 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 23866 ms
+2020-12-28 23:35:23,397 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-28 23:35:23,419 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Starting...
+2020-12-28 23:35:23,840 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Start completed.
+2020-12-28 23:35:23,840 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-12-28 23:35:25,631 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-28 23:35:25,632 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 23:35:25,639 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-12-28 23:35:26,593 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-28 23:35:26,727 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 23:35:26,871 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 23:35:27,073 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2020-12-28 23:35:27,078 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path '/springfox'
+2020-12-28 23:35:27,567 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Started TechnologyLearningAndTrackingAppSprint2Application in 28.604 seconds (JVM running for 460.899)
+2020-12-28 23:35:27,577 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-12-28 23:35:27,738 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [http-nio-8081-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 23:35:27,739 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-12-28 23:35:27,743 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-2] Completed initialization in 3 ms
+2020-12-28 23:35:27,771 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8081-exec-2] Resolved [org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!]
+2020-12-28 23:39:41,155 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [Thread-10] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 23:39:41,166 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [Thread-10] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 23:39:41,167 INFO com.zaxxer.hikari.HikariDataSource [Thread-10] HikariPool-2 - Shutdown initiated...
+2020-12-28 23:39:41,174 INFO com.zaxxer.hikari.HikariDataSource [Thread-10] HikariPool-2 - Shutdown completed.
+2020-12-28 23:39:42,375 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Starting TechnologyLearningAndTrackingAppSprint2Application using Java 1.8.0_171 on DESKTOP-98UELJ9 with PID 12884 (D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2\target\classes started by DELL in D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2)
+2020-12-28 23:39:42,376 DEBUG com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-28 23:39:42,376 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] No active profile set, falling back to default profiles: default
+2020-12-28 23:40:15,703 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-28 23:40:15,766 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 63 ms. Found 5 JPA repository interfaces.
+2020-12-28 23:40:21,642 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 23:40:21,643 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2020-12-28 23:40:21,644 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2020-12-28 23:40:21,644 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-28 23:40:21,644 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2020-12-28 23:40:21,644 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-12-28 23:40:21,644 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-12-28 23:40:21,645 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-12-28 23:40:21,834 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-12-28 23:40:21,834 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 39453 ms
+2020-12-28 23:40:21,960 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-28 23:40:21,971 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Starting...
+2020-12-28 23:40:22,214 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Start completed.
+2020-12-28 23:40:22,215 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-12-28 23:40:23,805 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-28 23:40:23,806 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 23:40:23,818 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-12-28 23:40:24,598 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-28 23:40:24,871 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 23:40:25,045 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 23:40:25,174 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2020-12-28 23:40:25,180 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path '/springfox'
+2020-12-28 23:40:25,864 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Started TechnologyLearningAndTrackingAppSprint2Application in 43.58 seconds (JVM running for 759.196)
+2020-12-28 23:40:25,868 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-12-28 23:40:34,504 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [http-nio-8081-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 23:40:34,505 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-2] Initializing Servlet 'dispatcherServlet'
+2020-12-28 23:40:34,507 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-2] Completed initialization in 2 ms
+2020-12-28 23:40:34,895 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8081-exec-2] Resolved [org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!]
+2020-12-28 23:42:55,808 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [Thread-16] Shutting down ExecutorService 'applicationTaskExecutor'
+2020-12-28 23:42:55,816 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [Thread-16] Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 23:42:55,948 INFO com.zaxxer.hikari.HikariDataSource [Thread-16] HikariPool-3 - Shutdown initiated...
+2020-12-28 23:42:56,027 INFO com.zaxxer.hikari.HikariDataSource [Thread-16] HikariPool-3 - Shutdown completed.
+2020-12-28 23:42:57,930 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Starting TechnologyLearningAndTrackingAppSprint2Application using Java 1.8.0_171 on DESKTOP-98UELJ9 with PID 12884 (D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2\target\classes started by DELL in D:\Capgemini\sprint2\Technology-learning-and-tracking-app-sprint2)
+2020-12-28 23:42:57,930 DEBUG com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Running with Spring Boot v2.4.1, Spring v5.3.2
+2020-12-28 23:42:57,931 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] No active profile set, falling back to default profiles: default
+2020-12-28 23:43:02,829 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2020-12-28 23:43:03,024 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 195 ms. Found 5 JPA repository interfaces.
+2020-12-28 23:43:04,308 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2020-12-28 23:43:04,309 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2020-12-28 23:43:04,309 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2020-12-28 23:43:04,309 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-28 23:43:04,309 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2020-12-28 23:43:04,309 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-12-28 23:43:04,310 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-12-28 23:43:04,310 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2020-12-28 23:43:04,503 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [restartedMain] Initializing Spring embedded WebApplicationContext
+2020-12-28 23:43:04,503 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 6568 ms
+2020-12-28 23:43:05,474 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-12-28 23:43:05,628 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-4 - Starting...
+2020-12-28 23:43:05,925 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-4 - Start completed.
+2020-12-28 23:43:05,926 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2020-12-28 23:43:07,220 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-12-28 23:43:07,221 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-12-28 23:43:07,327 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2020-12-28 23:43:07,691 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-12-28 23:43:07,902 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2020-12-28 23:43:08,010 INFO org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-28 23:43:08,121 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2020-12-28 23:43:08,126 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path '/springfox'
+2020-12-28 23:43:09,289 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Started TechnologyLearningAndTrackingAppSprint2Application in 11.661 seconds (JVM running for 922.621)
+2020-12-28 23:43:09,292 INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2020-12-28 23:43:16,771 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [http-nio-8081-exec-5] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-12-28 23:43:16,773 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-5] Initializing Servlet 'dispatcherServlet'
+2020-12-28 23:43:16,775 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-5] Completed initialization in 2 ms
+2020-12-28 23:43:16,843 WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver [http-nio-8081-exec-5] Resolved [org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!]

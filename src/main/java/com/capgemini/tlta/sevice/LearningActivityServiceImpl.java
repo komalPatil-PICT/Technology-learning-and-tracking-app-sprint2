@@ -24,14 +24,14 @@ public class LearningActivityServiceImpl implements LearningActivityService {
 	LearningActivityRepository learningActivityRepository;
 	@Autowired
 	AssessmentActivityRepository assessmentRepository;
-	
+
 	/**
 	 * Adds the learning activity.
 	 *
 	 * @param learningActivity the learning activity
 	 * @return the learning activity
 	 * @throws PersistenceException the persistence exception
-	 * @throws ActivityException the activity exception
+	 * @throws ActivityException    the activity exception
 	 */
 	@Override
 	public LearningActivity addLearningActivity(LearningActivity learningActivity)
@@ -46,7 +46,7 @@ public class LearningActivityServiceImpl implements LearningActivityService {
 			throw new ActivityException(e.getMessage(), e);
 		}
 	}
-	
+
 	/**
 	 * Search learning activity by id.
 	 *
@@ -109,7 +109,6 @@ public class LearningActivityServiceImpl implements LearningActivityService {
 		}
 	}
 
-
 	/**
 	 * Update learning activity.
 	 *
@@ -140,9 +139,6 @@ public class LearningActivityServiceImpl implements LearningActivityService {
 	@Override
 	public LearningActivity addLearningActivityWithAssessment(LearningActivityDO learningActivityDo)
 			throws ActivityException {
-
-		System.out.println(learningActivityDo.getActivityName());
-
 		Assessment assessment = null;
 		LearningActivity learning = new LearningActivity(learningActivityDo);
 

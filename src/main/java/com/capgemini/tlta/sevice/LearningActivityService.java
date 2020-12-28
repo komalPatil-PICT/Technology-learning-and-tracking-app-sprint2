@@ -35,6 +35,13 @@ public interface LearningActivityService {
 	 * @throws ActivityException the activity exception
 	 */
 	public Integer deleteLearningActivity(Integer id) throws ActivityException;
+	
+	/**
+	 * Gets the all learning activity.
+	 *
+	 * @return the all learning activity
+	 * @throws ActivityException the activity exception
+	 */
 	public List<LearningActivity> getAllLearningActivity() throws ActivityException;
 	
 	/**

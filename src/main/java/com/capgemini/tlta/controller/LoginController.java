@@ -2,6 +2,7 @@ package com.capgemini.tlta.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +34,7 @@ public class LoginController {
 	 * @param registerUser the register user
 	 * @return the response entity
 	 */
-	//http://localhost:8081/springfox/api/Login
+	//http://localhost:8081/springfox/api/Login/login
 	@ApiOperation(value = "SignIn")
 	@PostMapping("/login")
 	public ResponseEntity<?> signIn( @RequestBody Login registerUser) {
@@ -50,7 +51,7 @@ public class LoginController {
 	 * @param registerUser the register user
 	 * @return the response entity
 	 */
-
+	//http://localhost:8081/springfox/api/Login/logout
 	@PostMapping("/logout") 
 	@ApiOperation(value = "SignOut")
 	public ResponseEntity<?> signOut( @RequestBody LogOutPayload registerUser) {
@@ -68,9 +69,10 @@ public class LoginController {
 	 * @param new_password the new password
 	 * @return the response entity
 	 */
-	@PostMapping("/reset")
+	//http://localhost:8081/springfox/api/reset/newPass
+	@PostMapping("/reset/{new_password}")
 	@ApiOperation(value = "Reset Password")
-	public ResponseEntity<?> changePassword( @RequestBody Login registerUser, String new_password) {
+	public ResponseEntity<?> changePassword( @RequestBody Login registerUser, @PathVariable String new_password) {
 		String str =loginService.changePassword(registerUser, new_password);
 		BaseResponse baseResponse = new BaseResponse();
 		baseResponse.setStatusCode(1);
