@@ -190,4 +190,25 @@ public class UserActivityServiceImpl implements UserActivityService {
 			throw new ActivityException(e.getMessage(), e);
 		}
 	}
+
+	/**
+	 * Update status by id.
+	 *
+	 * @param id the id
+	 * @param status the status
+	 * @return true, if successful
+	 * @throws ActivityException the activity exception
+	 */
+	@Override
+	public boolean updateStatusById(Integer id, String status) throws ActivityException {
+		try {
+			UserActivity activity = userActivityRepository.findById(id).get();
+			activity.setStatus(status);
+			return true;
+		} catch (DataAccessException e) {
+			throw new ActivityException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new ActivityException(e.getMessage(), e);
+		}
+	}
 }

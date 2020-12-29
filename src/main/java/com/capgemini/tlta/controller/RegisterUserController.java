@@ -52,6 +52,8 @@ public class RegisterUserController {
 	public ResponseEntity<RegisterUser> getRegisterUserById(@PathVariable Integer id) {
 		try {
 			RegisterUser user = userService.getUserById(id);
+			if(user == null)
+				throw new RegisterUserException();
 			return new ResponseEntity<>(user, HttpStatus.OK);
 		} catch (RegisterUserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -73,7 +75,8 @@ public class RegisterUserController {
 	public ResponseEntity<List<RegisterUser>> getAllRegisterUsers() {
 		try {
 			List<RegisterUser> usersList = userService.getAllRegisteredUser();
-
+			if(usersList == null)
+				throw new RegisterUserException();
 			return new ResponseEntity<>(usersList, HttpStatus.OK);
 		} catch (RegisterUserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());

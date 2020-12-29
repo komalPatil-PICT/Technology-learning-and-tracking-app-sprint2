@@ -203,6 +203,34 @@ public class UserActivityController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
+	
+	/**
+	 * Upload to DB.
+	 *
+	 * @param id the id
+	 * @param status the status
+	 * @return the string
+	 */
+	@ApiOperation(value = "Update status By userActivityId", 
+			response = ResponseEntity.class,
+			tags = "Update-user-activity", 
+			consumes = "userActivityId and updated status", 
+			httpMethod = "PUT")
+	//http://localhost:8081/springfox/api/userActivity/upload/1
+	
+	@PutMapping("/updateStatus/{id}/{status}")
+	public String updateStatus(@PathVariable Integer id, @PathVariable String status) {
+		try {
+			boolean isUpdated = userActivityService.updateStatusById(id, status);
 
+			if (isUpdated) {
+				return "Updated status successfully";
+			} else {
+				return "Could not upload certificate!";
+			}
+		} catch (ActivityException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
+	}
 }
 

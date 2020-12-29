@@ -53,6 +53,8 @@ public class AssessmentActivityController {
 	public ResponseEntity<Assessment> getAssessmentById(@PathVariable Integer id){
 		try {
 			Assessment assessment= assessmentService.searchAssessmentActivityById(id);
+			if(assessment == null)
+				throw new AssesmentException();
 			return new ResponseEntity<>(assessment,HttpStatus.OK);
 		}catch(AssesmentException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());
@@ -74,7 +76,8 @@ public class AssessmentActivityController {
 	public ResponseEntity<List<Assessment>> getAllAssessments(){
 		try {
 			List<Assessment> assessmentList = assessmentService.getAllAssessmentActivity();
-
+			if(assessmentList == null)
+				throw new AssesmentException();
 			return new ResponseEntity<>(assessmentList,HttpStatus.OK);
 		}catch(AssesmentException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,e.getMessage());

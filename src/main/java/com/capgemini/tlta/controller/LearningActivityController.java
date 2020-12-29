@@ -53,6 +53,8 @@ public class LearningActivityController {
 	public ResponseEntity<LearningActivity> getLearningActivityById(@PathVariable Integer id) {
 		try {
 			LearningActivity learningActivity = learningService.searchLearningActivityById(id);
+			if(learningActivity == null)
+				throw new ActivityException();
 			return new ResponseEntity<>(learningActivity, HttpStatus.OK);
 		} catch (ActivityException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -74,6 +76,8 @@ public class LearningActivityController {
 	public ResponseEntity<List<LearningActivity>> getAllLearningActivity() {
 		try {
 			List<LearningActivity> learningActivityList = learningService.getAllLearningActivity();
+			if(learningActivityList == null)
+				throw new ActivityException();
 			return new ResponseEntity<>(learningActivityList, HttpStatus.OK);
 		} catch (ActivityException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -106,6 +110,17 @@ public class LearningActivityController {
 		}
 	}
 
+	@PostMapping("add/")
+	public LearningActivity addLearningActivityWithoutAssessment(@RequestBody LearningActivity learningActivity) {
+		LearningActivity status = null;
+		try {
+			status = learningService.addLearningActivity(learningActivity);
+			return status;
+		
+		} catch (ActivityException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
+	}
 	/**
 	 * Delete assessment.
 	 *

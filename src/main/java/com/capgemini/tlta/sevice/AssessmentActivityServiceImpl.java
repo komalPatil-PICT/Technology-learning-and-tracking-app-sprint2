@@ -110,8 +110,13 @@ public class AssessmentActivityServiceImpl implements AssessmentActivityService 
 	@Override
 	public Assessment updateAssessmentActivity(Assessment assessmentActivity) throws AssesmentException {
 		try {
-			Assessment p = assessmentActivityRepository.save(assessmentActivity);
-			return p;
+			Assessment i = assessmentActivityRepository.getOne(assessmentActivity.getId());
+			if (i != null) {
+				Assessment p = assessmentActivityRepository.save(assessmentActivity);
+				return p;
+			} else {
+				throw new AssesmentException();
+			}
 		} catch (DataAccessException e) {
 			throw new AssesmentException(e.getMessage(), e);
 		} catch (Exception e) {

@@ -215,9 +215,10 @@ public class LoggerAspect {
 						log.info("Deleting user activity by id");
 					}else if(joinPoint.getSignature().getName().equals("uploadToDB")) {
 						log.info("Uploading certificate to database");
-					}else if(joinPoint.getSignature().getName().equals("downloadFromDB")) {
-						log.info("Downloading certificate from database");
+					}else if(joinPoint.getSignature().getName().equals("updateStatus")) {
+						log.info("Updating status");
 					}
+
 					log.debug("Exiting method: {}.{}() with result = {}", joinPoint.getSignature().getDeclaringTypeName(),
 							joinPoint.getSignature().getName(), result);
 				}

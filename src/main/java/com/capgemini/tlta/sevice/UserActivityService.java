@@ -73,4 +73,13 @@ public interface UserActivityService {
 	 */
 	public byte[] getCertificateById(Integer activityId) throws ActivityException;
 
+	/**
+	 * Update status by id.
+	 *
+	 * @param activityId the activity id
+	 * @param status the status
+	 * @return true, if successful
+	 * @throws ActivityException the activity exception
+	 */
+	public boolean updateStatusById(Integer activityId, String status) throws ActivityException;
 }
