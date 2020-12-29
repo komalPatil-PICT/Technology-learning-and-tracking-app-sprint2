@@ -56,7 +56,7 @@ public interface RegisterUserService {
 	 * @return the register user
 	 * @throws RegisterUserException the register user exception
 	 */
-	public RegisterUser updatePassword(Integer id, String firstName, String lastName, String password)
+	public RegisterUser updatePassword(RegisterUserChangePasswordDO userDo)
 			throws RegisterUserException;
 	
 	/**
@@ -67,7 +67,7 @@ public interface RegisterUserService {
 	 * @return the register user
 	 * @throws RegisterUserException the register user exception
 	 */
-	public RegisterUser updateFirstName(Integer id, String firstName) throws RegisterUserException;
+	public RegisterUser updateFirstName(RegisterUserChangeFirstNameDo userDo) throws RegisterUserException;
 	
 	/**
 	 * Update last name.
@@ -77,6 +77,13 @@ public interface RegisterUserService {
 	 * @throws RegisterUserException the register user exception
 	 */
 	public RegisterUser updateLastName(RegisterUser login) throws RegisterUserException;
+	
+	/**
+	 * Gets the all registered user.
+	 *
+	 * @return the all registered user
+	 * @throws RegisterUserException the register user exception
+	 */
 	public List<RegisterUser> getAllRegisteredUser() throws RegisterUserException;
 
 }

@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.capgemini.tlta.sevice.UserActivityDO;
+import com.capgemini.tlta.sevice.UserActivityStatusUpdateDo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
@@ -78,4 +79,8 @@ public class UserActivity {
 		this.certificate = certificate;
 	}
 	
+	public UserActivity(UserActivityStatusUpdateDo userDo) {
+		this.userActivityId = userDo.getUserActivityId();
+		this.status = userDo.getStatus();
+	}
 }

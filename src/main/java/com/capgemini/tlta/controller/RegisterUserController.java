@@ -20,6 +20,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.capgemini.tlta.exception.RegisterUserException;
 import com.capgemini.tlta.model.RegisterUser;
+import com.capgemini.tlta.sevice.RegisterUserChangeFirstNameDo;
+import com.capgemini.tlta.sevice.RegisterUserChangePasswordDO;
 import com.capgemini.tlta.sevice.RegisterUserService;
 
 import io.swagger.annotations.Api;
@@ -142,11 +144,11 @@ public class RegisterUserController {
 			consumes = "User id and first name sents as response body",
 			httpMethod = "PUT") 
 
-	//http://localhost:8081/springfox/api/users/1/Komal/
-	@PutMapping("/{id}/{firstName}/")	
-	public ResponseEntity<RegisterUser> updateUserFirstName(@Valid @PathVariable Integer id, @PathVariable String firstName) {
+	//http://localhost:8081/springfox/api/users/updateFirstName
+	@PutMapping("/updateFirstName")	
+	public ResponseEntity<RegisterUser> updateUserFirstName(@Valid @RequestBody RegisterUserChangeFirstNameDo userDo) {
 		try {
-			RegisterUser updatedUser= userService.updateFirstName(id, firstName);
+			RegisterUser updatedUser= userService.updateFirstName(userDo);
 			return new ResponseEntity<>(updatedUser,HttpStatus.OK);
 
 		}catch(RegisterUserException e) {
@@ -169,14 +171,13 @@ public class RegisterUserController {
 			tags = "update-User-password", 
 			consumes = "RegisterUser id, firstname, lastname, new password sents String as response body",
 			httpMethod = "PUT")
-	// http://localhost:8081/springfox/api/users/4/firstname/lastname/pass
-	@PutMapping("/{id}/{firstName}/{lastName}/{pass}/")
-	public String updatePassword(@Valid @PathVariable Integer id, @PathVariable String firstName,
-			@PathVariable String lastName,@PathVariable String pass) {
+	// http://localhost:8081/springfox/api/users/changePass
+	@PutMapping("/changePass")
+	public String updatePassword(@RequestBody RegisterUserChangePasswordDO userDo) {
 		try {
-			RegisterUser updatedUser = userService.updatePassword(id, firstName, lastName,pass);
+			RegisterUser updatedUser = userService.updatePassword(userDo);
 			if(updatedUser!=null)
-			return "Password updated successfully for user with id :"+id;
+			return "Password updated successfully for user with id :"+updatedUser.getId();
 			else
 				return "Unable to update password";
 

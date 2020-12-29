@@ -200,10 +200,10 @@ public class UserActivityServiceImpl implements UserActivityService {
 	 * @throws ActivityException the activity exception
 	 */
 	@Override
-	public boolean updateStatusById(Integer id, String status) throws ActivityException {
+	public boolean updateStatusById(UserActivityStatusUpdateDo status) throws ActivityException {
 		try {
-			UserActivity activity = userActivityRepository.findById(id).get();
-			activity.setStatus(status);
+			UserActivity activity = userActivityRepository.findById(status.getUserActivityId()).get();
+			activity.setStatus(status.getStatus());
 			return true;
 		} catch (DataAccessException e) {
 			throw new ActivityException(e.getMessage(), e);

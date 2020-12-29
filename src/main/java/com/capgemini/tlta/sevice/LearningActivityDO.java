@@ -49,7 +49,6 @@ public class LearningActivityDO {
 	@NotNull(message="Please provide a date in yyyy-MM-dd format")
 	private Date activityReleaseDate;
 
-	@Nullable
 	private Integer assessmentId;
 
 	public LearningActivityDO(

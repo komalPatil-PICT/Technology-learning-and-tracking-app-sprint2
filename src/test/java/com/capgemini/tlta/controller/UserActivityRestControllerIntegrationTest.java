@@ -43,6 +43,7 @@ import com.capgemini.tlta.repository.RegisterUserRepository;
 import com.capgemini.tlta.repository.UserActivityRepository;
 import com.capgemini.tlta.sevice.LearningActivityDO;
 import com.capgemini.tlta.sevice.UserActivityDO;
+import com.capgemini.tlta.sevice.UserActivityStatusUpdateDo;
 /**
  * The Class UserActivityRestControllerIntegrationTest.
  */
@@ -189,13 +190,16 @@ public class UserActivityRestControllerIntegrationTest {
 		user = userRepository.save(user);
 		
 		UserActivity userActivity = new UserActivity(user, learningActivity, "register", null, null);
-		userActivityRepository.save(userActivity);
+		userActivity = userActivityRepository.save(userActivity);
 		userActivityRepository.flush();
 		
 		String updatedStatus = "Pending";
+		UserActivityStatusUpdateDo statusDo = new UserActivityStatusUpdateDo(userActivity.getUserActivityId(), updatedStatus);
 		
-		mvc.perform(put("/api/userActivity/updateStatus/{id}/{status}", userActivity.getUserActivityId(), updatedStatus))
-					.andDo(print());
+		mvc.perform(put("/api/userActivity/updateStatus")
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(JsonUtil.toJson(statusDo)))
+				.andDo(print());
 		
 		mvc.perform(get("/api/userActivity/").contentType(MediaType.APPLICATION_JSON))
         .andDo(print())

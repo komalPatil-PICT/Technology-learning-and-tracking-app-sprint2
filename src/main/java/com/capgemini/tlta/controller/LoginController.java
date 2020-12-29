@@ -61,7 +61,8 @@ public class LoginController {
 		baseResponse.setResponse(str);
 		return new ResponseEntity<>(baseResponse, HttpStatus.OK);
 	}
-
+	
+	//TODO:not working
 	/**
 	 * Change password.
 	 *
@@ -69,7 +70,7 @@ public class LoginController {
 	 * @param new_password the new password
 	 * @return the response entity
 	 */
-	//http://localhost:8081/springfox/api/reset/newPass
+	//http://localhost:8081/springfox/api/Login/reset/newPass
 	@PostMapping("/reset/{new_password}")
 	@ApiOperation(value = "Reset Password")
 	public ResponseEntity<?> changePassword( @RequestBody Login registerUser, @PathVariable String new_password) {

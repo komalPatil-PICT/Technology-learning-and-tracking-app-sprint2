@@ -112,15 +112,14 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 	 * @throws RegisterUserException the register user exception
 	 */
 	@Override
-	public RegisterUser updatePassword(Integer id, String firstName, String lastName, String password)
+	public RegisterUser updatePassword(RegisterUserChangePasswordDO userDo)
 			throws RegisterUserException {
 		RegisterUser user = null;
 		try {
-			System.out.println(user + "," + id);
-			user = userRepository.getOne(id);
+			user = userRepository.getOne(userDo.getId());
 
-			if (user.getFirstName().equals(firstName) && user.getLastName().equals(lastName)) {
-				user.setPassword(password);
+			if (user.getFirstName().equals(userDo.getFirstName()) && user.getLastName().equals(userDo.getLastName())) {
+				user.setPassword(userDo.getPassword());
 				user = userRepository.save(user);
 			}
 			return user;
@@ -141,12 +140,12 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 	 * @throws RegisterUserException the register user exception
 	 */
 	@Override
-	public RegisterUser updateFirstName(Integer id, String firstName) throws RegisterUserException {
+	public RegisterUser updateFirstName(RegisterUserChangeFirstNameDo userDo) throws RegisterUserException {
 		RegisterUser updateUser = null;
 		try {
-			updateUser = userRepository.getOne(id);
+			updateUser = userRepository.getOne(userDo.getId());
 			if (updateUser != null) {
-				updateUser.setFirstName(firstName);
+				updateUser.setFirstName(userDo.getFirstName());
 				userRepository.save(updateUser);
 			}
 			return updateUser;

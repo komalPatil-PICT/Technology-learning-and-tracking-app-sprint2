@@ -28,6 +28,7 @@ import com.capgemini.tlta.exception.ActivityException;
 import com.capgemini.tlta.model.UserActivity;
 import com.capgemini.tlta.sevice.UserActivityDO;
 import com.capgemini.tlta.sevice.UserActivityService;
+import com.capgemini.tlta.sevice.UserActivityStatusUpdateDo;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -216,12 +217,12 @@ public class UserActivityController {
 			tags = "Update-user-activity", 
 			consumes = "userActivityId and updated status", 
 			httpMethod = "PUT")
-	//http://localhost:8081/springfox/api/userActivity/upload/1
+	//http://localhost:8081/springfox/api/userActivity/updateStatus
 	
-	@PutMapping("/updateStatus/{id}/{status}")
-	public String updateStatus(@PathVariable Integer id, @PathVariable String status) {
+	@PutMapping("/updateStatus")
+	public String updateStatus(@RequestBody UserActivityStatusUpdateDo status) {
 		try {
-			boolean isUpdated = userActivityService.updateStatusById(id, status);
+			boolean isUpdated = userActivityService.updateStatusById(status);
 
 			if (isUpdated) {
 				return "Updated status successfully";

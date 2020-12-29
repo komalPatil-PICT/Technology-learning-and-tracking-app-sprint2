@@ -50,22 +50,6 @@ public class UserActivityControllerIntegrationTest {
 	@MockBean
 	private UserActivityService userservice;
 
-//	@Test
-//	public void whenPostAssessment_thenCreateAssessment() throws Exception {
-//		UserActivity jpa = new UserActivity("jpa");
-//		
-//		given(userservice.userRegisterToLearningActivity(Mockito.any())).willReturn(jpa);
-//
-//		mvc.perform(post("/api/userActivity/")
-//				.contentType(MediaType.APPLICATION_JSON)
-//				.content(JsonUtil.toJson(jpa)))
-//				.andExpect(status().isOk())
-//				.andExpect(jsonPath("$.status", is("jpa")));
-//
-//		verify(userservice, VerificationModeFactory.times(1)).userRegisterToLearningActivity(Mockito.any());
-//		reset(userservice);
-//	}
-
 	@Test
 	public void givenUserActivity_whenGetUserActivity_thenReturnJsonArray() throws Exception {
 		UserActivity jpa = new UserActivity("jpa");

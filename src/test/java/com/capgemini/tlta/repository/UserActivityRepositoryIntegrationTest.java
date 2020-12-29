@@ -38,8 +38,7 @@ public class UserActivityRepositoryIntegrationTest {
 
 	@Autowired
 	private LearningActivityRepository learningRepository;
-//	@Autowired
-//	private AssessmentActivityRepository assessmentRepository;
+
 
 	@BeforeEach
 	public void resetDb() {

@@ -14,10 +14,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.capgemini.tlta.sevice.RegisterUserChangeFirstNameDo;
+import com.capgemini.tlta.sevice.RegisterUserChangePasswordDO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
@@ -87,7 +88,7 @@ public class RegisterUser {
 			@NotNull @Email(message = "Email format invalid!") String emailId,
 			@NotNull @Pattern(regexp = "^[A-Za-z_0-9@#$%]{6,12}", message = "Password must be 6 characters") String password,
 			@NotNull Role role) {
-		super();
+		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.emailId = emailId;
@@ -95,5 +96,16 @@ public class RegisterUser {
 		this.role = role;
 	}	
 	
+	public RegisterUser(RegisterUserChangePasswordDO user) {
+		this.id = user.getId();
+		this.firstName = user.getFirstName();
+		this.lastName = user.getLastName();
+		this.password = user.getPassword();
+	}
+	
+	public RegisterUser(RegisterUserChangeFirstNameDo userDo) {
+		this.id = userDo.getId();
+		this.firstName = userDo.getFirstName();
+	}
 	
 }

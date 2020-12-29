@@ -1,7 +1,9 @@
 package com.capgemini.tlta.sevice;
 
 import java.util.List;
+
 import org.springframework.web.multipart.MultipartFile;
+
 import com.capgemini.tlta.exception.ActivityException;
 import com.capgemini.tlta.model.UserActivity;
 
@@ -81,5 +83,5 @@ public interface UserActivityService {
 	 * @return true, if successful
 	 * @throws ActivityException the activity exception
 	 */
-	public boolean updateStatusById(Integer activityId, String status) throws ActivityException;
+	public boolean updateStatusById(UserActivityStatusUpdateDo status) throws ActivityException;
 }

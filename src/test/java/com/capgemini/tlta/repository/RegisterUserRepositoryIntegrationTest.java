@@ -20,7 +20,6 @@ import com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningA
 import com.capgemini.tlta.model.RegisterUser;
 import com.capgemini.tlta.model.Role;
 
-
 /**
  * The Class RegisterUserRepositoryIntegrationTest.
  */
@@ -56,29 +55,7 @@ public class RegisterUserRepositoryIntegrationTest {
         assertThat(fromDb).isNull();
     }
     
-    /**
-     * Given set of users when find all then return all users.
-     */
-    @Test
-    public void givenSetOfUsers_whenFindAll_thenReturnAllUsers() {
-    	RegisterUser alex = new RegisterUser("alex","Vele","alex@gmail.com","12#$%d",Role.USER);
-    	RegisterUser ron = new RegisterUser("ron","Vele","alex@gmail.com","12#$%d",Role.USER);
-    	RegisterUser bob = new RegisterUser("bob","Vele","alex@gmail.com","12&^as",Role.USER);
-
-    	userRepository.save(alex);
-    	userRepository.save(ron);
-    	userRepository.save(bob);
-//        entityManager.persist(alex);
-//        entityManager.persist(bob);
-//        entityManager.persist(ron);
-//        entityManager.flush();
-
-        List<RegisterUser> allRegisterUsers = userRepository.findAll();
-
-        assertThat(allRegisterUsers).hasSize(3).extracting(RegisterUser::getFirstName).
-        containsOnly(alex.getFirstName(), ron.getFirstName(), bob.getFirstName());
-    }
-    
+        
     /**
      * Update user first name test.
      */
