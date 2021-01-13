@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,7 @@ import io.swagger.annotations.ApiOperation;
 @Api
 @RestController
 @RequestMapping("/api/assessments")
+@CrossOrigin("http://localhost:3000")
 public class AssessmentActivityController {
 	
 	
@@ -150,10 +152,16 @@ public class AssessmentActivityController {
 			tags = "update-Assessment",
 			consumes = "Assessment object sents as response body",
 			httpMethod = "PUT") 
-	@PutMapping("/")
-	public ResponseEntity<Assessment> updateAssessment(@Valid @RequestBody Assessment assessment) {
+	@PutMapping("/{id}")
+	public ResponseEntity<Assessment> updateAssessment(@PathVariable Integer id,
+			@Valid @RequestBody Assessment assessment) {
 		try {
-			Assessment updatedAssessment= assessmentService.updateAssessmentActivity(assessment);
+			Assessment a = assessmentService.searchAssessmentActivityById(id);
+			a.setAssessmentName(assessment.getAssessmentName());
+			a.setAssessmentReleaseDate(assessment.getAssessmentReleaseDate());
+			a.setAssessmentType(assessment.getAssessmentType());
+			a.setAssessmentTimeDuration(assessment.getAssessmentTimeDuration());
+			Assessment updatedAssessment= assessmentService.updateAssessmentActivity(a);
 			return new ResponseEntity<>(updatedAssessment,HttpStatus.OK);
 
 		}catch(AssesmentException e) {
