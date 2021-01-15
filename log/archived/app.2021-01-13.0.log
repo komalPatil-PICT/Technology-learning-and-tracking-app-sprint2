@@ -1,0 +1,76 @@
+2021-01-13 16:27:18,359 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Starting TechnologyLearningAndTrackingAppSprint2Application using Java 1.8.0_271 on LAPTOP-KBF3AQHL with PID 93836 (C:\Users\Lala Patle\git\repository9\Technology-learning-and-tracking-app-sprint2\target\classes started by Lala Patle in C:\Users\Lala Patle\git\repository9\Technology-learning-and-tracking-app-sprint2)
+2021-01-13 16:27:18,369 DEBUG com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Running with Spring Boot v2.4.1, Spring v5.3.2
+2021-01-13 16:27:18,370 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] No active profile set, falling back to default profiles: default
+2021-01-13 16:27:18,464 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-01-13 16:27:18,464 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-01-13 16:27:19,687 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-01-13 16:27:19,779 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 80 ms. Found 4 JPA repository interfaces.
+2021-01-13 16:27:22,666 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2021-01-13 16:27:22,679 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Initializing ProtocolHandler ["http-nio-8081"]
+2021-01-13 16:27:22,680 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2021-01-13 16:27:22,680 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-13 16:27:22,683 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] Loaded Apache Tomcat Native library [1.2.25] using APR version [1.7.0].
+2021-01-13 16:27:22,683 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-01-13 16:27:22,683 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-01-13 16:27:22,695 INFO org.apache.catalina.core.AprLifecycleListener [restartedMain] OpenSSL successfully initialized [OpenSSL 1.1.1g  21 Apr 2020]
+2021-01-13 16:27:22,831 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [restartedMain] Initializing Spring embedded WebApplicationContext
+2021-01-13 16:27:22,831 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4366 ms
+2021-01-13 16:27:23,405 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-01-13 16:27:23,545 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.25.Final
+2021-01-13 16:27:23,776 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-01-13 16:27:23,924 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2021-01-13 16:27:24,849 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2021-01-13 16:27:24,935 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2021-01-13 16:27:27,427 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-01-13 16:27:27,437 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-01-13 16:27:27,455 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2021-01-13 16:27:29,188 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-01-13 16:27:29,454 INFO org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver [restartedMain] Exposing 2 endpoint(s) beneath base path '/actuator'
+2021-01-13 16:27:30,031 INFO org.apache.coyote.http11.Http11NioProtocol [restartedMain] Starting ProtocolHandler ["http-nio-8081"]
+2021-01-13 16:27:30,070 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path '/springfox'
+2021-01-13 16:27:30,585 INFO com.capgemini.Technologylearningandtrackingappsprint2.TechnologyLearningAndTrackingAppSprint2Application [restartedMain] Started TechnologyLearningAndTrackingAppSprint2Application in 12.735 seconds (JVM running for 13.857)
+2021-01-13 16:27:50,163 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/springfox] [http-nio-8081-exec-3] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-13 16:27:50,163 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-3] Initializing Servlet 'dispatcherServlet'
+2021-01-13 16:27:50,165 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-3] Completed initialization in 2 ms
+2021-01-13 16:27:50,211 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-3] Entering method : com.capgemini.tlta.controller.RegisterUserController.getAllRegisterUsers() with argument[s] = []
+2021-01-13 16:27:50,507 INFO com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-3] Returning details of all Users
+2021-01-13 16:27:50,507 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-3] Exiting method: com.capgemini.tlta.controller.RegisterUserController.getAllRegisterUsers() with result = <200 OK OK,[com.capgemini.tlta.model.RegisterUser@5102e08, com.capgemini.tlta.model.RegisterUser@4dfb069b],[]>
+2021-01-13 16:28:14,492 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-2] Entering method : com.capgemini.tlta.controller.RegisterUserController.addRegisterUser() with argument[s] = [com.capgemini.tlta.model.RegisterUser@627389df]
+2021-01-13 16:28:14,533 INFO com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-2] Adding one User
+2021-01-13 16:28:14,533 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-2] Exiting method: com.capgemini.tlta.controller.RegisterUserController.addRegisterUser() with result = com.capgemini.tlta.model.RegisterUser@627389df
+2021-01-13 16:28:23,210 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-4] Entering method : com.capgemini.tlta.controller.RegisterUserController.getAllRegisterUsers() with argument[s] = []
+2021-01-13 16:28:23,214 INFO com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-4] Returning details of all Users
+2021-01-13 16:28:23,214 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-4] Exiting method: com.capgemini.tlta.controller.RegisterUserController.getAllRegisterUsers() with result = <200 OK OK,[com.capgemini.tlta.model.RegisterUser@6dd149c9, com.capgemini.tlta.model.RegisterUser@5de306ce, com.capgemini.tlta.model.RegisterUser@3ce84afe],[]>
+2021-01-13 16:29:22,037 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-5] Entering method : com.capgemini.tlta.controller.AssessmentActivityController.addAssessment() with argument[s] = [com.capgemini.tlta.model.Assessment@3c306266]
+2021-01-13 16:29:22,067 INFO com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-5] Adding one assessment
+2021-01-13 16:29:22,068 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-5] Exiting method: com.capgemini.tlta.controller.AssessmentActivityController.addAssessment() with result = com.capgemini.tlta.model.Assessment@3c306266
+2021-01-13 16:30:35,264 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8081-exec-8] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "add"]
+2021-01-13 16:30:53,344 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8081-exec-10] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "add"]
+2021-01-13 16:33:23,233 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-3] Entering method : com.capgemini.tlta.controller.LearningActivityController.addLearningActivity() with argument[s] = [com.capgemini.tlta.model.LearningActivity@2d7c25c]
+2021-01-13 16:33:23,263 INFO com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-3] Adding one Learning Activity
+2021-01-13 16:33:23,264 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-3] Exiting method: com.capgemini.tlta.controller.LearningActivityController.addLearningActivity() with result = com.capgemini.tlta.model.LearningActivity@2d7c25c
+2021-01-13 16:35:06,902 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-5] Entering method : com.capgemini.tlta.controller.UserActivityController.addUserLearningActivity() with argument[s] = [com.capgemini.tlta.sevice.UserActivityDO@506bf525]
+2021-01-13 16:35:06,951 INFO com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-5] Adding one User Learning Activity
+2021-01-13 16:35:06,951 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-5] Exiting method: com.capgemini.tlta.controller.UserActivityController.addUserLearningActivity() with result = User Activity 183 added to database
+2021-01-13 16:35:15,880 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8081-exec-6] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2021-01-13 16:35:25,796 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-7] Entering method : com.capgemini.tlta.controller.UserActivityController.getUserActivityById() with argument[s] = [183]
+2021-01-13 16:35:25,812 INFO com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-7] Returning details of 1 User Learning Activity
+2021-01-13 16:35:25,813 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-7] Exiting method: com.capgemini.tlta.controller.UserActivityController.getUserActivityById() with result = <200 OK OK,[]>
+2021-01-13 16:36:47,212 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-10] Entering method : com.capgemini.tlta.controller.UserActivityController.getUserActivityById() with argument[s] = [183]
+2021-01-13 16:36:47,215 INFO com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-10] Returning details of 1 User Learning Activity
+2021-01-13 16:36:47,215 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-10] Exiting method: com.capgemini.tlta.controller.UserActivityController.getUserActivityById() with result = <200 OK OK,[]>
+2021-01-13 16:40:11,318 WARN org.springframework.web.servlet.PageNotFound [http-nio-8081-exec-2] No mapping for GET /springfox/api/userActivity/upload/183
+2021-01-13 16:40:22,258 WARN org.springframework.web.servlet.PageNotFound [http-nio-8081-exec-4] No mapping for PUT /springfox/api/userActivity/upload/183
+2021-01-13 16:42:15,136 WARN org.springframework.web.servlet.PageNotFound [http-nio-8081-exec-7] No mapping for PUT /springfox/api/userActivity/upload/183
+2021-01-13 16:42:33,172 WARN org.springframework.web.servlet.PageNotFound [http-nio-8081-exec-8] No mapping for PUT /springfox/api/userActivity/upload/183
+2021-01-13 17:19:55,626 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8081-exec-10] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' not supported]
+2021-01-13 17:20:03,579 WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver [http-nio-8081-exec-3] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' not supported]
+2021-01-13 17:20:14,327 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-2] Entering method : com.capgemini.tlta.controller.UserActivityController.getUserActivityById() with argument[s] = [183]
+2021-01-13 17:20:14,417 INFO com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-2] Returning details of 1 User Learning Activity
+2021-01-13 17:20:14,417 DEBUG com.capgemini.tlta.aspect.LoggerAspect [http-nio-8081-exec-2] Exiting method: com.capgemini.tlta.controller.UserActivityController.getUserActivityById() with result = <200 OK OK,[]>
+2021-01-13 17:51:23,967 WARN org.springframework.web.servlet.PageNotFound [http-nio-8081-exec-5] No mapping for GET /springfox/api/employees
+2021-01-13 17:52:40,992 WARN org.springframework.web.servlet.PageNotFound [http-nio-8081-exec-7] No mapping for OPTIONS /springfox/api/employees
+2021-01-13 17:52:42,531 WARN org.springframework.web.servlet.PageNotFound [http-nio-8081-exec-8] No mapping for OPTIONS /springfox/api/employees
+2021-01-13 17:52:46,979 WARN org.springframework.web.servlet.PageNotFound [http-nio-8081-exec-1] No mapping for OPTIONS /springfox/api/employees
+2021-01-13 17:52:47,234 WARN org.springframework.web.servlet.PageNotFound [http-nio-8081-exec-10] No mapping for OPTIONS /springfox/api/employees
+2021-01-13 23:29:25,464 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h1m56s33ms207µs899ns).
