@@ -62,8 +62,5 @@ public class LearningActivityDO {
 		this.activityLevel = activityLevel;
 		this.activityTime = activityTime;
 		this.activityReleaseDate = activityReleaseDate;
-	}
-
-
-	
+	}	
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +34,7 @@ import io.swagger.annotations.ApiOperation;
 @Api
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin("http://localhost:3000")
 public class RegisterUserController {
 	@Autowired(required = false)
 	@Qualifier(value = "registerUserService")
@@ -180,6 +182,28 @@ public class RegisterUserController {
 			return "Password updated successfully for user with id :"+updatedUser.getId();
 			else
 				return "Unable to update password";
+
+		} catch (RegisterUserException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
+	}
+	
+	@ApiOperation(value = "Update User", 
+			response = String.class, 
+			tags = "update-User-password", 
+			httpMethod = "PUT")
+	// http://localhost:8081/springfox/api/users/21
+	@PutMapping("/{id}")
+	public ResponseEntity<RegisterUser> updateUser(@PathVariable Integer id,@RequestBody RegisterUser user) {
+		try {
+			RegisterUser u = userService.getUserById(id);
+			u.setFirstName(user.getFirstName());
+			u.setLastName(user.getLastName());
+			u.setEmailId(user.getEmailId());
+			u.setPassword(user.getPassword());
+			u.setRole(user.getRole());
+			RegisterUser updatedUser = userService.updateUser(u);
+			return new ResponseEntity<>(updatedUser,HttpStatus.OK);
 
 		} catch (RegisterUserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());

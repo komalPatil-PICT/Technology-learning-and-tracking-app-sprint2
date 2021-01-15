@@ -58,7 +58,6 @@ public class LearningActivity implements Serializable {
 	private String activityLink;
 
 	@NotNull(message="Activity level should be Beginner/Intermediate/Expert")
-	@Size(min=6)
 	@Column(name = "activity_level")
 	private String activityLevel;
 
@@ -115,6 +114,5 @@ public class LearningActivity implements Serializable {
 		this.activityTime = activityTime;
 		this.activityReleaseDate = activityReleaseDate;
 	}
-	
 	
 }

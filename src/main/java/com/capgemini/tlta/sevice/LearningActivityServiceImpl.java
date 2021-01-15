@@ -145,7 +145,7 @@ public class LearningActivityServiceImpl implements LearningActivityService {
 		try {
 			assessment = assessmentRepository.getOne(learningActivityDo.getAssessmentId());
 			learning.setAssesment(assessment);
-			learning.setActivityName(learningActivityDo.getActivityName());
+		//	learning.setActivityName(learningActivityDo.getActivityName());
 			learning = learningActivityRepository.save(learning);
 			return learning;
 		} catch (DataAccessException e) {

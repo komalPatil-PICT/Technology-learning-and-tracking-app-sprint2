@@ -8,7 +8,9 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.capgemini.tlta.exception.AssesmentException;
 import com.capgemini.tlta.exception.RegisterUserException;
+import com.capgemini.tlta.model.Assessment;
 import com.capgemini.tlta.model.RegisterUser;
 import com.capgemini.tlta.repository.RegisterUserRepository;
 
@@ -29,6 +31,22 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 	 * @return the register user
 	 * @throws RegisterUserException the register user exception
 	 */
+	@Override
+	public RegisterUser updateUser(RegisterUser user) throws RegisterUserException {
+		try {
+			RegisterUser i = userRepository.getOne(user.getId());
+			if (i != null) {
+				RegisterUser p = userRepository.save(user);
+				return p;
+			} else {
+				throw new RegisterUserException();
+			}
+		} catch (DataAccessException e) {
+			throw new RegisterUserException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new RegisterUserException(e.getMessage(), e);
+		}
+	}
 	@Override
 	public RegisterUser addUser(RegisterUser user) throws RegisterUserException {
 
@@ -188,5 +206,6 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 			throw new RegisterUserException(e.getMessage(), e);
 		}
 	}
+	
 
 }

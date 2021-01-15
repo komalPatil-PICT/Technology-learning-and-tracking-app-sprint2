@@ -85,5 +85,7 @@ public interface RegisterUserService {
 	 * @throws RegisterUserException the register user exception
 	 */
 	public List<RegisterUser> getAllRegisteredUser() throws RegisterUserException;
+	
+	public RegisterUser updateUser(RegisterUser user)throws RegisterUserException;
 
 }
