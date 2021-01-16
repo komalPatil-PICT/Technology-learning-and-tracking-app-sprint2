@@ -2,8 +2,6 @@ package com.capgemini.tlta.sevice;
 
 import java.util.List;
 
-import javax.mail.MessagingException;
-
 import com.capgemini.tlta.exception.RegisterUserException;
 import com.capgemini.tlta.model.RegisterUser;
 
@@ -20,7 +18,7 @@ public interface RegisterUserService {
 	 * @throws RegisterUserException the register user exception
 	 */
 	public RegisterUser addUser(RegisterUser login) throws RegisterUserException;
-	public void sendCredentialMail(RegisterUser user) throws MessagingException;
+	
 	/**
 	 * Gets the user by id.
 	 *

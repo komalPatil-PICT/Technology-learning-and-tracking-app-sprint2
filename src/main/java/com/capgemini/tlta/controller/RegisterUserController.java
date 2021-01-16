@@ -2,8 +2,6 @@ package com.capgemini.tlta.controller;
 
 import java.util.List;
 
-import javax.mail.MessagingException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -98,13 +96,8 @@ public class RegisterUserController {
 		RegisterUser status = null;
 		try {
 			status = userService.addUser(user);
-			userService.sendCredentialMail(user);
 			return status;
-		}catch(MessagingException e) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-
-		}
-		catch (RegisterUserException e) {
+		} catch (RegisterUserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}

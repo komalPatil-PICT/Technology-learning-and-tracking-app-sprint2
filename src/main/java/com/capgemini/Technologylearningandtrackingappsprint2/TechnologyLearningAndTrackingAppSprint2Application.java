@@ -29,7 +29,7 @@ public class TechnologyLearningAndTrackingAppSprint2Application {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
-		 SpringApplication.run(TechnologyLearningAndTrackingAppSprint2Application.class, args);
+		SpringApplication.run(TechnologyLearningAndTrackingAppSprint2Application.class, args);
 	}
 
 	/**
