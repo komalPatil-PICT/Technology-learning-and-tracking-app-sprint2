@@ -3,14 +3,17 @@ package com.capgemini.tlta.sevice;
 import java.util.List;
 import java.util.Optional;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.capgemini.tlta.exception.AssesmentException;
 import com.capgemini.tlta.exception.RegisterUserException;
-import com.capgemini.tlta.model.Assessment;
 import com.capgemini.tlta.model.RegisterUser;
 import com.capgemini.tlta.repository.RegisterUserRepository;
 
@@ -23,7 +26,8 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 
 	@Autowired
 	RegisterUserRepository userRepository;
-
+	@Autowired
+	private JavaMailSender mailSender;
 	/**
 	 * Adds the user.
 	 *
@@ -60,7 +64,20 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 			throw new RegisterUserException(e.getMessage(), e);
 		}
 	}
-	
+	public void sendCredentialMail(RegisterUser user) throws MessagingException {
+		String subject="TLTA CREDENTIALS";
+		String mailContent="<p> Dear "+user.getFirstName()+",</p>";
+		mailContent+="<p> Your Account is created for Technology Learning and Tracking Application.</p>";
+		mailContent+="<p> Your credentials are: <br>USERID: "+user.getId()+"<br>PASSWORD: "+user.getPassword()+"</p>";
+		mailContent+="<p> Regards,<br>TLTA Teams</p>";
+		MimeMessage message=mailSender.createMimeMessage();
+		MimeMessageHelper helper=new MimeMessageHelper(message);
+		helper.setFrom("tltaproject2@gmail.com");
+		helper.setTo(user.getEmailId());
+		helper.setSubject(subject);
+		helper.setText(mailContent, true);
+		mailSender.send(message);
+	}
 	/**
 	 * Gets the user by id.
 	 *

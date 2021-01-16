@@ -2,6 +2,7 @@ package com.capgemini.tlta.controller;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -105,12 +106,23 @@ public class RegisterUserController {
 		RegisterUser status = null;
 		try {
 			status = userService.addUser(user);
+			userService.sendCredentialMail(user);
 			return status;
-		} catch (RegisterUserException e) {
+		}catch(MessagingException e){
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+
+		}
+		catch (RegisterUserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
+	
 
+
+	public void sendCredentialsMail(@Valid RegisterUser user) {
+		
+		
+	}
 
 	/**
 	 * Delete register user.
