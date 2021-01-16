@@ -59,7 +59,7 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 		MimeMessage message=mailSender.createMimeMessage();
 		MimeMessageHelper helper=new MimeMessageHelper(message);
 		helper.setFrom("patlelala09@gmail.com");
-		helper.setTo("patlelala09@gmail.com");
+		helper.setTo(user.getEmailId());
 		helper.setSubject(subject);
 		helper.setText(mailContent, true);
 		mailSender.send(message);
