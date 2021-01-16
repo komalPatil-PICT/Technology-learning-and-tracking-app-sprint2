@@ -1,7 +1,6 @@
 package com.capgemini.tlta.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 import static org.hamcrest.Matchers.hasSize;
@@ -13,10 +12,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +32,6 @@ import com.capgemini.tlta.model.Assessment;
 import com.capgemini.tlta.repository.AssessmentActivityRepository;
 import com.capgemini.tlta.repository.LearningActivityRepository;
 
-/**
- * The Class AssessmentRestControllerIntegrationTest.
- */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TechnologyLearningAndTrackingAppSprint2Application.class)
 @AutoConfigureMockMvc
@@ -51,24 +46,15 @@ public class AssessmentRestControllerIntegrationTest {
 	@Autowired
 	private LearningActivityRepository learningRepository;
 	
-	/**
-	 * Reset db.
-	 */
-	@AfterEach
+	@BeforeEach
 	public void resetDb() {
 		learningRepository.deleteAll();
 		repository.deleteAll();
 	}
 
-	/**
-	 * When valid input then create assessment.
-	 *
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws Exception the exception
-	 */
 	@Test
 	public void whenValidInput_thenCreateAssessment() throws IOException, Exception {
-		Assessment java = new Assessment("Java","MCQ",new Date(),4d);
+		Assessment java = new Assessment("Java");
 		mvc.perform(post("/api/assessments/")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(JsonUtil.toJson(java)));
@@ -78,15 +64,10 @@ public class AssessmentRestControllerIntegrationTest {
 		.extracting(Assessment::getAssessmentName).containsOnly("Java");
 	}
 
-	/**
-	 * Given assessments when get assessments then status 200.
-	 *
-	 * @throws Exception the exception
-	 */
 	@Test
 	public void givenAssessments_whenGetAssessments_thenStatus200() throws Exception {
-		createTestAssessment("Java","MCQ",new Date(),4d);
-		createTestAssessment("Jpa","MCQ",new Date(),4d);
+		createTestAssessment("Java");
+		createTestAssessment("Jpa");
 
 		mvc.perform(get("/api/assessments/").contentType(MediaType.APPLICATION_JSON)).andDo(print())
 				.andExpect(status().isOk()).andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
@@ -96,13 +77,8 @@ public class AssessmentRestControllerIntegrationTest {
 
 	}
 
-	/**
-	 * Creates the test assessment.
-	 *
-	 * @param name the name
-	 */
-	private void createTestAssessment(String name,String type,Date date,Double time) {
-		Assessment emp = new Assessment(name,type,date,time);
+	private void createTestAssessment(String name) {
+		Assessment emp = new Assessment(name);
 		repository.saveAndFlush(emp);
 	}
 

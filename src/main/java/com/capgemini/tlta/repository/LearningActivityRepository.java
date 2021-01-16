@@ -9,6 +9,6 @@ import com.capgemini.tlta.model.LearningActivity;
  * The Interface LearningActivityRepository.
  */
 @Repository
-public interface LearningActivityRepository extends JpaRepository<LearningActivity, Integer> {
+public interface LearningActivityRepository extends JpaRepository<LearningActivity, Integer>{
 
 }

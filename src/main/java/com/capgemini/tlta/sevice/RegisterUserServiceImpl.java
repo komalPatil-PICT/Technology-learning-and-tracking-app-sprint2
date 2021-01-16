@@ -3,13 +3,8 @@ package com.capgemini.tlta.sevice;
 import java.util.List;
 import java.util.Optional;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,8 +21,7 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 
 	@Autowired
 	RegisterUserRepository userRepository;
-	@Autowired
-	private JavaMailSender mailSender;
+
 	/**
 	 * Adds the user.
 	 *
@@ -35,22 +29,6 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 	 * @return the register user
 	 * @throws RegisterUserException the register user exception
 	 */
-	@Override
-	public RegisterUser updateUser(RegisterUser user) throws RegisterUserException {
-		try {
-			RegisterUser i = userRepository.getOne(user.getId());
-			if (i != null) {
-				RegisterUser p = userRepository.save(user);
-				return p;
-			} else {
-				throw new RegisterUserException();
-			}
-		} catch (DataAccessException e) {
-			throw new RegisterUserException(e.getMessage(), e);
-		} catch (Exception e) {
-			throw new RegisterUserException(e.getMessage(), e);
-		}
-	}
 	@Override
 	public RegisterUser addUser(RegisterUser user) throws RegisterUserException {
 
@@ -64,20 +42,7 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 			throw new RegisterUserException(e.getMessage(), e);
 		}
 	}
-	public void sendCredentialMail(RegisterUser user) throws MessagingException {
-		String subject="TLTA CREDENTIALS";
-		String mailContent="<p> Dear "+user.getFirstName()+",</p>";
-		mailContent+="<p> Your Account is created for Technology Learning and Tracking Application.</p>";
-		mailContent+="<p> Your credentials are: <br>USERID: "+user.getId()+"<br>PASSWORD: "+user.getPassword()+"</p>";
-		mailContent+="<p> Regards,<br>TLTA Teams</p>";
-		MimeMessage message=mailSender.createMimeMessage();
-		MimeMessageHelper helper=new MimeMessageHelper(message);
-		helper.setFrom("tltaproject2@gmail.com");
-		helper.setTo(user.getEmailId());
-		helper.setSubject(subject);
-		helper.setText(mailContent, true);
-		mailSender.send(message);
-	}
+
 	/**
 	 * Gets the user by id.
 	 *
@@ -115,7 +80,7 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 
 		return null;
 	}
-	
+
 	/**
 	 * Delete user.
 	 *
@@ -139,22 +104,22 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 	/**
 	 * Update password.
 	 *
-	 * @param id the id
+	 * @param user      the user
 	 * @param firstName the first name
-	 * @param lastName the last name
-	 * @param password the password
+	 * @param lastName  the last name
 	 * @return the register user
 	 * @throws RegisterUserException the register user exception
 	 */
 	@Override
-	public RegisterUser updatePassword(RegisterUserChangePasswordDO userDo)
+	public RegisterUser updatePassword(Integer id, String firstName, String lastName,String password)
 			throws RegisterUserException {
 		RegisterUser user = null;
 		try {
-			user = userRepository.getOne(userDo.getId());
-
-			if (user.getFirstName().equals(userDo.getFirstName()) && user.getLastName().equals(userDo.getLastName())) {
-				user.setPassword(userDo.getPassword());
+			System.out.println(user+","+id);
+			user = userRepository.getOne(id);
+			
+			if (user.getFirstName().equals(firstName) && user.getLastName().equals(lastName)) {
+				user.setPassword(password);
 				user = userRepository.save(user);
 			}
 			return user;
@@ -169,18 +134,17 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 	/**
 	 * Update first name.
 	 *
-	 * @param id the id
-	 * @param firstName the first name
+	 * @param login the login
 	 * @return the register user
 	 * @throws RegisterUserException the register user exception
 	 */
 	@Override
-	public RegisterUser updateFirstName(RegisterUserChangeFirstNameDo userDo) throws RegisterUserException {
+	public RegisterUser updateFirstName(Integer id, String firstName) throws RegisterUserException {
 		RegisterUser updateUser = null;
 		try {
-			updateUser = userRepository.getOne(userDo.getId());
+			updateUser = userRepository.getOne(id);
 			if (updateUser != null) {
-				updateUser.setFirstName(userDo.getFirstName());
+				updateUser.setFirstName(firstName);
 				userRepository.save(updateUser);
 			}
 			return updateUser;
@@ -189,7 +153,7 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 		} catch (Exception e) {
 			throw new RegisterUserException(e.getMessage(), e);
 		}
-
+		
 	}
 
 	/**
@@ -205,12 +169,6 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 		return null;
 	}
 
-	/**
-	 * Gets the all registered user.
-	 *
-	 * @return the all registered user
-	 * @throws RegisterUserException the register user exception
-	 */
 	@Override
 	public List<RegisterUser> getAllRegisteredUser() throws RegisterUserException {
 
@@ -223,6 +181,5 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 			throw new RegisterUserException(e.getMessage(), e);
 		}
 	}
-	
 
 }

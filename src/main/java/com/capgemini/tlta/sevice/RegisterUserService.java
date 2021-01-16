@@ -2,8 +2,6 @@ package com.capgemini.tlta.sevice;
 
 import java.util.List;
 
-import javax.mail.MessagingException;
-
 import com.capgemini.tlta.exception.RegisterUserException;
 import com.capgemini.tlta.model.RegisterUser;
 
@@ -11,7 +9,7 @@ import com.capgemini.tlta.model.RegisterUser;
  * The Interface RegisterUserService.
  */
 public interface RegisterUserService {
-
+	
 	/**
 	 * Adds the user.
 	 *
@@ -20,7 +18,7 @@ public interface RegisterUserService {
 	 * @throws RegisterUserException the register user exception
 	 */
 	public RegisterUser addUser(RegisterUser login) throws RegisterUserException;
-	public void sendCredentialMail(RegisterUser user) throws MessagingException;
+	
 	/**
 	 * Gets the user by id.
 	 *
@@ -51,25 +49,22 @@ public interface RegisterUserService {
 	/**
 	 * Update password.
 	 *
-	 * @param id the id
+	 * @param login the login
 	 * @param firstName the first name
 	 * @param lastName the last name
-	 * @param password the password
 	 * @return the register user
 	 * @throws RegisterUserException the register user exception
 	 */
-	public RegisterUser updatePassword(RegisterUserChangePasswordDO userDo)
-			throws RegisterUserException;
+	public RegisterUser updatePassword(Integer id,String firstName,String lastName,String password) throws RegisterUserException;
 	
 	/**
 	 * Update first name.
 	 *
-	 * @param id the id
-	 * @param firstName the first name
+	 * @param login the login
 	 * @return the register user
 	 * @throws RegisterUserException the register user exception
 	 */
-	public RegisterUser updateFirstName(RegisterUserChangeFirstNameDo userDo) throws RegisterUserException;
+	public RegisterUser updateFirstName(Integer id, String firstName) throws RegisterUserException;
 	
 	/**
 	 * Update last name.
@@ -79,15 +74,8 @@ public interface RegisterUserService {
 	 * @throws RegisterUserException the register user exception
 	 */
 	public RegisterUser updateLastName(RegisterUser login) throws RegisterUserException;
-	
-	/**
-	 * Gets the all registered user.
-	 *
-	 * @return the all registered user
-	 * @throws RegisterUserException the register user exception
-	 */
 	public List<RegisterUser> getAllRegisteredUser() throws RegisterUserException;
-	
-	public RegisterUser updateUser(RegisterUser user)throws RegisterUserException;
 
+	
+	
 }

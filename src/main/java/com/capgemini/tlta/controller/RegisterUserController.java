@@ -2,14 +2,10 @@ package com.capgemini.tlta.controller;
 
 import java.util.List;
 
-import javax.mail.MessagingException;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,8 +18,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.capgemini.tlta.exception.RegisterUserException;
 import com.capgemini.tlta.model.RegisterUser;
-import com.capgemini.tlta.sevice.RegisterUserChangeFirstNameDo;
-import com.capgemini.tlta.sevice.RegisterUserChangePasswordDO;
 import com.capgemini.tlta.sevice.RegisterUserService;
 
 import io.swagger.annotations.Api;
@@ -35,7 +29,6 @@ import io.swagger.annotations.ApiOperation;
 @Api
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin("http://localhost:3000")
 public class RegisterUserController {
 	@Autowired(required = false)
 	@Qualifier(value = "registerUserService")
@@ -57,8 +50,6 @@ public class RegisterUserController {
 	public ResponseEntity<RegisterUser> getRegisterUserById(@PathVariable Integer id) {
 		try {
 			RegisterUser user = userService.getUserById(id);
-			if(user == null)
-				throw new RegisterUserException();
 			return new ResponseEntity<>(user, HttpStatus.OK);
 		} catch (RegisterUserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -80,8 +71,7 @@ public class RegisterUserController {
 	public ResponseEntity<List<RegisterUser>> getAllRegisterUsers() {
 		try {
 			List<RegisterUser> usersList = userService.getAllRegisteredUser();
-			if(usersList == null)
-				throw new RegisterUserException();
+
 			return new ResponseEntity<>(usersList, HttpStatus.OK);
 		} catch (RegisterUserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -102,27 +92,16 @@ public class RegisterUserController {
 			httpMethod = "POST")
 
 	@PostMapping("/")
-	public RegisterUser addRegisterUser(@Valid @RequestBody RegisterUser user) {
+	public RegisterUser addRegisterUser(@RequestBody RegisterUser user) {
 		RegisterUser status = null;
 		try {
 			status = userService.addUser(user);
-			userService.sendCredentialMail(user);
 			return status;
-		}catch(MessagingException e){
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-
-		}
-		catch (RegisterUserException e) {
+		} catch (RegisterUserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
-	
 
-
-	public void sendCredentialsMail(@Valid RegisterUser user) {
-		
-		
-	}
 
 	/**
 	 * Delete register user.
@@ -157,12 +136,11 @@ public class RegisterUserController {
 			tags = "update user first name",
 			consumes = "User id and first name sents as response body",
 			httpMethod = "PUT") 
-
-	//http://localhost:8081/springfox/api/users/updateFirstName
-	@PutMapping("/updateFirstName")	
-	public ResponseEntity<RegisterUser> updateUserFirstName(@Valid @RequestBody RegisterUserChangeFirstNameDo userDo) {
+	//http://localhost:8081/springfox/api/users/1/Komal/
+	@PutMapping("/{id}/{firstName}/")	
+	public ResponseEntity<RegisterUser> updateUserFirstName(@PathVariable Integer id, @PathVariable String firstName) {
 		try {
-			RegisterUser updatedUser= userService.updateFirstName(userDo);
+			RegisterUser updatedUser= userService.updateFirstName(id, firstName);
 			return new ResponseEntity<>(updatedUser,HttpStatus.OK);
 
 		}catch(RegisterUserException e) {
@@ -171,51 +149,22 @@ public class RegisterUserController {
 	}
 
 	 
-	/**
-	 * Update password.
-	 *
-	 * @param id the id
-	 * @param firstName the first name
-	 * @param lastName the last name
-	 * @param pass the pass
-	 * @return the string
-	 */
+	// http://localhost:8081/springfox/api/users/4/firstname/lastname/pass
+	// update user
 	@ApiOperation(value = "Update User", 
 			response = String.class, 
 			tags = "update-User-password", 
 			consumes = "RegisterUser id, firstname, lastname, new password sents String as response body",
 			httpMethod = "PUT")
-	// http://localhost:8081/springfox/api/users/changePass
-	@PutMapping("/changePass")
-	public String updatePassword(@RequestBody RegisterUserChangePasswordDO userDo) {
+	@PutMapping("/{id}/{firstName}/{lastName}/{pass}/")
+	public String updatePassword(@PathVariable Integer id, @PathVariable String firstName,
+			@PathVariable String lastName,@PathVariable String pass) {
 		try {
-			RegisterUser updatedUser = userService.updatePassword(userDo);
+			RegisterUser updatedUser = userService.updatePassword(id, firstName, lastName,pass);
 			if(updatedUser!=null)
-			return "Password updated successfully for user with id :"+updatedUser.getId();
+			return "Password updated successfully for user with id :"+id;
 			else
 				return "Unable to update password";
-
-		} catch (RegisterUserException e) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-		}
-	}
-	
-	@ApiOperation(value = "Update User", 
-			response = String.class, 
-			tags = "update-User-password", 
-			httpMethod = "PUT")
-	// http://localhost:8081/springfox/api/users/21
-	@PutMapping("/{id}")
-	public ResponseEntity<RegisterUser> updateUser(@PathVariable Integer id,@RequestBody RegisterUser user) {
-		try {
-			RegisterUser u = userService.getUserById(id);
-			u.setFirstName(user.getFirstName());
-			u.setLastName(user.getLastName());
-			u.setEmailId(user.getEmailId());
-			u.setPassword(user.getPassword());
-			u.setRole(user.getRole());
-			RegisterUser updatedUser = userService.updateUser(u);
-			return new ResponseEntity<>(updatedUser,HttpStatus.OK);
 
 		} catch (RegisterUserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());

@@ -50,7 +50,6 @@ public class LoggerAspect {
 	public void applicationPackagePointcut3() {
 
 	}
-	
 	/**
 	 * Log around.
 	 *
@@ -187,7 +186,7 @@ public class LoggerAspect {
 	}
 
 	/**
-	 * Log around 3.
+	 * Log around 2.
 	 *
 	 * @param joinPoint the join point
 	 * @return the object
@@ -209,16 +208,7 @@ public class LoggerAspect {
 						log.info("Returning details of 1 User Learning Activity");
 					}else if(joinPoint.getSignature().getName().equals("addUserLearningActivity")) {
 						log.info("Adding one User Learning Activity");
-					}else if(joinPoint.getSignature().getName().equals("getAllUserActivity")) {
-						log.info("Returning details of all user Activities");
-					}else if(joinPoint.getSignature().getName().equals("deleteUserActivity")) {
-						log.info("Deleting user activity by id");
-					}else if(joinPoint.getSignature().getName().equals("uploadToDB")) {
-						log.info("Uploading certificate to database");
-					}else if(joinPoint.getSignature().getName().equals("updateStatus")) {
-						log.info("Updating status");
 					}
-
 					log.debug("Exiting method: {}.{}() with result = {}", joinPoint.getSignature().getDeclaringTypeName(),
 							joinPoint.getSignature().getName(), result);
 				}
