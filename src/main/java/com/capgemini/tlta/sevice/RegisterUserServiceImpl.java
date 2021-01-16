@@ -58,7 +58,7 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 		mailContent+="<p> Regards,<br>TLTA Teams</p>";
 		MimeMessage message=mailSender.createMimeMessage();
 		MimeMessageHelper helper=new MimeMessageHelper(message);
-		helper.setFrom("patlelala09@gmail.com");
+		helper.setFrom("tltaproject2@gmail.com");
 		helper.setTo(user.getEmailId());
 		helper.setSubject(subject);
 		helper.setText(mailContent, true);
