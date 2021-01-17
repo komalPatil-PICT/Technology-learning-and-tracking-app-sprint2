@@ -23,7 +23,9 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 
 	@Autowired
 	RegisterUserRepository userRepository;
-
+	@Autowired
+	private JavaMailSender mailSender;
+	
 	/**
 	 * Adds the user.
 	 *
@@ -60,7 +62,20 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 			throw new RegisterUserException(e.getMessage(), e);
 		}
 	}
-	
+	public void sendCredentialMail(RegisterUser user) throws MessagingException {
+		String subject="TLTA CREDENTIALS";
+		String mailContent="<p> Dear "+user.getFirstName()+",</p>";
+		mailContent+="<p> Your Account is created for Technology Learning and Tracking Application.</p>";
+		mailContent+="<p> Your credentials are: <br>USER EmailID : "+user.getEmailId()+"<br>PASSWORD: "+user.getPassword()+"</p>"+"<p>"+user.getRole()+"</p>";
+		mailContent+="<p> Regards,<br>TLTA Teams</p>";
+		MimeMessage message=mailSender.createMimeMessage();
+		MimeMessageHelper helper=new MimeMessageHelper(message);
+		helper.setFrom("tltaproject2@gmail.com");
+		helper.setTo(user.getEmailId());
+		helper.setSubject(subject);
+		helper.setText(mailContent, true);
+		mailSender.send(message);
+	}
 	/**
 	 * Gets the user by id.
 	 *
