@@ -24,8 +24,8 @@ class LoginTests {
     @Test
     public void testSignIn() {
         Login user =mock(Login.class);//mock(Login.class);
-        when(user.getId()).thenReturn(05);
-        assertEquals(user.getId(),05);
+        when(user.getEmail()).thenReturn("abc@01");
+        assertEquals(user.getEmail(),"abc@01");
         when(user.getPassword()).thenReturn("abc@01");
         assertEquals(user.getPassword(),"abc@01");
     
@@ -37,7 +37,7 @@ class LoginTests {
       @Test
       void testSignOut() { 
          LogOutPayload user = mock(LogOutPayload.class);
-     when(user.getId()).thenReturn(02);
-     assertEquals(user.getId(),02);
+     when(user.getEmail()).thenReturn("Saloni@g.com");
+     assertEquals(user.getEmail(),"Saloni@g.com");
     }
 }

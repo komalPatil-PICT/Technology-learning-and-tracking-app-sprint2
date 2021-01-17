@@ -8,6 +8,7 @@ import com.capgemini.tlta.exception.ResourceNotFound;
 import com.capgemini.tlta.model.LogOutPayload;
 import com.capgemini.tlta.model.Login;
 import com.capgemini.tlta.model.RegisterUser;
+import com.capgemini.tlta.model.Role;
 import com.capgemini.tlta.repository.LoginRepository;
 import static com.capgemini.tlta.exception.AppConstants.OPERATION_FAILED;
 import static com.capgemini.tlta.exception.AppConstants.USER_NOT_FOUND;
@@ -33,14 +34,17 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public String signIn(Login registerUser) {
 		String str = null;
-		Optional<RegisterUser> userObj = loginRepository.findById(registerUser.getId());
+		Optional<RegisterUser> userObj = loginRepository.findByEmailId(registerUser.getEmail());
 		if (!userObj.isPresent()) {
 			System.out.println(userObj);
 			throw new ResourceNotFound(USER_NOT_FOUND);
 		} else {
 			String pwd = userObj.get().getPassword();
+			Role role=userObj.get().getRole();
 			if (!pwd.equals(registerUser.getPassword())) {
 				throw new ResourceNotFound(WRONG_PASSWORD);
+			}if(!role.equals(registerUser.getRole())) {
+				throw new ResourceNotFound(USER_NOT_FOUND);
 			}
 			try {
 				str = "Sign in sucessfull";
@@ -61,7 +65,7 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public String signOut(LogOutPayload registerUser) {
 		String str = null;
-		Optional<RegisterUser> userObj = loginRepository.findById(registerUser.getId());
+		Optional<RegisterUser> userObj = loginRepository.findByEmailId(registerUser.getEmail());
 		if (!userObj.isPresent()) {
 			throw new ResourceNotFound(USER_NOT_FOUND);
 		} else {
@@ -85,7 +89,7 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public String changePassword(Login registerUser, String new_password) {
 		String str = null;
-		Optional<RegisterUser> userObj = loginRepository.findById(registerUser.getId());
+		Optional<RegisterUser> userObj = loginRepository.findByEmailId(registerUser.getEmail());
 		if (!userObj.isPresent()) {
 			throw new ResourceNotFound(USER_NOT_FOUND);
 		} else {
