@@ -76,6 +76,7 @@ public class RegisterUserServiceImpl implements RegisterUserService {
 		helper.setTo(user.getEmailId());
 		helper.setSubject(subject);
 		helper.setText(mailContent, true);
+	
 		mailSender.send(message);
 	}
 	/**
