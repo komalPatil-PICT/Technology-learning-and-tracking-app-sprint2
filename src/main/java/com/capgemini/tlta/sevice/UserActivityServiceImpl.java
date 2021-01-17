@@ -88,6 +88,31 @@ public class UserActivityServiceImpl implements UserActivityService {
 		}
 
 	}
+	
+	/**
+	 * Gets the user activity by id.
+	 *
+	 * @param id the id
+	 * @return the user activity by id
+	 * @throws ActivityException the activity exception
+	 */
+	@Override
+	public UserActivity getActivityofUserById(Integer id) throws ActivityException {
+		try {
+			Optional<UserActivity> optional = userActivityRepository.findById(id);
+			if (optional.isPresent()) {
+				System.out.println(optional.get());
+				return optional.get();
+			} else {
+				return null;
+			}
+		} catch (DataAccessException e) {
+			throw new ActivityException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new ActivityException(e.getMessage(), e);
+		}
+
+	}
 
 	@Override
 	public List<UserActivity> getAllUserActivities() throws ActivityException {

@@ -9,5 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LogOutPayload {
-	private Integer id;
+	//private Integer id;
+	private String email;
+
 }

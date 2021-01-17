@@ -11,4 +11,5 @@ import com.capgemini.tlta.model.UserActivity;
 @Repository
 public interface UserActivityRepository extends JpaRepository<UserActivity, Integer> {
 
+	
 }

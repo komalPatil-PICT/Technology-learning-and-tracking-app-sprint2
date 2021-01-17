@@ -29,6 +29,9 @@ public interface UserActivityService {
 	 * @throws ActivityException the activity exception
 	 */
 	public UserActivity getUserActivityById(Integer id) throws ActivityException;
+	
+	public UserActivity getActivityofUserById(Integer id) throws ActivityException;
+
 
 	/**
 	 * Gets the all user activities.
@@ -84,4 +87,7 @@ public interface UserActivityService {
 	 * @throws ActivityException the activity exception
 	 */
 	public boolean updateStatusById(UserActivityStatusUpdateDo status) throws ActivityException;
+
+	
+
 }

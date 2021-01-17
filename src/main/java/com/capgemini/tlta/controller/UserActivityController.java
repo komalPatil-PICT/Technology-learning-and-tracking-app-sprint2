@@ -26,7 +26,12 @@ import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.capgemini.tlta.exception.ActivityException;
+import com.capgemini.tlta.exception.AssesmentException;
+import com.capgemini.tlta.exception.RegisterUserException;
+import com.capgemini.tlta.model.Assessment;
+import com.capgemini.tlta.model.RegisterUser;
 import com.capgemini.tlta.model.UserActivity;
+import com.capgemini.tlta.sevice.RegisterUserService;
 import com.capgemini.tlta.sevice.UserActivityDO;
 import com.capgemini.tlta.sevice.UserActivityService;
 import com.capgemini.tlta.sevice.UserActivityStatusUpdateDo;
@@ -48,6 +53,9 @@ public class UserActivityController {
 	private UserActivityService userActivityService;
 	// http://localhost:8081/springfox/api/userActivity/1
 	
+	@Autowired
+	private RegisterUserService reg;
+	
 	/**
 	 * Gets the user activity by id.
 	 *
@@ -62,12 +70,42 @@ public class UserActivityController {
 	@GetMapping("/{id}")
 	public ResponseEntity<UserActivity> getUserActivityById(@PathVariable Integer id) {
 		try {
+			
 			UserActivity userActivity = userActivityService.getUserActivityById(id);
 			return new ResponseEntity<>(userActivity, HttpStatus.OK);
 		} catch (ActivityException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
+	
+	
+	
+	
+	/**
+	 * Gets the user activity by id.
+	 *
+	 * @param id the id
+	 * @return the user activity by id
+	 */
+	// http://localhost:8081/springfox/api/userActivity/user/1
+	@ApiOperation(value = "Get User Activities By Id", 
+			response = UserActivity.class, 
+			tags = "get-User-Activity", 
+			consumes = "UserActivityId", 
+			httpMethod = "GET")
+	@GetMapping("/user/{id}")
+	public ResponseEntity<UserActivity> getActivityofUserById(@PathVariable Integer id) {
+		try {
+			RegisterUser r=reg.getUserById(id);
+			System.out.println("rrrrr:"+r.getId());
+			UserActivity userActivity = userActivityService.getUserActivityById(r.getId());
+//			System.out.println("uuuuu"+userActivity.getStatus());
+			return new ResponseEntity<>(userActivity, HttpStatus.OK);
+		} catch (ActivityException | RegisterUserException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		} 
+	}
+	
 
 	/**
 	 * Adds the user learning activity.
@@ -221,10 +259,21 @@ public class UserActivityController {
 			httpMethod = "PUT")
 	//http://localhost:8081/springfox/api/userActivity/updateStatus
 	
-	@PutMapping("/updateStatus")
-	public String updateStatus(@RequestBody UserActivityStatusUpdateDo status) {
+	@PutMapping("/{id}")
+	public String updateStatus(@PathVariable Integer id,
+			@RequestBody UserActivityStatusUpdateDo status) {
 		try {
-			boolean isUpdated = userActivityService.updateStatusById(status);
+			UserActivity u = userActivityService.getUserActivityById(id);
+			
+			u.setUserActivityId(status.getUserActivityId()); 
+			u.setStatus(status.getStatus());
+			
+			UserActivityStatusUpdateDo udo=null;
+			Integer id1= u.getUserActivityId();
+			String status1=u.getStatus();
+			udo=new UserActivityStatusUpdateDo(id1,status1);
+			
+			boolean isUpdated = userActivityService.updateStatusById(udo);
 
 			if (isUpdated) {
 				return "Updated status successfully";
@@ -235,5 +284,8 @@ public class UserActivityController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
+	
+	
+	
 }
 
