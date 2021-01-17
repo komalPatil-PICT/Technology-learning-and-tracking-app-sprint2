@@ -2,6 +2,7 @@ package com.capgemini.tlta.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,75 +23,109 @@ import com.capgemini.tlta.repository.AssessmentActivityRepository;
 import com.capgemini.tlta.sevice.AssessmentActivityService;
 import com.capgemini.tlta.sevice.AssessmentActivityServiceImpl;
 
+/**
+ * The Class AssessmentServiceImplIntegrationTest.
+ */
 @ExtendWith(SpringExtension.class)
 public class AssessmentServiceImplIntegrationTest {
 
+	/**
+	 * The Class assessmentServiceImplTestContextConfiguration.
+	 */
 	@TestConfiguration
-    static class assessmentServiceImplTestContextConfiguration {
-        @Bean
-        public AssessmentActivityService assessmentService() {
-            return new AssessmentActivityServiceImpl();
-        }
-    }
+	static class assessmentServiceImplTestContextConfiguration {
 
-    @Autowired
-    private AssessmentActivityService assessmentService;
+		/**
+		 * Assessment service.
+		 *
+		 * @return the assessment activity service
+		 */
+		@Bean
+		public AssessmentActivityService assessmentService() {
+			return new AssessmentActivityServiceImpl();
+		}
+	}
 
-    @MockBean
-    private AssessmentActivityRepository assessmentRepository;
-    
-    @BeforeEach
-    public void setUp() {
-    	Assessment java = new Assessment("Java");
-        java.setId(11);
+	@Autowired
+	private AssessmentActivityService assessmentService;
 
-        Assessment cpp = new Assessment("cpp");
-        Assessment jpa = new Assessment("jpa");
+	@MockBean
+	private AssessmentActivityRepository assessmentRepository;
 
-        List<Assessment> assessments = Arrays.asList(java, jpa, cpp);
+	/**
+	 * Sets up the test data source.
+	 */
+	@BeforeEach
+	public void setUp() {
+		Assessment java = new Assessment("Java","MCQ",new Date(),4d);
+		java.setId(11);
 
-        Mockito.when(assessmentRepository.findById(java.getId())).thenReturn(Optional.of(java));
-        Mockito.when(assessmentRepository.findAll()).thenReturn(assessments);
-        Mockito.when(assessmentRepository.findById(-99)).thenReturn(Optional.empty());
-    }
-    @Test
-    public void whenValidId_thenAssessmentShouldBeFound() throws AssesmentException {
-        Assessment fromDb = assessmentService.searchAssessmentActivityById(11);
-        assertThat(fromDb.getAssessmentName()).isEqualTo("Java");
+		Assessment cpp = new Assessment("cpp","MCQ",new Date(),4d);
+		Assessment jpa = new Assessment("jpa","MCQ",new Date(),4d);
 
-        verifyFindByIdIsCalledOnce();
-    }
-    
-    @Test
-    public void whenInValidId_thenAssessmentShouldNotBeFound() throws AssesmentException {
-        Assessment fromDb = assessmentService.searchAssessmentActivityById(-99);
-        verifyFindByIdIsCalledOnce();
-        assertThat(fromDb).isNull();
-    }
-    
-    @Test
-    public void given3Assessment_whenGetAll_thenReturn3Records() throws AssesmentException {
-    	Assessment java = new Assessment("Java");
-    	Assessment jpa = new Assessment("jpa");
-    	Assessment cpp = new Assessment("cpp");
+		List<Assessment> assessments = Arrays.asList(java, jpa, cpp);
 
-        List<Assessment> allAssessments = assessmentService.getAllAssessmentActivity();
-        verifyFindAllAssessmentsIsCalledOnce();
-        assertThat(allAssessments).hasSize(3).
-        extracting(Assessment::getAssessmentName).
-        contains(java.getAssessmentName(), 
-        		jpa.getAssessmentName(), 
-        		cpp.getAssessmentName());
-    }
-    
-    private void verifyFindByIdIsCalledOnce() {
-        Mockito.verify(assessmentRepository, VerificationModeFactory.times(1)).
-        findById(Mockito.anyInt());
-        Mockito.reset(assessmentRepository);
-    }
-    private void verifyFindAllAssessmentsIsCalledOnce() {
-        Mockito.verify(assessmentRepository, VerificationModeFactory.times(1)).findAll();
-        Mockito.reset(assessmentRepository);
-    }
+		Mockito.when(assessmentRepository.findById(java.getId())).thenReturn(Optional.of(java));
+		Mockito.when(assessmentRepository.findAll()).thenReturn(assessments);
+		Mockito.when(assessmentRepository.findById(-99)).thenReturn(Optional.empty());
+	}
+
+	/**
+	 * When valid id then assessment should be found.
+	 *
+	 * @throws AssesmentException the assesment exception
+	 */
+	@Test
+	public void whenValidId_thenAssessmentShouldBeFound() throws AssesmentException {
+		Assessment fromDb = assessmentService.searchAssessmentActivityById(11);
+		assertThat(fromDb.getAssessmentName()).isEqualTo("Java");
+
+		verifyFindByIdIsCalledOnce();
+	}
+
+	/**
+	 * When in valid id then assessment should not be found.
+	 *
+	 * @throws AssesmentException the assesment exception
+	 */
+	@Test
+	public void whenInValidId_thenAssessmentShouldNotBeFound() throws AssesmentException {
+		Assessment fromDb = assessmentService.searchAssessmentActivityById(-99);
+		verifyFindByIdIsCalledOnce();
+		assertThat(fromDb).isNull();
+	}
+
+	/**
+	 * Given 3 assessment when get all then return 3 records.
+	 *
+	 * @throws AssesmentException the assesment exception
+	 */
+	@Test
+	public void given3Assessment_whenGetAll_thenReturn3Records() throws AssesmentException {
+		Assessment java = new Assessment("Java","MCQ",new Date(),4d);
+		Assessment jpa = new Assessment("jpa","MCQ",new Date(),4d);
+		Assessment cpp = new Assessment("cpp","MCQ",new Date(),4d);
+
+		List<Assessment> allAssessments = assessmentService.getAllAssessmentActivity();
+		verifyFindAllAssessmentsIsCalledOnce();
+		assertThat(allAssessments).hasSize(3).extracting(Assessment::getAssessmentName)
+				.contains(java.getAssessmentName(), jpa.getAssessmentName(), cpp.getAssessmentName());
+	}
+
+	/**
+	 * Verify find by id is called once.
+	 */
+	private void verifyFindByIdIsCalledOnce() {
+		Mockito.verify(assessmentRepository, VerificationModeFactory.times(1)).findById(Mockito.anyInt());
+		Mockito.reset(assessmentRepository);
+	}
+
+	/**
+	 * Verify find all assessments is called once.
+	 */
+	private void verifyFindAllAssessmentsIsCalledOnce() {
+		Mockito.verify(assessmentRepository, VerificationModeFactory.times(1)).findAll();
+		Mockito.reset(assessmentRepository);
+	}
 
 }

@@ -6,8 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.capgemini.tlta.sevice.UserActivityDO;
+import com.capgemini.tlta.sevice.UserActivityStatusUpdateDo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,4 +47,40 @@ public class UserActivity {
 	
 	@Column(name = "certificate")
 	private String certificate;
+	
+	@JsonIgnore
+	@Column
+	@Lob
+	private byte[] file;
+	
+	
+	public UserActivity(UserActivityDO userDo) {
+		status = userDo.getStatus();
+		certificate = userDo.getCertificate();
+	}
+	public UserActivity(String status) {
+		this.status=status;
+	}
+	public UserActivity(RegisterUser registerUser, LearningActivity learningActivity, String status, String certificate,
+			byte[] file) {
+		super();
+		this.registerUser = registerUser;
+		this.learningActivity = learningActivity;
+		this.status = status;
+		this.certificate = certificate;
+		this.file = file;
+	}
+	public UserActivity(RegisterUser registerUser, LearningActivity learningActivity, String status,
+			String certificate) {
+		super();
+		this.registerUser = registerUser;
+		this.learningActivity = learningActivity;
+		this.status = status;
+		this.certificate = certificate;
+	}
+	
+	public UserActivity(UserActivityStatusUpdateDo userDo) {
+		this.userActivityId = userDo.getUserActivityId();
+		this.status = userDo.getStatus();
+	}
 }

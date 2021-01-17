@@ -11,8 +11,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
@@ -25,6 +27,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -33,10 +36,12 @@ import com.capgemini.tlta.model.Assessment;
 import com.capgemini.tlta.model.RegisterUser;
 import com.capgemini.tlta.sevice.AssessmentActivityService;
 
+/**
+ * The Class AssessmentControllerIntegrationTest.
+ */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = TechnologyLearningAndTrackingAppSprint2Application.class)
 @AutoConfigureMockMvc 
-@AutoConfigureTestDatabase(replace=Replace.NONE)
 public class AssessmentControllerIntegrationTest {
 	@Autowired
 	private MockMvc mvc;
@@ -45,13 +50,22 @@ public class AssessmentControllerIntegrationTest {
 	private AssessmentActivityService service;
 
 	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception the exception
+	 */
+	@BeforeEach
+    public void setUp() throws Exception {
+    }
+	/**
 	 * When post assessment then create assessment.
 	 *
 	 * @throws Exception the exception
 	 */
 	@Test
 	public void whenPostAssessment_thenCreateAssessment() throws Exception {
-		Assessment jpa = new Assessment("jpa");
+		Assessment jpa = new Assessment("jpa","MCQ",new Date(),4d);
+		
 		given(service.addAssessmentActivity(Mockito.any())).willReturn(jpa);
 
 		mvc.perform(post("/api/assessments/")
@@ -64,11 +78,16 @@ public class AssessmentControllerIntegrationTest {
 		reset(service);
 	}
 	
+	/**
+	 * Given assessments when get assessments then return json array.
+	 *
+	 * @throws Exception the exception
+	 */
 	@Test
 	public void givenAssessments_whenGetAssessments_thenReturnJsonArray() throws Exception {
-		Assessment jpa = new Assessment("jpa");
-		Assessment java = new Assessment("java");
-		Assessment cpp = new Assessment("cpp");
+		Assessment jpa = new Assessment("jpa","MCQ",new Date(),4d);
+		Assessment java = new Assessment("java","MCQ",new Date(),4d);
+		Assessment cpp = new Assessment("cpp","MCQ",new Date(),4d);
 
 		List<Assessment> allAssessments = Arrays.asList(jpa, java, cpp);
 

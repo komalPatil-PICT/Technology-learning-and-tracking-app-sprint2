@@ -2,11 +2,12 @@ package com.capgemini.tlta.controller;
 
 import java.util.List;
 
-
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.capgemini.tlta.exception.ActivityException;
 import com.capgemini.tlta.model.LearningActivity;
-
+import com.capgemini.tlta.sevice.LearningActivityDO;
 import com.capgemini.tlta.sevice.LearningActivityService;
 
 import io.swagger.annotations.Api;
@@ -30,6 +31,7 @@ import io.swagger.annotations.ApiOperation;
  */
 @Api
 @RestController
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/api/learningActivity")
 public class LearningActivityController {
 	
@@ -53,6 +55,8 @@ public class LearningActivityController {
 	public ResponseEntity<LearningActivity> getLearningActivityById(@PathVariable Integer id) {
 		try {
 			LearningActivity learningActivity = learningService.searchLearningActivityById(id);
+			if(learningActivity == null)
+				throw new ActivityException();
 			return new ResponseEntity<>(learningActivity, HttpStatus.OK);
 		} catch (ActivityException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -74,17 +78,20 @@ public class LearningActivityController {
 	public ResponseEntity<List<LearningActivity>> getAllLearningActivity() {
 		try {
 			List<LearningActivity> learningActivityList = learningService.getAllLearningActivity();
+			if(learningActivityList == null)
+				throw new ActivityException();
 			return new ResponseEntity<>(learningActivityList, HttpStatus.OK);
 		} catch (ActivityException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
 
+	
 	/**
-	 * Adds the learning activity.
+	 * Adds the learning activity with assessment.
 	 *
-	 * @param learningActivity the learning activity
-	 * @return the string
+	 * @param learningActivityDo the learning activity do
+	 * @return the learning activity
 	 */
 	// http://localhost:8081/springfox/api/learningActivity/
 	@ApiOperation(value = "Add a learning activity", 
@@ -94,36 +101,10 @@ public class LearningActivityController {
 			httpMethod = "POST")
 
 	@PostMapping("/")
-	public LearningActivity addLearningActivity(@RequestBody LearningActivity learningActivity) {
+	public LearningActivity addLearningActivityWithAssessment(@RequestBody LearningActivityDO learningActivityDo) {
 		LearningActivity status = null;
 		try {
-			status = learningService.addLearningActivity(learningActivity);
-			return status;
-			} catch (ActivityException e) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-		}
-	}
-
-	
-	/**
-	 * Adds the learning activity with assessment.
-	 *
-	 * @param learningActivity the learning activity
-	 * @param id the id
-	 * @return the string
-	 */
-	// http://localhost:8081/springfox/api/learningActivity/5
-	@ApiOperation(value = "Add a learning activity", 
-			response = LearningActivity.class, 
-			tags = "get-learningActivity", 
-			consumes = "receives learningActivity object as request body", 
-			httpMethod = "POST")
-
-	@PostMapping("/{id}")
-	public LearningActivity addLearningActivityWithAssessment(@RequestBody LearningActivity learningActivity,@PathVariable Integer id) {
-		LearningActivity status = null;
-		try {
-			status = learningService.addLearningActivityWithAssessment(learningActivity,id);
+			status = learningService.addLearningActivityWithAssessment(learningActivityDo);
 			return status;
 		
 		} catch (ActivityException e) {
@@ -131,7 +112,17 @@ public class LearningActivityController {
 		}
 	}
 
-
+	@PostMapping("add/")
+	public LearningActivity addLearningActivityWithoutAssessment(@RequestBody LearningActivity learningActivity) {
+		LearningActivity status = null;
+		try {
+			status = learningService.addLearningActivity(learningActivity);
+			return status;
+		
+		} catch (ActivityException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
+	}
 	/**
 	 * Delete assessment.
 	 *
@@ -172,8 +163,9 @@ public class LearningActivityController {
 			tags = "update-learning-activity", 
 			consumes = "learningActivity object sents as response body", 
 			httpMethod = "PUT")
+	
 	@PutMapping("/")
-	public ResponseEntity<LearningActivity> updateAssessment(@RequestBody LearningActivity learningActivity) {
+	public ResponseEntity<LearningActivity> updateAssessment(@Valid @RequestBody LearningActivity learningActivity) {
 		try {
 			LearningActivity updatedActivity = learningService.updateLearningActivity(learningActivity);
 			return new ResponseEntity<>(updatedActivity, HttpStatus.OK);

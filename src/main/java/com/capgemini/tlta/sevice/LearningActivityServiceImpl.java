@@ -16,34 +16,34 @@ import com.capgemini.tlta.repository.LearningActivityRepository;
 /**
  * The Class LearningActivityServiceImpl.
  */
-@Service( value = "learningActivityService")
+@Service(value = "learningActivityService")
 @Transactional
-public class LearningActivityServiceImpl implements LearningActivityService{
+public class LearningActivityServiceImpl implements LearningActivityService {
 
 	@Autowired
 	LearningActivityRepository learningActivityRepository;
 	@Autowired
 	AssessmentActivityRepository assessmentRepository;
-	
+
 	/**
 	 * Adds the learning activity.
 	 *
 	 * @param learningActivity the learning activity
 	 * @return the learning activity
 	 * @throws PersistenceException the persistence exception
-	 * @throws ActivityException the activity exception
+	 * @throws ActivityException    the activity exception
 	 */
 	@Override
 	public LearningActivity addLearningActivity(LearningActivity learningActivity)
-			throws PersistenceException,ActivityException {
+			throws PersistenceException, ActivityException {
 		LearningActivity learning = null;
 		try {
 			learning = learningActivityRepository.save(learningActivity);
 			return learning;
-		}catch(DataAccessException e) {
-			throw new ActivityException(e.getMessage(),e);
-		}catch(Exception e) {
-			throw new  ActivityException(e.getMessage(),e);
+		} catch (DataAccessException e) {
+			throw new ActivityException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new ActivityException(e.getMessage(), e);
 		}
 	}
 
@@ -57,20 +57,17 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 	@Override
 	public LearningActivity searchLearningActivityById(Integer id) throws ActivityException {
 		try {
-			Optional<LearningActivity> optional= 
-					learningActivityRepository.findById(id);
-			if(optional.isPresent()) {
-				System.out.println(optional.get());
-				//System.out.println(optional.get().getAssesment().getId());
+			Optional<LearningActivity> optional = learningActivityRepository.findById(id);
+			if (optional.isPresent()) {
 				return optional.get();
-				
-			}else {
+
+			} else {
 				return null;
-			}			
-		}catch(DataAccessException e) {
-			throw new ActivityException(e.getMessage(),e);
-		}catch(Exception e) {
-			throw new  ActivityException(e.getMessage(),e);
+			}
+		} catch (DataAccessException e) {
+			throw new ActivityException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new ActivityException(e.getMessage(), e);
 		}
 	}
 
@@ -86,29 +83,32 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 		try {
 			learningActivityRepository.deleteById(id);
 			return 1;
-		}catch(DataAccessException e) {
-			throw new ActivityException(e.getMessage(),e);
-		}catch(Exception e) {
-			throw new ActivityException(e.getMessage(),e);
+		} catch (DataAccessException e) {
+			throw new ActivityException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new ActivityException(e.getMessage(), e);
 		}
 	}
 
+	/**
+	 * Gets the all learning activity.
+	 *
+	 * @return the all learning activity
+	 * @throws ActivityException the activity exception
+	 */
 	@Override
 	public List<LearningActivity> getAllLearningActivity() throws ActivityException {
 		try {
-			
-			List<LearningActivity>learningList=
-					learningActivityRepository.findAll();
+
+			List<LearningActivity> learningList = learningActivityRepository.findAll();
 			return learningList;
-		}catch(DataAccessException e) {
-			throw new ActivityException(e.getMessage(),e);
-		}catch(Exception e) {
-			throw new ActivityException(e.getMessage(),e);
+		} catch (DataAccessException e) {
+			throw new ActivityException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new ActivityException(e.getMessage(), e);
 		}
 	}
-	@Autowired
-	AssessmentActivityRepository assessmentActivityRepository;
-	
+
 	/**
 	 * Update learning activity.
 	 *
@@ -118,47 +118,40 @@ public class LearningActivityServiceImpl implements LearningActivityService{
 	 */
 	@Override
 	public LearningActivity updateLearningActivity(LearningActivity learningActivity) throws ActivityException {
-		
+
 		try {
-			LearningActivity learningAct= 
-					learningActivityRepository.save(learningActivity);
+			LearningActivity learningAct = learningActivityRepository.save(learningActivity);
 			return learningAct;
-	}catch(DataAccessException e) {
-		throw new ActivityException(e.getMessage(),e);
-	}catch(Exception e) {
-		throw new ActivityException(e.getMessage(),e);
-	}
+		} catch (DataAccessException e) {
+			throw new ActivityException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new ActivityException(e.getMessage(), e);
+		}
 	}
 
 	/**
 	 * Adds the learning activity with assessment.
 	 *
-	 * @param learningActivity the learning activity
-	 * @param id the id
+	 * @param learningActivityDo the learning activity do
 	 * @return the learning activity
 	 * @throws ActivityException the activity exception
 	 */
 	@Override
-	public LearningActivity addLearningActivityWithAssessment(
-			LearningActivity learningActivity,Integer id)
+	public LearningActivity addLearningActivityWithAssessment(LearningActivityDO learningActivityDo)
 			throws ActivityException {
 		Assessment assessment = null;
-		LearningActivity learning = null;
+		LearningActivity learning = new LearningActivity(learningActivityDo);
+
 		try {
-			assessment = assessmentRepository.getOne(id);
-			learningActivity.setAssesment(assessment);
-			learning = learningActivityRepository.save(learningActivity);
+			assessment = assessmentRepository.getOne(learningActivityDo.getAssessmentId());
+			learning.setAssesment(assessment);
+		//	learning.setActivityName(learningActivityDo.getActivityName());
+			learning = learningActivityRepository.save(learning);
 			return learning;
-		}catch(DataAccessException e) {
-			throw new ActivityException(e.getMessage(),e);
-		}catch(Exception e) {
-			throw new  ActivityException(e.getMessage(),e);
+		} catch (DataAccessException e) {
+			throw new ActivityException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new ActivityException(e.getMessage(), e);
 		}
 	}
-
-//	@Override
-//	public LearningActivity updateLearningActivity(LearningActivity learningActivity) throws ActivityException {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
 }
