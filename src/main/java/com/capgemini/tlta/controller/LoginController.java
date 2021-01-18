@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.capgemini.tlta.exception.BaseResponse;
 import com.capgemini.tlta.model.Assessment;
+import com.capgemini.tlta.model.ForgotPassword;
 import com.capgemini.tlta.model.LogOutPayload;
 import com.capgemini.tlta.model.Login;
 import com.capgemini.tlta.sevice.LoginService;
@@ -78,6 +79,16 @@ public class LoginController {
 	@ApiOperation(value = "Reset Password")
 	public ResponseEntity<?> changePassword( @RequestBody Login registerUser, @PathVariable String new_password) {
 		String str =loginService.changePassword(registerUser, new_password);
+		BaseResponse baseResponse = new BaseResponse();
+		baseResponse.setStatusCode(1);
+		baseResponse.setResponse(str);
+		return new ResponseEntity<>(baseResponse, HttpStatus.OK);
+	}
+	
+	@PostMapping("/forgot/{newPassword}")
+	@ApiOperation(value = "Forgot Password")
+	public ResponseEntity<?> forgotPassword( @RequestBody ForgotPassword registerUser,@PathVariable String newPassword) {
+		String str =loginService.forgotPassword(registerUser, newPassword);
 		BaseResponse baseResponse = new BaseResponse();
 		baseResponse.setStatusCode(1);
 		baseResponse.setResponse(str);

@@ -1,6 +1,9 @@
 package com.capgemini.tlta.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.capgemini.tlta.model.UserActivity;
@@ -11,5 +14,6 @@ import com.capgemini.tlta.model.UserActivity;
 @Repository
 public interface UserActivityRepository extends JpaRepository<UserActivity, Integer> {
 
-	
+	@Query(value = "select * from user_activity u where u.user_id = ?1", nativeQuery = true)
+	List<UserActivity> findUserActivityByUserId(Integer id);
 }

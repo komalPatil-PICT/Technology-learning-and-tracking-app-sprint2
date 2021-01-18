@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.capgemini.tlta.exception.OperationFailedException;
 import com.capgemini.tlta.exception.ResourceNotFound;
+import com.capgemini.tlta.model.ForgotPassword;
 import com.capgemini.tlta.model.LogOutPayload;
 import com.capgemini.tlta.model.Login;
 import com.capgemini.tlta.model.RegisterUser;
@@ -107,4 +108,29 @@ public class LoginServiceImpl implements LoginService {
 		}
 		return str;
 	}
+	
+	@Override
+	public String forgotPassword(ForgotPassword registerUser, String newPassword) {
+		String str = null;
+		Optional<RegisterUser> userObj = loginRepository.findByEmailId(registerUser.getEmail());
+		
+		if (!userObj.isPresent()) {
+			throw new ResourceNotFound(USER_NOT_FOUND);
+		} else {
+			String lastName = userObj.get().getLastName();
+			if (!lastName.equals(registerUser.getlastName())) {
+				throw new ResourceNotFound(USER_NOT_FOUND);
+			}
+			try {
+				userObj.get().setPassword(newPassword);
+				loginRepository.saveAndFlush(userObj.get());
+				str = "Password updated sucessfully";
+			} catch (Exception e) {
+				throw new OperationFailedException(OPERATION_FAILED);
+			}
+		}
+		return str;
+	}
+	
+	
 }

@@ -209,4 +209,6 @@ public class RegisterUserController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}
+	
+	
 }

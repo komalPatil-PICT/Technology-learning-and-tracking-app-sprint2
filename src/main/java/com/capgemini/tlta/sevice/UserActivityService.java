@@ -32,7 +32,7 @@ public interface UserActivityService {
 	
 	public UserActivity getActivityofUserById(Integer id) throws ActivityException;
 
-
+	public List<UserActivity> findUserActivityByUserId(Integer id) throws ActivityException;
 	/**
 	 * Gets the all user activities.
 	 *

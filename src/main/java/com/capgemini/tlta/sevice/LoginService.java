@@ -1,5 +1,6 @@
 package com.capgemini.tlta.sevice;
 
+import com.capgemini.tlta.model.ForgotPassword;
 import com.capgemini.tlta.model.LogOutPayload;
 import com.capgemini.tlta.model.Login;
 
@@ -32,5 +33,7 @@ public interface LoginService {
 	 * @return the string
 	 */
 	public String changePassword(Login registerUser, String new_password);
+	
+	public String forgotPassword(ForgotPassword registerUser, String new_password);
 
 }

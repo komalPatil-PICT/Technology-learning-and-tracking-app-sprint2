@@ -112,8 +112,8 @@ public class UserActivityServiceImpl implements UserActivityService {
 			throw new ActivityException(e.getMessage(), e);
 		}
 
-	}
-
+	}	
+	
 	@Override
 	public List<UserActivity> getAllUserActivities() throws ActivityException {
 		List<UserActivity> allActivities = null;
@@ -230,6 +230,20 @@ public class UserActivityServiceImpl implements UserActivityService {
 			UserActivity activity = userActivityRepository.findById(status.getUserActivityId()).get();
 			activity.setStatus(status.getStatus());
 			return true;
+		} catch (DataAccessException e) {
+			throw new ActivityException(e.getMessage(), e);
+		} catch (Exception e) {
+			throw new ActivityException(e.getMessage(), e);
+		}
+	}
+	
+	@Override
+	public List<UserActivity> findUserActivityByUserId(Integer id) throws ActivityException {
+		List<UserActivity> allActivities = null;
+
+		try {
+			allActivities = userActivityRepository.findUserActivityByUserId(id);
+			return allActivities;
 		} catch (DataAccessException e) {
 			throw new ActivityException(e.getMessage(), e);
 		} catch (Exception e) {

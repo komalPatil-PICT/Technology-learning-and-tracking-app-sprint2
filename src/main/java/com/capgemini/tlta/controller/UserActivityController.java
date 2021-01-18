@@ -286,6 +286,20 @@ public class UserActivityController {
 	}
 	
 	
+	@ApiOperation(value = "Get All User Activity by user id", 
+			response = List.class, 
+			tags = "get-All-Use-Activity", 
+			httpMethod = "GET")
 	
+	// http://localhost:8081/springfox/api/userActivity/byUserId/86
+	@GetMapping("/byUserId/{id}")
+	public ResponseEntity<List<UserActivity>> getAllUserActivityByUserId(@PathVariable Integer id) {
+		try {
+			List<UserActivity> userActivityList = userActivityService.findUserActivityByUserId(id);
+			return new ResponseEntity<>(userActivityList, HttpStatus.OK);
+		} catch (ActivityException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+		}
+	}
 }
 
