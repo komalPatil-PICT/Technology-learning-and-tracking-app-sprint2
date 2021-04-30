@@ -2,6 +2,7 @@ package com.capgemini.tlta.controller;
 
 import java.util.List;
 
+//import javax.mail.MessagingException;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ import io.swagger.annotations.ApiOperation;
 @Api
 @RestController
 @RequestMapping("/api/users")
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://localhost:3001")
 public class RegisterUserController {
 	@Autowired(required = false)
 	@Qualifier(value = "registerUserService")
@@ -105,13 +106,15 @@ public class RegisterUserController {
 		RegisterUser status = null;
 		try {
 			status = userService.addUser(user);
-			userService.sendCredentialMail(user);
+			//userService.sendCredentialMail(user);
 			return status;
-		}catch(MessagingException e) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
-
-		
-		} catch (RegisterUserException e) {
+		}
+//		catch(MessagingException e) {
+//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
+//
+//		
+//		}
+		catch (RegisterUserException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage());
 		}
 	}

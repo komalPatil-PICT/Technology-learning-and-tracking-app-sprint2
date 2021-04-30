@@ -2,6 +2,8 @@ package com.capgemini.tlta.sevice;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 import com.capgemini.tlta.exception.RegisterUserException;
 import com.capgemini.tlta.model.RegisterUser;
 
